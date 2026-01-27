@@ -444,11 +444,23 @@ export default function ContactoClient() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat, index) => (
-              <div key={stat.label} className="text-center md:text-left">
-                <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+              <div
+                key={stat.label}
+                className="text-center md:text-left p-4 rounded-xl transition-all duration-500 hover:bg-white/5 group"
+              >
+                <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-white group-hover:text-[#00DEC7] transition-colors duration-300">
                   {stat.number.startsWith("+") ? "+" : ""}{animatedStats[index]}
                 </span>
-                <p className="mt-2 text-white/60 text-sm md:text-base">{stat.label}</p>
+                <p className="mt-2 text-white/60 text-sm md:text-base group-hover:text-white/80 transition-colors duration-300">{stat.label}</p>
+                <div className="mt-3 h-1 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-[#00DEC7] transition-all duration-1000 ease-out"
+                    style={{
+                      width: statsInView ? '100%' : '0%',
+                      transitionDelay: `${index * 200}ms`
+                    }}
+                  />
+                </div>
               </div>
             ))}
           </div>

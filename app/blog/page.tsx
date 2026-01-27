@@ -14,11 +14,62 @@ export const metadata: Metadata = {
     "guias ecommerce",
     "seo argentina",
     "tendencias digitales",
-    "vektra blog"
+    "vektra blog",
+    "articulos diseño web",
+    "tutoriales marketing digital",
+    "guias chatgpt negocios",
+    "tendencias ecommerce 2026",
+    "consejos seo posicionamiento",
+    "blog agencia digital argentina",
+    "noticias tecnologia web",
+    "tips tienda online",
   ],
+  openGraph: {
+    title: "Blog | Vektra - Agencia Digital Argentina",
+    description: "Artículos, guías y tutoriales sobre desarrollo web, marketing digital, SEO e inteligencia artificial.",
+    type: "website",
+    locale: "es_AR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Vektra Digital",
+    description: "Explora contenido sobre desarrollo web, marketing digital e IA.",
+  },
+  alternates: {
+    canonical: "https://vektra.digital/blog",
+    languages: {
+      "en": "https://vektra.digital/en/blog",
+    },
+  },
+}
+
+const blogPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog de Vektra Digital",
+  "description": "Artículos y guías sobre desarrollo web, marketing digital, e-commerce e inteligencia artificial para empresas en Argentina y Paraguay.",
+  "url": "https://vektra.digital/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vektra Digital",
+    "url": "https://vektra.digital",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vektra.digital/logo/logo-vektra-digital.png"
+    }
+  },
+  "inLanguage": "es-AR"
 }
 
 export default async function BlogPage() {
   const { blogPosts } = await readStorage()
-  return <BlogPageClient initialPosts={blogPosts} />
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPageSchema) }}
+      />
+      <BlogPageClient initialPosts={blogPosts} />
+    </>
+  )
 }

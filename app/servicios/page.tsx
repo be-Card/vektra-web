@@ -2,25 +2,42 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Monitor, ShoppingCart, TrendingUp, Search, Check } from "lucide-react"
+import { ArrowRight, Monitor, ShoppingCart, TrendingUp, Search, Check, Smartphone, Bot, Wrench, Palette, Workflow, Headset } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Servicios en Argentina y Paraguay | Diseño Web, SEO, Apps y Marketing Digital",
-  description: "Servicios de diseño web, tiendas online, apps, SEO y marketing digital para empresas en Argentina y Paraguay. Google Ads, Meta Ads y TikTok Ads.",
+  title: "Servicios Digitales en Argentina y Paraguay | Desarrollo Web, SEO, Apps y Marketing",
+  description: "Servicios completos de desarrollo web, tiendas online, apps móviles, SEO, marketing digital, diseño UI/UX, automatización y soporte técnico para empresas en Argentina y Paraguay.",
   keywords: [
     "servicios digitales argentina",
     "servicios digitales paraguay",
-    "diseño web",
-    "tiendas online",
-    "desarrollo de apps",
-    "seo",
-    "marketing digital",
-    "google ads",
-    "meta ads",
-    "tiktok ads",
-    "agencia digital buenos aires",
-    "agencia digital asunción",
+    "agencia desarrollo web",
+    "servicios marketing digital",
+    "desarrollo tiendas online",
+    "servicios seo profesional",
+    "desarrollo apps móviles",
+    "servicios automatización",
+    "diseño ui ux argentina",
+    "soporte técnico web",
+    "agencia google ads",
+    "servicios chatbots ia"
   ],
+  openGraph: {
+    title: "Servicios Digitales | Vektra - Agencia Digital Argentina",
+    description: "Desarrollo web, tiendas online, apps, SEO, marketing digital y más para empresas en Argentina y Paraguay.",
+    type: "website",
+    locale: "es_AR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios Digitales | Vektra",
+    description: "Soluciones digitales completas para tu negocio.",
+  },
+  alternates: {
+    canonical: "https://vektra.digital/servicios",
+    languages: {
+      en: "https://vektra.digital/en/services",
+    },
+  },
 }
 
 const services = [
@@ -79,66 +96,180 @@ const services = [
       "Optimización On-page",
       "SEO Local para negocios",
       "Link building estratégico",
-      "Análisis de competencia",
-      "Reportes de posicionamiento",
+      "SEO para IA (ChatGPT, Perplexity)",
+      "Reportes mensuales",
     ],
     price: "Desde 400/mes",
   },
+  {
+    title: "Apps Móviles",
+    description: "Aplicaciones nativas e híbridas para Android e iOS con React Native y Flutter.",
+    icon: Smartphone,
+    href: "/servicios/apps",
+    features: [
+      "Apps Android e iOS",
+      "React Native y Flutter",
+      "Panel de administración",
+      "Notificaciones push",
+      "Publicación en tiendas",
+      "Mantenimiento incluido",
+    ],
+    price: "Desde 3.000",
+  },
+  {
+    title: "Agentes IA",
+    description: "Chatbots inteligentes para WhatsApp y web que atienden clientes 24/7.",
+    icon: Bot,
+    href: "/servicios/agentes-ia",
+    features: [
+      "Chatbots para WhatsApp",
+      "Integración con ChatGPT",
+      "Atención 24/7 automática",
+      "Toma de pedidos y citas",
+      "Integración con CRM",
+      "Escalamiento a humanos",
+    ],
+    price: "Desde 800",
+  },
+  {
+    title: "Diseño UI/UX",
+    description: "Diseño de interfaces y experiencia de usuario centrado en conversiones.",
+    icon: Palette,
+    href: "/servicios/diseno-ui-ux",
+    features: [
+      "Investigación de usuarios",
+      "Wireframes y prototipos",
+      "Diseño visual UI",
+      "Design System",
+      "Testing con usuarios",
+      "Handoff para desarrollo",
+    ],
+    price: "Desde 1.000",
+  },
+  {
+    title: "Automatización",
+    description: "Automatiza procesos repetitivos y conecta tus sistemas con workflows inteligentes.",
+    icon: Workflow,
+    href: "/servicios/automatizacion",
+    features: [
+      "Integración de sistemas",
+      "Workflows automatizados",
+      "Zapier y Make",
+      "Bots y asistentes",
+      "Sincronización de datos",
+      "Reportes automáticos",
+    ],
+    price: "Desde 600",
+  },
+  {
+    title: "Mantenimiento Web",
+    description: "Tu web siempre actualizada, segura y funcionando perfectamente.",
+    icon: Wrench,
+    href: "/servicios/mantenimiento-web",
+    features: [
+      "Actualizaciones de seguridad",
+      "Copias de seguridad diarias",
+      "Monitoreo 24/7",
+      "Optimización de velocidad",
+      "Soporte técnico",
+      "Informes mensuales",
+    ],
+    price: "Desde 100/mes",
+  },
+  {
+    title: "Soporte Técnico",
+    description: "Resolución de problemas técnicos y asistencia para tu sitio web.",
+    icon: Headset,
+    href: "/servicios/soporte-tecnico",
+    features: [
+      "Resolución de errores",
+      "Asistencia remota",
+      "Respuesta rápida",
+      "Soporte multicanal",
+      "Capacitación",
+      "Planes flexibles",
+    ],
+    price: "Desde 50/hora",
+  },
 ]
 
-export default function Servicios() {
+const servicesListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Servicios Digitales de Vektra",
+  "description": "Lista completa de servicios digitales ofrecidos por Vektra en Argentina y Paraguay",
+  "url": "https://vektra.digital/servicios",
+  "numberOfItems": services.length,
+  "itemListElement": services.map((service, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Service",
+      "name": service.title,
+      "description": service.description,
+      "url": `https://vektra.digital${service.href}`,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://vektra.digital/#organization"
+      }
+    }
+  }))
+}
+
+export default function ServiciosPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesListSchema) }}
+      />
+
       {/* Hero Section */}
-      <section className="relative bg-primary py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 text-center">
-          <span className="inline-block rounded-full bg-accent/20 px-4 py-1.5 text-sm font-medium text-accent mb-6">
-            Servicios
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground text-balance max-w-4xl mx-auto">
-            Soluciones digitales completas para tu negocio
+      <section className="relative bg-gradient-to-br from-[#0a0a0a] via-[#111] to-[#0a0a0a] py-20 lg:py-28">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#00DEC7]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 mx-auto max-w-[1400px] px-4 lg:px-8 text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Nuestros <span className="text-[#00DEC7]">Servicios</span>
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-            Ofrecemos servicios integrales de diseño web y marketing digital. 
-            Cada solución está diseñada para ayudarte a alcanzar tus objetivos de negocio.
+          <p className="text-white/80 text-lg max-w-3xl mx-auto">
+            Soluciones digitales completas para hacer crecer tu negocio en Argentina y Paraguay.
+            Desde el diseño hasta el marketing, cubrimos todas tus necesidades digitales.
           </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 lg:py-28 bg-background">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-2">
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
-              <Card key={service.title} className="relative overflow-hidden border-border/50 hover:shadow-lg transition-shadow">
+              <Card key={service.title} className="group hover:shadow-xl hover:border-[#00DEC7] transition-all duration-300">
                 <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                      <service.icon className="h-7 w-7" />
-                    </div>
-                    <div className="text-right">
-                      <span className="text-sm text-muted-foreground">Desde</span>
-                      <div className="text-2xl font-bold text-foreground">{service.price}€</div>
-                    </div>
+                  <div className="w-14 h-14 rounded-xl bg-[#00DEC7]/10 flex items-center justify-center mb-4 group-hover:bg-[#00DEC7] transition-colors duration-300">
+                    <service.icon className="w-7 h-7 text-[#00DEC7] group-hover:text-black transition-colors duration-300" />
                   </div>
-                  <CardTitle className="text-2xl mt-4">{service.title}</CardTitle>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="grid grid-cols-2 gap-3 mb-6">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                  <ul className="space-y-2 mb-6">
+                    {service.features.slice(0, 4).map((feature) => (
+                      <li key={feature} className="flex items-center gap-2 text-sm text-gray-600">
+                        <Check className="w-4 h-4 text-[#00DEC7]" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Link href={service.href}>
-                      Ver detalles
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-500">{service.price} USD</span>
+                    <Button asChild variant="ghost" className="text-[#00DEC7] hover:text-[#00DEC7]/80">
+                      <Link href={service.href}>
+                        Ver más <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -147,23 +278,20 @@ export default function Servicios() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-28 bg-accent">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-accent-foreground text-balance">
+      <section className="py-20 lg:py-28 bg-[#00DEC7]">
+        <div className="mx-auto max-w-[1400px] px-4 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
             ¿No sabés qué servicio necesitás?
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-accent-foreground/80 max-w-2xl mx-auto">
-            Contanos tu proyecto y te recomendaremos la mejor solución. 
-            Primera consulta gratuita y sin compromiso.
+          <p className="text-black/80 text-lg mb-8 max-w-2xl mx-auto">
+            Contanos sobre tu proyecto y te asesoramos sin compromiso sobre la mejor solución para tu negocio.
           </p>
-          <div className="mt-8">
-            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="/contacto">
-                Solicitar consulta gratuita
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
+          <Button asChild size="lg" className="bg-black text-white hover:bg-black/90 rounded-full px-8 font-semibold">
+            <Link href="/contacto">
+              Consultar gratis
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
       </section>
     </>

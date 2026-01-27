@@ -103,15 +103,11 @@ export function Header({ dict, lang }: HeaderProps) {
                   <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="bg-[#1a1a1a] border-[#333] p-0 min-w-[200px]">
-                  {item.children.map((child, index) => (
-                    <DropdownMenuItem 
-                      key={child.name} 
-                      asChild 
-                      className={`text-white px-4 py-3 cursor-pointer transition-all duration-200 rounded-none
-                        ${index === 0 
-                          ? "bg-[#00DEC7] text-black font-medium hover:bg-[#00DEC7] focus:bg-[#00DEC7] focus:text-black" 
-                          : "hover:bg-[#00DEC7] hover:text-black focus:bg-[#00DEC7] focus:text-black"
-                        }`}
+                  {item.children.map((child) => (
+                    <DropdownMenuItem
+                      key={child.name}
+                      asChild
+                      className="text-white px-4 py-3 cursor-pointer transition-all duration-200 rounded-none hover:bg-[#00DEC7] hover:text-black focus:bg-[#00DEC7] focus:text-black"
                     >
                       <Link href={child.href}>{child.name}</Link>
                     </DropdownMenuItem>

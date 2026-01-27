@@ -122,6 +122,10 @@ export function Footer({ dict }: FooterProps) {
     { name: t.header.aiAgents, href: isEn ? "/en/services/ai-agents" : "/servicios/agentes-ia" },
     { name: t.header.marketing, href: isEn ? "/en/services/digital-marketing" : "/servicios/marketing-digital" },
     { name: t.header.seo || "SEO", href: isEn ? "/en/services/seo" : "/servicios/seo" },
+    { name: isEn ? "Web Maintenance" : "Mantenimiento Web", href: isEn ? "/en/services/web-maintenance" : "/servicios/mantenimiento-web" },
+    { name: isEn ? "Technical Support" : "Soporte Técnico", href: isEn ? "/en/services/technical-support" : "/servicios/soporte-tecnico" },
+    { name: isEn ? "UI/UX Design" : "Diseño UI/UX", href: isEn ? "/en/services/ui-ux-design" : "/servicios/diseno-ui-ux" },
+    { name: isEn ? "Automation" : "Automatización", href: isEn ? "/en/services/automation" : "/servicios/automatizacion" },
   ]
 
   const websPorSectores = [

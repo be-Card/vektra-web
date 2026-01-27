@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Phone, Mail, Plus, Minus } from "lucide-react"
+import { Phone, Mail, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useLanguage } from "@/lib/i18n"
@@ -15,21 +15,41 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div 
-      className="bg-[#1a1a1a] rounded-lg overflow-hidden cursor-pointer"
+    <div
+      className={`rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
+        isOpen
+          ? "bg-[#00DEC7] shadow-lg shadow-[#00DEC7]/20"
+          : "bg-[#1a1a1a] hover:bg-[#252525]"
+      }`}
       onClick={() => setIsOpen(!isOpen)}
     >
-      <div className="flex items-start justify-between gap-4 p-4">
-        <span className="text-white text-sm font-medium leading-snug">{question}</span>
-        <span className="text-[#00DEC7] flex-shrink-0 mt-0.5">
-          {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+      <div className="flex items-center justify-between gap-4 p-5">
+        <span className={`text-sm font-medium leading-snug transition-colors duration-300 ${
+          isOpen ? "text-black" : "text-white"
+        }`}>
+          {question}
+        </span>
+        <span className={`flex-shrink-0 transition-all duration-300 ${
+          isOpen ? "text-black rotate-180" : "text-[#00DEC7] rotate-0"
+        }`}>
+          <ChevronDown className="w-5 h-5" />
         </span>
       </div>
-      {isOpen && (
-        <div className="px-4 pb-4">
-          <p className="text-gray-400 text-sm leading-relaxed">{answer}</p>
+      <div
+        className={`grid transition-all duration-300 ease-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="px-5 pb-5">
+            <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+              isOpen ? "text-black/70" : "text-gray-400"
+            }`}>
+              {answer}
+            </p>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }

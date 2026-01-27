@@ -8,6 +8,8 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { WhatsAppButton } from '@/components/whatsapp-button'
 import { LanguageProvider } from '@/lib/i18n'
+import { ScrollProgress } from '@/components/ui/scroll-progress'
+import { CustomCursor } from '@/components/ui/custom-cursor'
 
 const plusJakarta = Plus_Jakarta_Sans({ 
   subsets: ["latin"], 
@@ -231,6 +233,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </head>
       <body className={`${plusJakarta.variable} font-sans antialiased`}>
         <LanguageProvider>
+          <ScrollProgress />
+          <CustomCursor />
           {isProd ? (
             <noscript>
               <iframe

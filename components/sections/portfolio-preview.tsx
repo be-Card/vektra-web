@@ -132,19 +132,19 @@ export function PortfolioPreview({ dict, initialProjects }: PortfolioPreviewProp
                       />
                       
                       {/* Overlay on Hover (Desktop) */}
-                      <div className="hidden md:flex absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col items-center justify-center p-4 text-center">
-                        <span className="text-xs font-medium text-[#00DEC7] uppercase tracking-wider mb-2">
+                      <div className="hidden md:flex absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex-col items-center justify-end p-6 text-center">
+                        <span className="text-xs font-medium text-[#00DEC7] uppercase tracking-wider mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
                           {project.category}
                         </span>
-                        <h3 className="text-lg font-bold text-white mb-2">
+                        <h3 className="text-lg font-bold text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
                           {project.title}
                         </h3>
-                        <p className="text-sm text-white/80 line-clamp-2">
+                        <p className="text-sm text-white/80 line-clamp-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
                           {project.description}
                         </p>
-                        <span className="mt-4 inline-flex items-center text-sm font-medium text-[#00DEC7]">
+                        <span className="mt-4 inline-flex items-center text-sm font-medium text-[#00DEC7] translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-300 group-hover:gap-2">
                           {t.viewProject}
-                          <ArrowRight className="ml-1 h-4 w-4" />
+                          <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                         </span>
                       </div>
                     </div>

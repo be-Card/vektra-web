@@ -19,6 +19,7 @@ import { User, Mail, Phone, MessageSquare, ListFilter, CheckCircle } from "lucid
 import { useLanguage } from "@/lib/i18n"
 import { Dictionary } from "@/lib/dictionaries"
 import { pushToDataLayer } from "@/lib/gtm"
+import { Confetti } from "@/components/ui/confetti"
 
 interface ContactFormSectionProps {
   dict?: Dictionary["contactForm"]
@@ -97,13 +98,25 @@ export function ContactFormSection({ dict }: ContactFormSectionProps) {
     }
   }
 
+  const [showConfetti, setShowConfetti] = useState(false)
+
+  // Trigger confetti when form is submitted successfully
+  useEffect(() => {
+    if (isSubmitted) {
+      setShowConfetti(true)
+      const timer = setTimeout(() => setShowConfetti(false), 4000)
+      return () => clearTimeout(timer)
+    }
+  }, [isSubmitted])
+
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24 relative overflow-hidden">
+      <Confetti isActive={showConfetti} />
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Rocket Illustration */}
+          {/* Rocket Illustration - Animated */}
           <div className="hidden lg:flex justify-center items-center">
-            <div className="relative">
+            <div className="relative animate-rocket-float">
               <svg
                 width="400"
                 height="450"
@@ -113,14 +126,14 @@ export function ContactFormSection({ dict }: ContactFormSectionProps) {
                 className="w-full max-w-md"
               >
                 {/* Cloud base */}
-                <ellipse cx="200" cy="420" rx="150" ry="30" fill="#E8F4F8" />
-                
-                {/* Small clouds */}
-                <ellipse cx="120" cy="380" rx="40" ry="20" fill="#B8E6E8" />
-                <ellipse cx="280" cy="370" rx="35" ry="18" fill="#B8E6E8" />
-                <ellipse cx="180" cy="390" rx="50" ry="25" fill="#C8EDEF" />
-                <ellipse cx="240" cy="400" rx="45" ry="22" fill="#C8EDEF" />
-                
+                <ellipse cx="200" cy="420" rx="150" ry="30" fill="#E8F4F8" className="animate-pulse" style={{ animationDuration: '3s' }} />
+
+                {/* Small clouds - animated */}
+                <ellipse cx="120" cy="380" rx="40" ry="20" fill="#B8E6E8" className="animate-pulse" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
+                <ellipse cx="280" cy="370" rx="35" ry="18" fill="#B8E6E8" className="animate-pulse" style={{ animationDuration: '2.8s', animationDelay: '0.3s' }} />
+                <ellipse cx="180" cy="390" rx="50" ry="25" fill="#C8EDEF" className="animate-pulse" style={{ animationDuration: '2.2s', animationDelay: '0.7s' }} />
+                <ellipse cx="240" cy="400" rx="45" ry="22" fill="#C8EDEF" className="animate-pulse" style={{ animationDuration: '2.6s', animationDelay: '0.2s' }} />
+
                 {/* Rocket body */}
                 <path
                   d="M200 50C200 50 160 120 160 220C160 280 180 340 200 380C220 340 240 280 240 220C240 120 200 50 200 50Z"
@@ -128,7 +141,7 @@ export function ContactFormSection({ dict }: ContactFormSectionProps) {
                   stroke="#333"
                   strokeWidth="3"
                 />
-                
+
                 {/* Rocket tip */}
                 <path
                   d="M200 50C200 50 180 80 180 100C180 110 190 120 200 120C210 120 220 110 220 100C220 80 200 50 200 50Z"
@@ -136,15 +149,15 @@ export function ContactFormSection({ dict }: ContactFormSectionProps) {
                   stroke="#333"
                   strokeWidth="2"
                 />
-                
-                {/* Windows */}
+
+                {/* Windows - with glow */}
                 <circle cx="200" cy="160" r="20" fill="#333" stroke="#333" strokeWidth="2" />
-                <circle cx="200" cy="160" r="15" fill="#666" />
-                <circle cx="195" cy="155" r="5" fill="#999" />
-                
+                <circle cx="200" cy="160" r="15" fill="#666" className="animate-pulse" style={{ animationDuration: '2s' }} />
+                <circle cx="195" cy="155" r="5" fill="#00DEC7" className="animate-sparkle" />
+
                 <circle cx="200" cy="220" r="15" fill="#333" stroke="#333" strokeWidth="2" />
-                <circle cx="200" cy="220" r="10" fill="#666" />
-                
+                <circle cx="200" cy="220" r="10" fill="#666" className="animate-pulse" style={{ animationDuration: '2.5s' }} />
+
                 {/* Fins */}
                 <path
                   d="M160 280L120 340L160 320Z"
@@ -158,7 +171,7 @@ export function ContactFormSection({ dict }: ContactFormSectionProps) {
                   stroke="#333"
                   strokeWidth="2"
                 />
-                
+
                 {/* Rocket base */}
                 <path
                   d="M170 370C170 370 185 400 200 400C215 400 230 370 230 370"
@@ -166,13 +179,16 @@ export function ContactFormSection({ dict }: ContactFormSectionProps) {
                   stroke="#333"
                   strokeWidth="2"
                 />
-                
-                {/* Fire/exhaust */}
-                <ellipse cx="200" cy="395" rx="20" ry="10" fill="#FFB347" />
-                <ellipse cx="200" cy="400" rx="15" ry="8" fill="#FF6B6B" />
-                <ellipse cx="200" cy="405" rx="10" ry="5" fill="#FFE66D" />
-                
-                {/* Person */}
+
+                {/* Fire/exhaust - animated */}
+                <g className="animate-fire-pulse">
+                  <ellipse cx="200" cy="395" rx="20" ry="10" fill="#FFB347" />
+                  <ellipse cx="200" cy="400" rx="15" ry="8" fill="#FF6B6B" />
+                  <ellipse cx="200" cy="405" rx="10" ry="5" fill="#FFE66D" />
+                  <ellipse cx="200" cy="412" rx="6" ry="4" fill="#FFE66D" opacity="0.7" />
+                </g>
+
+                {/* Person - waving animation */}
                 <ellipse cx="100" cy="350" rx="20" ry="5" fill="#DDD" />
                 <rect x="85" y="300" width="30" height="50" rx="5" fill="#333" />
                 <circle cx="100" cy="285" r="18" fill="#F5D0C5" />
@@ -180,26 +196,37 @@ export function ContactFormSection({ dict }: ContactFormSectionProps) {
                   d="M85 280C85 265 92 255 100 255C108 255 115 265 115 280"
                   fill="#333"
                 />
-                <path
-                  d="M115 310L140 290"
-                  stroke="#333"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                />
-                <circle cx="145" cy="285" r="8" fill="#F5D0C5" />
-                
-                {/* Decorative elements */}
-                <circle cx="280" cy="100" r="8" fill="#00DEC7" />
-                <circle cx="260" cy="80" r="5" fill="#00DEC7" opacity="0.6" />
-                <circle cx="300" cy="120" r="4" fill="#00DEC7" opacity="0.4" />
-                
-                <circle cx="320" cy="180" r="6" fill="#00DEC7" />
-                <circle cx="340" cy="160" r="4" fill="#00DEC7" opacity="0.5" />
-                
-                {/* Stars/sparkles */}
-                <path d="M70 150L75 160L70 170L65 160Z" fill="#00DEC7" />
-                <path d="M330 250L335 260L330 270L325 260Z" fill="#00DEC7" />
+                <g className="origin-bottom-left" style={{ animation: 'wave 1s ease-in-out infinite', transformOrigin: '115px 310px' }}>
+                  <path
+                    d="M115 310L140 290"
+                    stroke="#333"
+                    strokeWidth="8"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="145" cy="285" r="8" fill="#F5D0C5" />
+                </g>
+
+                {/* Decorative elements - animated sparkles */}
+                <circle cx="280" cy="100" r="8" fill="#00DEC7" className="animate-sparkle" />
+                <circle cx="260" cy="80" r="5" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '0.3s' }} />
+                <circle cx="300" cy="120" r="4" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '0.6s' }} />
+
+                <circle cx="320" cy="180" r="6" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '0.9s' }} />
+                <circle cx="340" cy="160" r="4" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '1.2s' }} />
+
+                <circle cx="60" cy="200" r="5" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '0.4s' }} />
+                <circle cx="80" cy="250" r="4" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '0.8s' }} />
+
+                {/* Stars/sparkles - animated */}
+                <path d="M70 150L75 160L70 170L65 160Z" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '0.2s' }} />
+                <path d="M330 250L335 260L330 270L325 260Z" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '0.5s' }} />
+                <path d="M50 300L55 310L50 320L45 310Z" fill="#00DEC7" className="animate-sparkle" style={{ animationDelay: '1s' }} />
               </svg>
+
+              {/* Additional floating particles */}
+              <div className="absolute top-10 right-10 w-3 h-3 bg-[#00DEC7] rounded-full animate-bounce" style={{ animationDuration: '2s' }} />
+              <div className="absolute top-32 right-0 w-2 h-2 bg-[#00DEC7] rounded-full animate-bounce" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
+              <div className="absolute bottom-40 left-5 w-2 h-2 bg-[#00DEC7] rounded-full animate-bounce" style={{ animationDuration: '1.8s', animationDelay: '0.3s' }} />
             </div>
           </div>
 

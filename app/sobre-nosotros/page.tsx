@@ -169,15 +169,15 @@ export default function SobreNosotros() {
         <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-start">
             {/* Martin */}
-            <div className="bg-gray-50 rounded-2xl p-8">
+            <div className="bg-gray-50 rounded-2xl p-8 transition-all duration-500 hover:shadow-xl hover:shadow-[#00DEC7]/10 hover:-translate-y-1 group">
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="shrink-0">
-                  <div className="w-40 h-40 rounded-xl overflow-hidden relative bg-gray-200">
+                  <div className="w-40 h-40 rounded-xl overflow-hidden relative bg-gray-200 transition-transform duration-500 group-hover:scale-105 group-hover:shadow-lg">
                     <Image
                       src="/images/staff/Martin Garcia.JPG"
                       alt="Martin Garcia - Licenciado en Marketing Digital"
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
                 </div>
@@ -228,15 +228,15 @@ export default function SobreNosotros() {
             </div>
 
             {/* Matias */}
-            <div className="bg-gray-50 rounded-2xl p-8">
+            <div className="bg-gray-50 rounded-2xl p-8 transition-all duration-500 hover:shadow-xl hover:shadow-[#00DEC7]/10 hover:-translate-y-1 group">
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="shrink-0">
-                  <div className="w-40 h-40 rounded-xl overflow-hidden relative bg-gray-200">
+                  <div className="w-40 h-40 rounded-xl overflow-hidden relative bg-gray-200 transition-transform duration-500 group-hover:scale-105 group-hover:shadow-lg">
                     <Image
                       src="/images/staff/Matias Garcia.jpeg"
                       alt="Matias Garcia - Analista en Sistemas"
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
                 </div>
@@ -309,12 +309,15 @@ export default function SobreNosotros() {
       </section>
 
       {/* Nuestro Objetivo */}
-      <section className="relative py-16 bg-black">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-[#00DEC7]" />
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#00DEC7]" />
-        <div className="mx-auto max-w-5xl px-4 lg:px-8 text-center">
+      <section className="relative py-16 bg-black overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#00DEC7] shadow-[0_0_20px_rgba(0,222,199,0.5)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#00DEC7] shadow-[0_0_20px_rgba(0,222,199,0.5)]" />
+        {/* Background glow effects */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-[#00DEC7]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 bg-[#00DEC7]/10 rounded-full blur-3xl" />
+        <div className="mx-auto max-w-5xl px-4 lg:px-8 text-center relative">
           <p className="text-xl md:text-2xl lg:text-3xl text-white italic leading-relaxed">
-            &ldquo;Nuestro objetivo es que nuestros clientes puedan poner en marcha su negocio o proyecto digital para que puedan <span className="text-[#00DEC7] font-semibold">ofrecer sus servicios</span> o <span className="text-[#00DEC7] font-semibold">vender sus productos online</span> en Argentina y Paraguay&rdquo;
+            &ldquo;Nuestro objetivo es que nuestros clientes puedan poner en marcha su negocio o proyecto digital para que puedan <span className="text-[#00DEC7] font-semibold animate-pulse" style={{ animationDuration: '3s' }}>ofrecer sus servicios</span> o <span className="text-[#00DEC7] font-semibold animate-pulse" style={{ animationDuration: '3s', animationDelay: '1.5s' }}>vender sus productos online</span> en Argentina y Paraguay&rdquo;
           </p>
         </div>
       </section>
@@ -366,12 +369,22 @@ export default function SobreNosotros() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, index) => (
-              <div key={stat.label} className="text-center md:text-left">
-                <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+              <div
+                key={stat.label}
+                className="text-center md:text-left p-6 rounded-2xl transition-all duration-500 hover:bg-white/5 group"
+              >
+                <span className={`text-5xl md:text-6xl lg:text-7xl font-bold text-white transition-all duration-300 group-hover:text-[#00DEC7] ${hasAnimated ? 'animate-number-flash' : ''}`}>
                   {stat.value.includes("+") ? "+" : ""}
                   {counters[index]}
                 </span>
-                <p className="mt-2 text-gray-400">{stat.label}</p>
+                <p className="mt-2 text-gray-400 group-hover:text-white transition-colors duration-300">{stat.label}</p>
+                {/* Decorative line */}
+                <div className="mt-4 h-1 bg-[#00DEC7]/20 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full bg-[#00DEC7] transition-all duration-1000 ease-out ${hasAnimated ? 'w-full' : 'w-0'}`}
+                    style={{ transitionDelay: `${index * 200}ms` }}
+                  />
+                </div>
               </div>
             ))}
           </div>

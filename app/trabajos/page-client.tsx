@@ -174,15 +174,16 @@ function TrabajosContent({
 
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((category) => (
+            {categories.map((category, index) => (
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? "bg-black text-white"
-                    : "bg-white text-black border border-gray-200 hover:border-gray-400"
+                    ? "bg-black text-white shadow-lg scale-105"
+                    : "bg-white text-black border border-gray-200 hover:border-[#00DEC7] hover:text-[#00DEC7] hover:scale-105"
                 }`}
+                style={{ animationDelay: `${index * 50}ms` }}
               >
                 {category.label}
               </button>
@@ -216,11 +217,13 @@ function TrabajosContent({
                     {column.map((project, projectIndex) => {
                       // Alternate image position for masonry effect
                       const hasImageTop = (columnIndex + projectIndex) % 2 === 0
-                      
+                      const animationDelay = (columnIndex * 100) + (projectIndex * 150)
+
                       return (
                         <article
                           key={project.id}
-                          className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300"
+                          className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-[#00DEC7] hover:shadow-xl hover:-translate-y-2 transition-all duration-500 animate-fade-in-up"
+                          style={{ animationDelay: `${animationDelay}ms`, animationFillMode: 'backwards' }}
                         >
                           {/* Image at top for some cards */}
                           {hasImageTop && (

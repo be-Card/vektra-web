@@ -166,33 +166,45 @@ export function Testimonials({ dict, items, category, title, subtitle }: Testimo
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {visibleTestimonials.map((testimonial: TestimonialItem, index: number) => (
               <div
-                key={index}
-                className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
+                key={`${currentIndex}-${index}`}
+                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full group animate-fade-in-up"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animationFillMode: 'backwards'
+                }}
               >
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-[#FBBC05] text-[#FBBC05]" />
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-[#FBBC05] text-[#FBBC05] transition-transform duration-300"
+                      style={{ animationDelay: `${i * 50}ms` }}
+                    />
                   ))}
                 </div>
-                
+
                 {/* Content */}
                 <p className="text-sm text-black/80 leading-relaxed mb-6 flex-grow">
                   {testimonial.content}
                 </p>
-                
+
                 {/* Author */}
-                <div className="flex items-center justify-between pt-2">
+                <div className="flex items-center justify-between pt-2 border-t border-gray-100">
                   <div className="flex items-center gap-3">
                     {testimonial.avatarImage ? (
-                       <img src={testimonial.avatarImage} alt={testimonial.name} className="w-10 h-10 rounded-full object-cover shrink-0" />
+                      <img
+                        src={testimonial.avatarImage}
+                        alt={testimonial.name}
+                        className="w-10 h-10 rounded-full object-cover shrink-0 ring-2 ring-transparent group-hover:ring-[#00DEC7] transition-all duration-300"
+                      />
                     ) : (
-                      <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center text-xs font-bold text-black/70 shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00DEC7] to-[#00b8a5] flex items-center justify-center text-xs font-bold text-white shrink-0 group-hover:scale-110 transition-transform duration-300">
                         {testimonial.avatar}
                       </div>
                     )}
                     <div>
-                      <div className="font-semibold text-sm text-black">
+                      <div className="font-semibold text-sm text-black group-hover:text-[#00DEC7] transition-colors duration-300">
                         {testimonial.name} {testimonial.role ? `- ${testimonial.role}` : ""}
                       </div>
                       <div className="text-xs text-black/60">
@@ -206,7 +218,7 @@ export function Testimonials({ dict, items, category, title, subtitle }: Testimo
                         src={testimonial.logo}
                         alt={testimonial.company}
                         fill
-                        className="object-contain opacity-80"
+                        className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                         sizes="64px"
                       />
                     </div>

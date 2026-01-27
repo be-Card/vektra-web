@@ -21,6 +21,7 @@ import {
 import { pushToDataLayer } from "@/lib/gtm"
 import { Testimonials } from "@/components/sections/testimonials"
 import { Testimonial } from "@/app/testimonials/data"
+import { allProjects } from "@/app/trabajos/data"
 
 const marqueeItems = [
   { text: "SEO y Posicionamiento Web", highlight: true },

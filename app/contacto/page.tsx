@@ -2,8 +2,31 @@ import { Metadata } from "next"
 import ContactoClient from "./page-client"
 
 export const metadata: Metadata = {
-  title: "Contacto Vektra | Agencia de Diseño Web y Marketing Digital",
-  description: "Contacta con Vektra para tu próximo proyecto digital. Diseño web, tiendas online, marketing digital y agentes IA. Te ayudamos a potenciar tu negocio.",
+  title: "Contacto | Solicita Presupuesto Gratis para tu Proyecto Web",
+  description: "Contacta con Vektra para tu próximo proyecto digital. Presupuesto sin compromiso para diseño web, tiendas online, apps, marketing digital y agentes IA en Argentina y Paraguay.",
+  keywords: [
+    "contacto vektra",
+    "presupuesto diseño web",
+    "cotización tienda online",
+    "presupuesto marketing digital",
+    "contactar agencia web argentina",
+    "presupuesto app móvil",
+    "consulta desarrollo web",
+    "contacto agencia digital paraguay",
+    "pedir presupuesto seo",
+    "consultoría marketing digital gratis"
+  ],
+  openGraph: {
+    title: "Contacto | Presupuesto Gratis | Vektra",
+    description: "Solicita un presupuesto sin compromiso para tu proyecto digital.",
+    type: "website",
+    locale: "es_AR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contacto | Vektra",
+    description: "Contactanos para tu próximo proyecto de desarrollo web o marketing digital.",
+  },
   alternates: {
     canonical: "https://vektra.digital/contacto",
     languages: {
@@ -12,6 +35,34 @@ export const metadata: Metadata = {
   },
 }
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contacto - Vektra",
+  "description": "Página de contacto de Vektra Digital para solicitar presupuestos de desarrollo web, marketing digital y más.",
+  "url": "https://vektra.digital/contacto",
+  "mainEntity": {
+    "@type": "Organization",
+    "@id": "https://vektra.digital/#organization",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+54-9-362-464-6669",
+      "contactType": "sales",
+      "email": "info@vektra.digital",
+      "availableLanguage": ["Spanish", "English"],
+      "areaServed": ["AR", "PY"]
+    }
+  }
+}
+
 export default function ContactoPage() {
-  return <ContactoClient />
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
+      <ContactoClient />
+    </>
+  )
 }

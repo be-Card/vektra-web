@@ -107,8 +107,10 @@ function ServiceCard({ service, moreInfoText }: ServiceCardProps) {
     <Link
       href={service.href}
       ref={cardRef}
-      className={`relative flex flex-col p-6 transition-all duration-300 text-center md:text-left ${
-        isHovered ? "border-2 border-black rounded-lg" : "border-2 border-transparent"
+      className={`relative flex flex-col p-6 rounded-2xl text-center md:text-left transition-all duration-500 ease-out ${
+        isHovered
+          ? "bg-black text-white scale-[1.02] shadow-2xl shadow-black/30 -translate-y-2"
+          : "bg-transparent"
       }`}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
@@ -117,7 +119,7 @@ function ServiceCard({ service, moreInfoText }: ServiceCardProps) {
       {/* Animated circle that follows mouse */}
       {isHovered && (
         <div
-          className="absolute pointer-events-none transition-opacity duration-200 hidden md:block"
+          className="absolute pointer-events-none transition-opacity duration-200 hidden md:block z-10"
           style={{
             left: mousePosition.x - 20,
             top: mousePosition.y - 20,
@@ -125,38 +127,50 @@ function ServiceCard({ service, moreInfoText }: ServiceCardProps) {
             height: 40,
           }}
         >
-          <div className="w-full h-full rounded-full border-2 border-black flex items-center justify-center">
-            <div className="w-2 h-2 rounded-full bg-black" />
+          <div className="w-full h-full rounded-full border-2 border-white/50 flex items-center justify-center backdrop-blur-sm">
+            <div className="w-2 h-2 rounded-full bg-white" />
           </div>
         </div>
       )}
 
       {/* Icon */}
-      <div className="mb-6 text-black flex justify-center md:justify-start">
+      <div className={`mb-6 flex justify-center md:justify-start transition-all duration-500 ${
+        isHovered ? "text-[#00DEC7] scale-110" : "text-black"
+      }`}>
         {service.icon}
       </div>
-      
+
       {/* Title */}
-      <h3 className="text-2xl font-bold text-black mb-3">
+      <h3 className={`text-2xl font-bold mb-3 transition-colors duration-500 ${
+        isHovered ? "text-white" : "text-black"
+      }`}>
         {service.title}
       </h3>
-      
+
       {/* Subtitle */}
-      <p className="text-black font-semibold mb-3 leading-snug">
+      <p className={`font-semibold mb-3 leading-snug transition-colors duration-500 ${
+        isHovered ? "text-white/90" : "text-black"
+      }`}>
         {service.subtitle}
       </p>
-      
+
       {/* Description */}
-      <p className="text-black/70 text-sm mb-4 flex-grow">
+      <p className={`text-sm mb-4 flex-grow transition-colors duration-500 ${
+        isHovered ? "text-white/70" : "text-black/70"
+      }`}>
         {service.description}
       </p>
-      
+
       {/* Link visual */}
-      <div 
-        className="inline-flex items-center justify-center md:justify-start text-sm font-medium text-black hover:opacity-70 transition-opacity group"
+      <div
+        className={`inline-flex items-center justify-center md:justify-start text-sm font-medium transition-all duration-500 ${
+          isHovered ? "text-[#00DEC7]" : "text-black"
+        }`}
       >
         {moreInfoText}
-        <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+        <ArrowRight className={`ml-1 h-4 w-4 transition-transform duration-500 ${
+          isHovered ? "translate-x-2" : ""
+        }`} />
       </div>
     </Link>
   )

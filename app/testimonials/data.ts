@@ -7,11 +7,95 @@ export interface Testimonial {
   content: string
   image: string
   projectId?: string
-  category: "diseno-web" | "tienda-online" | "marketing-digital" | "seo" | "apps" | "agentes-ia"
+  category: "diseno-web" | "tienda-online" | "marketing-digital" | "seo" | "apps" | "agentes-ia" | "automatizacion" | "diseno-ui-ux" | "mantenimiento-web" | "soporte-tecnico"
   language: "es" | "en"
 }
 
 export const initialTestimonials: Testimonial[] = [
+  // Automatización (Golden Rise Copy)
+  {
+    id: "golden-rise-auto-es",
+    name: "Daniel Clemente",
+    role: "CTO",
+    company: "Golden Rise",
+    content: "La automatización con IA transformó nuestro flujo de trabajo. Ahorramos horas de gestión manual cada semana.",
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
+    category: "automatizacion",
+    language: "es"
+  },
+  {
+    id: "golden-rise-auto-en",
+    name: "Daniel Clemente",
+    role: "CTO",
+    company: "Golden Rise",
+    content: "AI automation transformed our workflow. We save hours of manual management every week.",
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
+    category: "automatizacion",
+    language: "en"
+  },
+  // UI/UX (Auraimage Copy)
+  {
+    id: "auraimage-uiux-es",
+    name: "Sebastian Aura",
+    role: "Director Creativo",
+    company: "Auraimage",
+    content: "El diseño UI/UX es intuitivo y elegante. Nuestros usuarios navegan con facilidad y disfrutan la experiencia.",
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
+    category: "diseno-ui-ux",
+    language: "es"
+  },
+  {
+    id: "auraimage-uiux-en",
+    name: "Sebastian Aura",
+    role: "Creative Director",
+    company: "Auraimage",
+    content: "The UI/UX design is intuitive and elegant. Our users navigate with ease and enjoy the experience.",
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
+    category: "diseno-ui-ux",
+    language: "en"
+  },
+  // Mantenimiento (Unicel Copy)
+  {
+    id: "unicel-maint-es",
+    name: "David Unicel",
+    role: "Técnico",
+    company: "Unicel Logo",
+    content: "El servicio de mantenimiento web es impecable. Nuestra plataforma siempre está actualizada y segura.",
+    image: "https://randomuser.me/api/portraits/men/60.jpg",
+    category: "mantenimiento-web",
+    language: "es"
+  },
+  {
+    id: "unicel-maint-en",
+    name: "David Unicel",
+    role: "Technician",
+    company: "Unicel Logo",
+    content: "The web maintenance service is impeccable. Our platform is always updated and secure.",
+    image: "https://randomuser.me/api/portraits/men/60.jpg",
+    category: "mantenimiento-web",
+    language: "en"
+  },
+  // Soporte (VHG Copy)
+  {
+    id: "vhg-support-es",
+    name: "Gisela Gomez",
+    role: "CEO",
+    company: "VHG",
+    content: "El soporte técnico es rápido y eficiente. Resuelven cualquier incidencia en tiempo récord.",
+    image: "https://randomuser.me/api/portraits/women/13.jpg",
+    category: "soporte-tecnico",
+    language: "es"
+  },
+  {
+    id: "vhg-support-en",
+    name: "Gisela Gomez",
+    role: "CEO",
+    company: "VHG",
+    content: "Technical support is fast and efficient. They resolve any issue in record time.",
+    image: "https://randomuser.me/api/portraits/women/13.jpg",
+    category: "soporte-tecnico",
+    language: "en"
+  },
   // Agua Viva
   {
     id: "agua-viva-es",

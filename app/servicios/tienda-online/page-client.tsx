@@ -44,6 +44,15 @@ const servicesIncluded = [
   { title: "Soporte técnico", description: "Incluido durante el primer mes. Soporte para resolver dudas y ajustes post-lanzamiento de tu tienda online." },
 ]
 
+const technologies = [
+  { name: "WooCommerce", image: "https://cdn.simpleicons.org/woocommerce/000000" },
+  { name: "Shopify", image: "https://cdn.simpleicons.org/shopify/000000" },
+  { name: "WordPress", image: "https://cdn.simpleicons.org/wordpress/000000" },
+  { name: "MercadoPago", image: "https://cdn.simpleicons.org/mercadopago/000000" },
+  { name: "Stripe", image: "https://cdn.simpleicons.org/stripe/000000" },
+  { name: "PayPal", image: "https://cdn.simpleicons.org/paypal/000000" },
+]
+
 const processSteps = [
   { step: "01", title: "Análisis", subtitle: "del proyecto", description: "Primera reunión donde analizamos tu catálogo de productos, tu público objetivo, competencia y objetivos de venta.", highlight: "Definimos el diseño, funcionalidades y estrategia de lanzamiento." },
   { step: "02", title: "Diseño y", subtitle: "desarrollo", description: "Creamos el diseño de tu tienda online adaptado a tu marca. Configuramos productos, pasarelas de pago, envíos y todas las funcionalidades.", highlight: null },
@@ -291,6 +300,27 @@ export default function TiendaOnlineClient({ testimonials }: TiendaOnlineClientP
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Technologies */}
+          <div className="mt-16 pt-16 border-t border-black/20">
+            <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Tecnologías</p>
+            <div className="flex flex-wrap justify-center gap-8">
+              {technologies.map((tech) => (
+                <div key={tech.name} className="flex flex-col items-center gap-3 group">
+                  <div className="w-16 h-16 bg-white/50 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 shadow-sm">
+                    <Image 
+                      src={tech.image} 
+                      alt={tech.name} 
+                      width={32} 
+                      height={32} 
+                      className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                  <span className="text-sm text-black font-medium">{tech.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-16 text-center">
@@ -602,30 +632,18 @@ export default function TiendaOnlineClient({ testimonials }: TiendaOnlineClientP
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {complementos.map((comp, index) => (
-              <div
-                key={index}
-                className="group flex h-full flex-col rounded-2xl border border-black/0 bg-white/20 p-8 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-black/60 hover:bg-white/30"
-              >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-black/10 text-black">
-                  <comp.icon className="h-8 w-8" />
-                </div>
-                <h3 className="text-2xl font-bold text-black">{comp.title}</h3>
-                <p className="text-black/70 italic mt-1">{comp.subtitle}</p>
-                <ul className="mt-4 space-y-2">
-                  {comp.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-black/80">
-                      <Check className="h-4 w-4 text-black shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link href={comp.href} className="mt-6 inline-flex items-center gap-2 text-black font-semibold">
-                  <span className="underline-offset-4 group-hover:underline">Más info</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
-            ))}
+            {complementos.map((service) => (
+              <Link href={service.href} key={service.title} className="block bg-white/20 backdrop-blur border border-black/5 p-8 rounded-2xl hover:bg-white/40 transition-colors group">
+                 <div className="h-12 w-12 bg-black/10 rounded-lg flex items-center justify-center mb-6">
+                    <service.icon className="h-6 w-6 text-black" />
+                 </div>
+                 <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
+                 <p className="text-sm text-black/70 mb-4">{service.subtitle}</p>
+                 <div className="flex items-center gap-2 font-semibold text-black group-hover:underline">
+                    Ver más <ArrowRight className="h-4 w-4" />
+                 </div>
+              </Link>
+             ))}
           </div>
         </div>
       </section>

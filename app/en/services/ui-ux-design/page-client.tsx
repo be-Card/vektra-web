@@ -2,9 +2,8 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Check, ChevronLeft, ChevronRight, Plus, Minus, Bot, MessageSquare, Zap, Brain, Cpu, Workflow, Monitor, TrendingUp, ArrowRight } from "lucide-react"
+import { Check, Plus, Minus, Palette, MousePointer, Smartphone, Users, Layers, Sparkles, Monitor, Bot, ArrowRight } from "lucide-react"
 
 import { pushToDataLayer } from "@/lib/gtm"
 import { LatestWorks } from "@/components/sections/latest-works"
@@ -14,61 +13,59 @@ import { Testimonial } from "@/app/testimonials/data"
 
 // Marquee items for scrolling text
 const marqueeItems = [
-  { text: "Agentes de IA personalizados", highlight: true },
-  { text: "automatiza tareas repetitivas y ahorra tiempo" },
-  { text: "Chatbots para WhatsApp", highlight: true },
-  { text: "atención al cliente 24/7 sin intervención humana" },
-  { text: "Integración con ChatGPT", highlight: true },
-  { text: "respuestas inteligentes basadas en tu negocio" },
-  { text: "Automatización de procesos", highlight: true },
-  { text: "conecta tus herramientas y optimiza flujos de trabajo" },
-  { text: "Asistentes virtuales", highlight: true },
-  { text: "que aprenden y mejoran con cada interacción" },
-  { text: "APIs e integraciones", highlight: true },
-  { text: "conectamos tu bot con cualquier plataforma" },
+  { text: "Professional UI/UX Design", highlight: true },
+  { text: "interfaces that fall in love" },
+  { text: "User Experience", highlight: true },
+  { text: "people-centered design" },
+  { text: "Interactive Prototyping", highlight: true },
+  { text: "we test before developing" },
+  { text: "Design System", highlight: true },
+  { text: "consistency in every pixel" },
+  { text: "UX Research", highlight: true },
+  { text: "data-driven decisions" },
 ]
 
-// Services included in AI development
+// Services included in UI/UX design
 const servicesIncluded = [
   {
-    title: "Chatbots para WhatsApp Business",
-    description: "Desarrollo de chatbots inteligentes para WhatsApp que responden consultas, toman pedidos, agendan citas y brindan soporte 24/7. Integración con la API oficial de WhatsApp Business.",
+    title: "User Research (UX Research)",
+    description: "We analyze your users, their needs, behaviors, and pain points to design solutions that truly solve their problems.",
   },
   {
-    title: "Agentes con ChatGPT/OpenAI",
-    description: "Creación de agentes de IA personalizados usando GPT-4 y otros modelos de lenguaje. Entrenados con la información de tu negocio para dar respuestas precisas y contextuales.",
+    title: "Information Architecture",
+    description: "We organize your product's content logically and intuitively so users find what they are looking for easily.",
   },
   {
-    title: "Chatbots para sitios web",
-    description: "Asistentes virtuales embebidos en tu página web que guían a los visitantes, responden preguntas frecuentes y capturan leads automáticamente.",
+    title: "Wireframes and User Flows",
+    description: "We design the structure and navigation of your product before investing in visual design, validating usability from the start.",
   },
   {
-    title: "Automatización de procesos",
-    description: "Conexión de tus herramientas y sistemas mediante APIs. Automatizamos tareas repetitivas como envío de emails, actualización de bases de datos y generación de reportes.",
+    title: "Visual Interface Design (UI)",
+    description: "We create attractive, modern interfaces aligned with your brand. Every visual element designed with purpose and coherence.",
   },
   {
-    title: "Integración con CRM y herramientas",
-    description: "Conectamos tu bot con HubSpot, Salesforce, Google Sheets, Notion, Trello, Slack y más. Toda la información sincronizada automáticamente.",
+    title: "Interactive Prototyping",
+    description: "High-fidelity clickable prototypes to validate ideas and flows with real users before investing in development.",
   },
   {
-    title: "Entrenamiento personalizado",
-    description: "Entrenamos al agente con tu base de conocimiento, FAQs, catálogos de productos y procedimientos internos para que responda como un equipo experto en tu negocio.",
+    title: "Complete Design System",
+    description: "We create a scalable design system with reusable components, style guides, and documentation for your team.",
   },
   {
-    title: "Panel de administración",
-    description: "Dashboard para monitorear conversaciones, analizar métricas, ver estadísticas de uso y ajustar respuestas del bot sin necesidad de conocimientos técnicos.",
+    title: "Responsive Design",
+    description: "Your design will look perfect on any device: mobile, tablets, and desktop. Adapted to every resolution.",
   },
   {
-    title: "Multilenguaje",
-    description: "Bots que pueden comunicarse en español, inglés, portugués y otros idiomas. Ideal para negocios con clientes en Argentina, Paraguay y otros países.",
+    title: "User Testing",
+    description: "We conduct usability tests with real users to identify problems and improvement opportunities.",
   },
   {
-    title: "Escalamiento humano",
-    description: "Configuración de derivación automática a agentes humanos cuando el bot detecta consultas complejas o el cliente lo solicita.",
+    title: "Handoff for Development",
+    description: "We deliver designs in Figma with technical specifications, exported assets, and everything needed for your team to develop.",
   },
   {
-    title: "Soporte y mantenimiento",
-    description: "Soporte técnico continuo, actualizaciones del modelo de IA, mejoras basadas en feedback y monitoreo del rendimiento del bot.",
+    title: "Redesign and Optimization",
+    description: "We analyze your current product, identify UX problems, and propose improvements based on data and best practices.",
   },
 ]
 
@@ -76,148 +73,122 @@ const servicesIncluded = [
 const processSteps = [
   {
     step: "01",
-    title: "Análisis",
-    subtitle: "de necesidades",
-    description: "Evaluamos tu negocio, identificamos procesos automatizables y definimos los objetivos del agente de IA.",
-    highlight: "Mapeamos flujos de conversación y casos de uso.",
+    title: "Discovery",
+    subtitle: "and research",
+    description: "Initial meeting to understand your business, users, and goals. We analyze the competition and define the project scope.",
+    highlight: "Interviews, benchmarks, and user personas.",
   },
   {
     step: "02",
-    title: "Diseño y",
-    subtitle: "entrenamiento",
-    description: "Diseñamos la personalidad del bot, creamos los flujos de conversación y entrenamos el modelo con tu información.",
+    title: "Architecture",
+    subtitle: "and wireframes",
+    description: "We design the information structure, navigation flows, and low-fidelity wireframes to validate usability.",
     highlight: null,
   },
   {
     step: "03",
-    title: "Desarrollo e",
-    subtitle: "integración",
-    description: "Programamos el agente, lo conectamos con tus sistemas (WhatsApp, web, CRM) y realizamos pruebas exhaustivas.",
+    title: "Design",
+    subtitle: "visual UI",
+    description: "We apply your brand identity to wireframes, create the full visual design, and component system.",
     highlight: null,
   },
   {
     step: "04",
-    title: "Lanzamiento",
-    subtitle: "y optimización",
-    description: "Publicamos el bot en producción y monitoreamos su rendimiento.",
-    highlight: "Optimizamos continuamente basados en datos reales.",
+    title: "Prototype",
+    subtitle: "and delivery",
+    description: "We create the interactive prototype, conduct testing, and deliver everything ready for development.",
+    highlight: "Figma with technical specs and assets.",
   },
 ]
-
-
 
 // Stats for trajectory section
 const stats = [
-  { value: 50, prefix: "+", suffix: "", label: "Bots desarrollados" },
-  { value: 1, prefix: "", suffix: "M+", label: "Mensajes procesados" },
-  { value: 98, prefix: "", suffix: "%", label: "Tasa de resolución" },
-  { value: 24, prefix: "", suffix: "/7", label: "Disponibilidad" },
+  { value: 120, prefix: "+", suffix: "", label: "Designed projects" },
+  { value: 95, prefix: "", suffix: "%", label: "Client satisfaction" },
+  { value: 40, prefix: "+", suffix: "%", label: "Conversion improvement" },
+  { value: 8, prefix: "", suffix: "", label: "Years of experience" },
 ]
 
-// Testimonials specific to AI/Bots
-const testimonials = [
-  {
-    name: "Patagonia Construcciones",
-    company: "Patagonia Construcciones",
-    text: "El chatbot de WhatsApp nos cambió el negocio. Antes perdíamos muchas consultas fuera de horario, ahora el bot responde al instante y hasta toma pedidos. Las ventas aumentaron un 40%.",
-    rating: 5,
-    logo: "/logos-clients/logo constructora.png"
-  },
-  {
-    name: "Spa Clinic FSC",
-    company: "Spa Clinic FSC",
-    text: "El bot de turnos es increíble. Los pacientes pueden agendar citas a cualquier hora y nosotros recibimos todo organizado. Ahorramos horas de trabajo administrativo cada semana.",
-    rating: 5,
-    logo: "/logos-clients/logo vitality.png"
-  },
-  {
-    name: "Uniplaza",
-    company: "Uniplaza Shopping",
-    text: "El agente de IA conoce todas nuestras propiedades y responde consultas como si fuera nuestro mejor vendedor. Filtra los leads y solo nos pasa los interesados reales.",
-    rating: 5,
-  },
-  {
-    name: "Aura Image",
-    company: "Aura Image",
-    text: "Implementamos el bot en nuestra tienda y el soporte al cliente mejoró muchísimo. Responde sobre talles, envíos, cambios... todo automático. Nuestros clientes están muy contentos.",
-    rating: 5,
-    logo: "/logos-clients/logo auraimage.png"
-  },
-  {
-    name: "Agua Viva",
-    company: "Agua Viva",
-    text: "El asistente virtual nos ayuda a filtrar consultas y derivar cada caso al abogado especialista. Ahorramos tiempo y los clientes reciben respuestas inmediatas.",
-    rating: 5,
-    logo: "/logos-clients/agua viva logo.png"
-  },
-]
-
-// FAQs for AI/Bots service
+// FAQs for UI/UX service
 const faqs = [
-  { question: "¿Qué es un agente de IA y cómo puede ayudar a mi negocio?", answer: "Un agente de IA es un programa inteligente que puede mantener conversaciones, responder preguntas y ejecutar tareas de forma autónoma. Puede atender clientes 24/7, tomar pedidos, agendar citas, resolver dudas frecuentes y más, liberando tiempo de tu equipo para tareas más importantes." },
-  { question: "¿Cuál es la diferencia entre un chatbot tradicional y uno con IA?", answer: "Un chatbot tradicional funciona con reglas fijas y solo responde a palabras clave específicas. Un chatbot con IA (como los que usamos con ChatGPT) entiende el contexto, interpreta diferentes formas de preguntar lo mismo y da respuestas naturales y personalizadas, como si fuera una persona." },
-  { question: "¿Pueden hacer un bot para WhatsApp Business?", answer: "Sí, desarrollamos chatbots para WhatsApp Business usando la API oficial de Meta. El bot puede responder mensajes automáticamente, enviar catálogos, procesar pedidos, agendar citas y más. Funciona tanto en Argentina como en Paraguay y cualquier país." },
-  { question: "¿Cuánto tiempo tarda en estar listo un chatbot?", answer: "Depende de la complejidad. Un bot básico para WhatsApp con respuestas a preguntas frecuentes puede estar listo en 1-2 semanas. Un agente de IA completo con integraciones a CRM, base de datos de productos y flujos complejos puede tardar 3-4 semanas." },
-  { question: "¿Puedo entrenar al bot con información de mi negocio?", answer: "Absolutamente. Entrenamos al agente con tu base de conocimiento: productos, servicios, precios, políticas, FAQs, procedimientos internos. El bot responderá como un equipo experto en tu negocio, con la información que vos le proporciones." },
-  { question: "¿El bot puede integrarse con mis sistemas actuales?", answer: "Sí, integramos con la mayoría de herramientas: Google Sheets, HubSpot, Salesforce, Notion, Trello, Slack, sistemas de facturación, ERPs y más. Si tu sistema tiene API, podemos conectarlo." },
-  { question: "¿Qué pasa si el bot no puede resolver una consulta?", answer: "Configuramos escalamiento automático a agentes humanos. El bot detecta cuando una consulta es muy compleja o cuando el cliente lo solicita, y deriva la conversación a tu equipo con todo el contexto de lo hablado." },
-  { question: "¿Cuánto cuesta mantener un bot funcionando?", answer: "El costo depende del volumen de mensajes y las integraciones. Usamos modelos de precios transparentes: un costo inicial de desarrollo y luego un mantenimiento mensual que incluye hosting, actualizaciones y soporte. Te damos un presupuesto personalizado." },
-  { question: "¿El bot funciona en varios idiomas?", answer: "Sí, nuestros bots pueden comunicarse en español, inglés, portugués y otros idiomas. Es ideal si tenés clientes en Argentina, Paraguay, Brasil u otros países de la región." },
-  { question: "¿Trabajan con empresas de Argentina y Paraguay?", answer: "Sí, trabajamos principalmente con empresas de Argentina y Paraguay. Entendemos el mercado local, los medios de pago (MercadoPago, transferencias), las plataformas de envío y las particularidades de cada país." },
+  { question: "What does UI/UX design include?", answer: "It includes user research, information architecture, wireframes, visual interface design, interactive prototypes, and documentation for development. The specific scope depends on your project needs." },
+  { question: "What tools do you work with?", answer: "We mainly use Figma for design and prototyping. We also work with tools like Maze for usability testing, Hotjar for behavior analysis, and Notion for documentation." },
+  { question: "How long does a design project take?", answer: "A landing page takes approximately 1-2 weeks. A complete website between 3-4 weeks. Digital product projects (apps, dashboards) can take 2-3 months depending on complexity." },
+  { question: "Does the design include development?", answer: "No, design and development are separate services. We can quote both services or just the design if you already have a development team. We deliver everything ready for any developer to implement." },
+  { question: "Do you do redesigns of existing products?", answer: "Yes, we perform UX audits of existing products, identify usability problems, and propose data-driven improvements and best practices. We can do complete or partial redesigns." },
+  { question: "What is the work process like?", answer: "We start with a discovery meeting to understand your business and users. Then we go through research, wireframes, visual design with iterative reviews, and finish with the prototype and handoff for development." },
+  { question: "Can I request changes during the project?", answer: "Yes, our process includes review rounds at each stage. We work iteratively, showing you progress and adjusting based on your feedback before moving to the next phase." },
+  { question: "What do I receive at the end of the project?", answer: "You receive the complete Figma file with all designs, an interactive prototype, the Design System with components, style guide, and technical specifications for the development team." },
+  { question: "Do you work with companies in Argentina and Paraguay?", answer: "Yes, we work mainly with companies in Argentina and Paraguay, although we also have clients in other Latin American countries. We understand the local market and regional needs." },
+  { question: "Do you offer post-delivery support?", answer: "Yes, we offer a post-delivery support period to resolve questions from the development team. We can also make minor adjustments or accompany the implementation if needed." },
 ]
 
 // Complementary services
 const complementaryServices = [
   {
-    title: "Automatización de procesos",
-    subtitle: "Optimiza tu operación",
+    title: "Process Automation",
+    subtitle: "Optimize workflows",
     features: [
-      "Conexión de aplicaciones",
-      "Flujos de trabajo automáticos",
-      "Integración con APIs",
-      "Sincronización de datos",
-      "Reportes automáticos",
-      "Notificaciones inteligentes",
+      "Workflow Automation",
+      "System Integration",
+      "Time Saving",
+      "Error Reduction",
+      "Scalability",
+      "24/7 Operation",
     ],
-    href: "/servicios/automatizacion",
-    icon: Workflow
+    href: "/en/services/automation",
+    icon: Bot
   },
   {
-    title: "Desarrollo web",
-    subtitle: "Tu presencia digital",
+    title: "Web Development",
+    subtitle: "We implement your design",
     features: [
+      "Next.js and React",
+      "WordPress and WooCommerce",
+      "Corporate Sites",
       "Landing pages",
-      "Sitios web corporativos",
-      "Dashboards personalizados",
-      "Integración con bots",
-      "Panel de administración",
-      "Diseño responsive",
+      "E-commerce",
+      "Web Applications",
     ],
-    href: "/servicios/diseno-web",
+    href: "/en/services/web-design",
     icon: Monitor
   },
   {
-    title: "Marketing digital",
-    subtitle: "Llega a más clientes",
+    title: "AI Agents",
+    subtitle: "Intelligent Chatbots",
+    features: [
+      "WhatsApp Chatbots",
+      "Virtual Assistants",
+      "24/7 Attention",
+      "CRM Integration",
+      "Custom ChatGPT",
+      "Automation",
+    ],
+    href: "/en/services/ai-agents",
+    icon: Bot
+  },
+  {
+    title: "Digital Marketing",
+    subtitle: "Drive traffic to your design",
     features: [
       "Google Ads",
       "Meta Ads",
-      "SEO y posicionamiento",
-      "Email marketing",
-      "Campañas de WhatsApp",
-      "Remarketing",
+      "SEO and Positioning",
+      "Email Marketing",
+      "Analytics",
+      "Conversion Optimization",
     ],
-    href: "/servicios/marketing-digital",
-    icon: TrendingUp
+    href: "/en/services/digital-marketing",
+    icon: Sparkles
   },
 ]
 
-interface AgentesIAPageClientProps {
+interface UIUXDesignPageClientProps {
   projects: Project[]
   testimonials: Testimonial[]
 }
 
-export default function AgentesIAPageClient({ projects, testimonials }: AgentesIAPageClientProps) {
+export default function UIUXDesignClient({ projects, testimonials }: UIUXDesignPageClientProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [isVisible, setIsVisible] = useState(false)
   const statsRef = useRef<HTMLDivElement>(null)
@@ -240,12 +211,11 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here (e.g., call API)
     pushToDataLayer("form_submit", {
-      form_name: "AI Agents Service Form",
-      service: "agentes-ia"
+      form_name: "UI/UX Design Service Form",
+      service: "ui-ux-design"
     })
-    alert("Gracias por tu consulta. Te responderemos pronto.")
+    alert("Thank you for your inquiry. We will respond shortly.")
   }
 
   useEffect(() => {
@@ -271,47 +241,45 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
     }
   }, [isVisible])
 
-  // Auto-advance testimonials removed
-
   return (
     <>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#0a0a0a] via-[#111] to-[#0a0a0a] overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#00DEC7]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 pt-32 pb-20 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="max-w-2xl">
               <p className="text-base sm:text-lg text-[#00DEC7] font-medium mb-4 flex items-center gap-2">
-                <Bot className="h-6 w-6" />
-                Inteligencia Artificial para tu negocio
+                <Palette className="h-6 w-6" />
+                Professional UI/UX Design
               </p>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Desarrollo de{" "}
+                Design of{" "}
                 <span className="relative inline-block">
-                  <span className="relative z-10">Agentes de IA</span>
+                  <span className="relative z-10">Interfaces</span>
                   <span className="absolute bottom-1 left-0 w-full h-3 bg-[#00DEC7] -z-0 opacity-60" />
                 </span>
-                {" "}y{" "}
-                <span className="font-extrabold">Chatbots</span>
+                {" "}and{" "}
+                <span className="font-extrabold">User Experience</span>
                 <span className="block text-white/80 text-lg sm:text-xl md:text-2xl font-semibold mt-3">
-                  en Argentina y Paraguay
+                  in Argentina and Paraguay
                 </span>
               </h1>
 
               <p className="mt-6 text-base sm:text-lg text-gray-300 leading-relaxed">
-                Creamos <strong className="text-white">agentes de inteligencia artificial</strong> y{" "}
-                <strong className="text-white">chatbots para WhatsApp</strong> que atienden a tus clientes 24/7,{" "}
-                responden consultas, toman pedidos y automatizan procesos.{" "}
-                <strong className="text-white">Potenciados por ChatGPT y modelos de IA avanzados</strong>.
+                We create <strong className="text-white">memorable digital experiences</strong> that{" "}
+                <strong className="text-white">make your users fall in love</strong> and{" "}
+                <strong className="text-white">convert visitors into customers</strong>.{" "}
+                People-centered design, validated with data.
               </p>
 
               <p className="mt-4 text-gray-300">
-                <span className="text-[#00DEC7] font-semibold">Objetivo:</span>{" "}
-                <span className="text-[#00DEC7]">automatizar tu atención al cliente, aumentar ventas y reducir costos operativos</span>{" "}
-                con inteligencia artificial personalizada para tu negocio.
+                <span className="text-[#00DEC7] font-semibold">Goal:</span>{" "}
+                <span className="text-[#00DEC7]">create intuitive, attractive, and effective digital products</span>{" "}
+                that drive your business growth.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -320,7 +288,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   size="lg"
                   className="bg-[#00DEC7] text-black font-semibold hover:bg-[#00DEC7]/90 rounded-full px-8"
                 >
-                  <Link href="/contacto">Quiero un bot para mi negocio</Link>
+                  <Link href="/en/contact">Request a quote</Link>
                 </Button>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1">
@@ -339,7 +307,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                           </svg>
                         ))}
                       </div>
-                      <span className="text-xs text-gray-400">+45 reseñas</span>
+                      <span className="text-xs text-gray-400">+45 reviews</span>
                     </div>
                   </div>
                 </div>
@@ -353,24 +321,24 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                 <div className="relative bg-gradient-to-br from-[#00DEC7]/20 to-transparent rounded-3xl p-8 border border-[#00DEC7]/30">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
-                      <Bot className="h-10 w-10 text-[#00DEC7] mb-3" />
-                      <p className="text-white font-medium">Chatbots</p>
-                      <p className="text-gray-400 text-sm">WhatsApp & Web</p>
+                      <Users className="h-10 w-10 text-[#00DEC7] mb-3" />
+                      <p className="text-white font-medium">UX Research</p>
+                      <p className="text-gray-400 text-sm">Research</p>
                     </div>
                     <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
-                      <Brain className="h-10 w-10 text-[#00DEC7] mb-3" />
-                      <p className="text-white font-medium">ChatGPT</p>
-                      <p className="text-gray-400 text-sm">IA Avanzada</p>
+                      <Layers className="h-10 w-10 text-[#00DEC7] mb-3" />
+                      <p className="text-white font-medium">Wireframes</p>
+                      <p className="text-gray-400 text-sm">Structure</p>
                     </div>
                     <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
-                      <Workflow className="h-10 w-10 text-[#00DEC7] mb-3" />
-                      <p className="text-white font-medium">Automatización</p>
-                      <p className="text-gray-400 text-sm">Procesos & APIs</p>
+                      <Palette className="h-10 w-10 text-[#00DEC7] mb-3" />
+                      <p className="text-white font-medium">UI Design</p>
+                      <p className="text-gray-400 text-sm">Visual</p>
                     </div>
                     <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
-                      <Zap className="h-10 w-10 text-[#00DEC7] mb-3" />
-                      <p className="text-white font-medium">24/7</p>
-                      <p className="text-gray-400 text-sm">Siempre activo</p>
+                      <MousePointer className="h-10 w-10 text-[#00DEC7] mb-3" />
+                      <p className="text-white font-medium">Prototype</p>
+                      <p className="text-gray-400 text-sm">Interactive</p>
                     </div>
                   </div>
                 </div>
@@ -403,13 +371,13 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
-              Tu negocio automatizado,<br />
-              tus clientes siempre atendidos
+              Designs that fall in love<br />
+              and convert
             </h2>
             <p className="mt-6 text-black/80 text-lg">
-              Tendras un <strong className="text-black">agente de IA personalizado</strong> que conoce tu negocio,{" "}
-              <strong className="text-black">atiende clientes las 24 horas</strong> y{" "}
-              <strong className="text-black">automatiza tareas repetitivas</strong>. Vos te enfocas en hacer crecer tu negocio.
+              You will have <strong className="text-black">professional interfaces</strong> designed to{" "}
+              <strong className="text-black">make your users fall in love</strong> and{" "}
+              <strong className="text-black">increase your conversions</strong>. Everything validated with research and real data.
             </p>
           </div>
 
@@ -429,41 +397,45 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
             ))}
           </div>
 
-          {/* Platforms */}
+          {/* Tools */}
           <div className="mt-16 pt-16 border-t border-black/20">
-            <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Tecnologias que utilizamos</p>
+            <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Tools we use</p>
             <div className="flex flex-wrap justify-center gap-8 items-center">
               <div className="flex flex-col items-center gap-2">
                 <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center">
-                  <svg className="h-10 w-10 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0993 3.8558L12.6 8.3829l2.02-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/>
+                  <svg className="h-10 w-10" viewBox="0 0 38 57" fill="none">
+                    <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19H38V28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+                    <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+                    <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+                    <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+                    <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
                   </svg>
                 </div>
-                <span className="text-black text-sm font-medium">ChatGPT</span>
+                <span className="text-black text-sm font-medium">Figma</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-[#25D366] rounded-xl flex items-center justify-center">
-                  <MessageSquare className="h-10 w-10 text-white" />
+                <div className="w-16 h-16 bg-[#FF61F6] rounded-xl flex items-center justify-center">
+                  <Sparkles className="h-10 w-10 text-white" />
                 </div>
-                <span className="text-black text-sm font-medium">WhatsApp</span>
+                <span className="text-black text-sm font-medium">Framer</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center">
-                  <Cpu className="h-10 w-10 text-white" />
+                <div className="w-16 h-16 bg-[#0D1117] rounded-xl flex items-center justify-center">
+                  <Layers className="h-10 w-10 text-white" />
                 </div>
-                <span className="text-black text-sm font-medium">Claude AI</span>
+                <span className="text-black text-sm font-medium">Notion</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-[#FF6B35] rounded-xl flex items-center justify-center">
-                  <Workflow className="h-10 w-10 text-white" />
+                <div className="w-16 h-16 bg-[#6366F1] rounded-xl flex items-center justify-center">
+                  <MousePointer className="h-10 w-10 text-white" />
                 </div>
-                <span className="text-black text-sm font-medium">Make/Zapier</span>
+                <span className="text-black text-sm font-medium">Maze</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-[#0066FF] rounded-xl flex items-center justify-center">
-                  <Bot className="h-10 w-10 text-white" />
+                <div className="w-16 h-16 bg-[#FF3C00] rounded-xl flex items-center justify-center">
+                  <Smartphone className="h-10 w-10 text-white" />
                 </div>
-                <span className="text-black text-sm font-medium">Botpress</span>
+                <span className="text-black text-sm font-medium">Hotjar</span>
               </div>
             </div>
           </div>
@@ -471,10 +443,10 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
           {/* CTA */}
           <div className="mt-16 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-black">
-              Consúltanos <span className="font-normal">sin compromiso</span>
+              Consult us <span className="font-normal">without commitment</span>
             </h3>
             <p className="mt-2 text-black/70 max-w-xl mx-auto">
-              Si querés <strong className="text-black">automatizar tu atención al cliente</strong> o crear un bot para tu negocio, contactanos y te asesoramos sobre la mejor solución.
+              If you want to <strong className="text-black">improve your digital product experience</strong>, contact us and we will advise you on the best solution.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-black text-white hover:bg-black/90 rounded-full px-8">
@@ -482,16 +454,16 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                  Llámanos
+                  Call us
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white rounded-full px-8 bg-transparent">
-                <Link href="/contacto" className="flex items-center gap-2">
+                <Link href="/en/contact" className="flex items-center gap-2">
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="4" width="18" height="16" rx="2"/>
                     <path d="M3 8l9 6 9-6"/>
                   </svg>
-                  Presupuesto
+                  Request a quote
                 </Link>
               </Button>
             </div>
@@ -499,17 +471,17 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
         </div>
       </section>
 
-      {/* Objetivo Section - Black Background */}
+      {/* Goal Section - Black Background */}
       <section className="relative py-20 lg:py-28 bg-black">
         <div className="absolute top-0 left-0 right-0 h-1 bg-[#00DEC7]" />
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#00DEC7]" />
 
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">Objetivo</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white">Goal</h2>
             <p className="mt-6 text-white/90 text-lg md:text-xl leading-relaxed">
-              <strong className="text-white font-bold">Automatizar y escalar tu negocio</strong>. 4 pasos para crear un agente de IA que{" "}
-              <strong className="text-white font-bold">atienda clientes, cierre ventas y reduzca costos</strong>.
+              <strong className="text-white font-bold">Create digital products that people love</strong>. 4 phases to design an{" "}
+              <strong className="text-white font-bold">exceptional user experience</strong>.
             </p>
           </div>
 
@@ -531,24 +503,23 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
       </section>
 
       {/* Portfolio Section */}
-      <LatestWorks 
-        projects={projects} 
-        title="Últimos Proyectos"
-        subtitle="Agentes de IA y Chatbots"
-        viewAllText="Ver todos los proyectos"
-        viewAllLink="/trabajos?category=agentes-ia"
+      <LatestWorks
+        projects={projects}
+        title="Latest Projects"
+        subtitle="UI/UX Design"
+        viewAllText="View all projects"
+        viewAllLink="/en/portfolio?category=diseno-ui-ux"
       />
 
-      {/* Trayectoria Section */}
+      {/* Trajectory Section */}
       <section ref={statsRef} className="py-20 lg:py-28 bg-black">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Experiencia en<br />inteligencia artificial
+              Experience in<br />UI/UX design
             </h2>
             <p className="mt-4 text-gray-400 text-base lg:text-lg leading-relaxed">
-              Desarrollamos <span className="text-white">agentes de IA y chatbots</span> para empresas de{" "}
-              <span className="text-white">Argentina y Paraguay</span>. Los números reflejan la confianza de nuestros clientes.
+              We design <span className="text-white">digital experiences</span> for companies <span className="text-white">worldwide</span>. The numbers reflect our clients&apos; trust.
             </p>
           </div>
 
@@ -566,14 +537,14 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
       </section>
 
       {/* Testimonials Section */}
-      <Testimonials items={testimonials} category="agentes-ia" />
+      <Testimonials items={testimonials} category="diseno-ui-ux" />
 
       {/* FAQ Section */}
       <section className="py-20 lg:py-28 bg-black">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Preguntas frecuentes</h2>
-            <p className="mt-2 text-gray-500 uppercase tracking-widest text-sm">Agentes de IA y Chatbots</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Frequently Asked Questions</h2>
+            <p className="mt-2 text-gray-500 uppercase tracking-widest text-sm">UI/UX Design</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
@@ -602,10 +573,10 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
           {/* CTA */}
           <div className="mt-16 text-center">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              ¿Tenés alguna otra duda?
+              Do you have any other questions?
             </h3>
             <p className="mt-2 text-gray-400">
-              Contactá con nosotros <span className="text-white font-semibold">sin compromiso</span>
+              Contact us <span className="text-white font-semibold">without commitment</span>
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full px-8">
@@ -613,16 +584,16 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                  Llámanos
+                  Call us
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black rounded-full px-8 bg-transparent">
-                <Link href="/contacto" className="flex items-center gap-2">
+                <Link href="/en/contact" className="flex items-center gap-2">
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="4" width="18" height="16" rx="2"/>
                     <path d="M3 8l9 6 9-6"/>
                   </svg>
-                  Escribinos
+                  Write to us
                 </Link>
               </Button>
             </div>
@@ -639,12 +610,12 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
               <div className="relative w-full max-w-md">
                 <div className="bg-gray-100 rounded-full w-80 h-80 mx-auto flex items-center justify-center">
                   <div className="relative">
-                    <Bot className="h-32 w-32 text-[#00DEC7]" />
+                    <Palette className="h-32 w-32 text-[#00DEC7]" />
                     <div className="absolute -top-4 -right-4 bg-[#00DEC7] rounded-full p-2">
-                      <MessageSquare className="h-6 w-6 text-black" />
+                      <Layers className="h-6 w-6 text-black" />
                     </div>
                     <div className="absolute -bottom-2 -left-4 bg-black rounded-full p-2">
-                      <Brain className="h-6 w-6 text-white" />
+                      <MousePointer className="h-6 w-6 text-white" />
                     </div>
                   </div>
                 </div>
@@ -655,21 +626,21 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
             <div>
               <div className="bg-[#00DEC7] rounded-2xl px-6 py-4 mb-6">
                 <h3 className="text-xl md:text-2xl font-bold text-black text-center">
-                  ¿Listo para automatizar tu negocio?
+                  Ready to design your product?
                 </h3>
               </div>
 
               <p className="text-center text-gray-600 mb-2">
-                Consúltanos <span className="font-semibold text-black">sin compromiso</span>
+                Consult us <span className="font-semibold text-black">without commitment</span>
               </p>
               <p className="text-center text-gray-600 text-sm mb-8">
-                <a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">Llámanos</a>,
-                escribinos por{" "}
+                <a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">Call us</a>,
+                write to us via{" "}
                 <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">
                   WhatsApp
                 </a>{" "}
-                o envíanos el siguiente formulario y{" "}
-                <span className="font-semibold">te responderemos en menos de 24 horas</span>.
+                or send the form below and{" "}
+                <span className="font-semibold">we will respond in less than 24 hours</span>.
               </p>
 
               <form className="space-y-4" onSubmit={handleSubmit}>
@@ -677,7 +648,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   <div className="relative">
                     <input
                       type="text"
-                      placeholder="Nombre *"
+                      placeholder="Name *"
                       className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DEC7] focus:border-transparent"
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -702,7 +673,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   <div className="relative">
                     <input
                       type="tel"
-                      placeholder="Teléfono"
+                      placeholder="Phone"
                       className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DEC7] focus:border-transparent"
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -713,7 +684,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
 
                 <div className="relative">
                   <textarea
-                    placeholder="Contame sobre tu proyecto... *"
+                    placeholder="Tell me about your project... *"
                     rows={4}
                     className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DEC7] focus:border-transparent resize-none"
                   />
@@ -725,16 +696,16 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                 <div className="flex items-start gap-2">
                   <input type="checkbox" id="privacy" className="mt-1" />
                   <label htmlFor="privacy" className="text-sm text-gray-600">
-                    He leído y acepto la{" "}
-                    <Link href="/politica-de-privacidad" className="underline hover:text-[#00DEC7]">
-                      política de privacidad
+                    I have read and accept the{" "}
+                    <Link href="/en/privacy-policy" className="underline hover:text-[#00DEC7]">
+                      privacy policy
                     </Link>
                   </label>
                 </div>
 
                 <div className="text-center pt-4">
                   <Button type="submit" size="lg" className="bg-[#00DEC7] text-black font-semibold hover:bg-[#00DEC7]/90 rounded-full px-12">
-                    Enviar
+                    Send
                   </Button>
                 </div>
               </form>
@@ -747,8 +718,8 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
       <section className="py-20 lg:py-28 bg-[#00DEC7]">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-black">Complementos</h2>
-            <p className="mt-2 text-black/60 uppercase tracking-widest text-sm">También te puede interesar</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-black">Complements</h2>
+            <p className="mt-2 text-black/60 uppercase tracking-widest text-sm">You might also be interested in</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -774,7 +745,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                 <div
                   className="mt-auto inline-flex items-center gap-2 text-black font-semibold"
                 >
-                  <span className="underline-offset-4 group-hover:underline">Más info</span>
+                  <span className="underline-offset-4 group-hover:underline">More info</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </Link>

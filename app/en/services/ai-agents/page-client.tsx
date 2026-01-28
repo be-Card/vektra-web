@@ -129,7 +129,7 @@ const stats = [
 
 // FAQs for AI/Bots service
 const faqs = [
-  { question: "What is an AI agent and how can it help my business?", answer: "An AI agent is an intelligent program that can maintain conversations, answer questions, and execute tasks autonomously. It can serve customers 24/7, take orders, schedule appointments, solve frequent doubts, and more, freeing up your team's time for more important tasks." },
+  { question: "What is an AI agent and how can it help my business?", answer: "An AI agent is an intelligent program that can maintain conversations, answer questions, and execute tasks autonomously. It can serve customers 24/7, take orders, schedule appointments, solve frequent doubts, and more, freeing up your team&apos;s time for more important tasks." },
   { question: "What is the difference between a traditional chatbot and one with AI?", answer: "A traditional chatbot works with fixed rules and only responds to specific keywords. A chatbot with AI (like the ones we use with ChatGPT) understands context, interprets different ways of asking the same thing, and gives natural and personalized answers, as if it were a person." },
   { question: "Can you make a bot for WhatsApp Business?", answer: "Yes, we develop chatbots for WhatsApp Business using the official Meta API. The bot can answer messages automatically, send catalogs, process orders, schedule appointments, and more. It works worldwide." },
   { question: "How long does it take for a chatbot to be ready?", answer: "It depends on complexity. A basic WhatsApp bot with FAQ answers can be ready in 1-2 weeks. A complete AI agent with CRM integrations, product database, and complex flows can take 3-4 weeks." },
@@ -738,8 +738,9 @@ export default function AgentesIAPageClient({ testimonials }: AgentesIAPageClien
 
           <div className="grid md:grid-cols-3 gap-8">
             {complementaryServices.map((service) => (
-              <div
+              <Link
                 key={service.title}
+                href={service.href}
                 className="group flex h-full flex-col rounded-2xl border border-black/0 bg-white/20 p-8 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-black/60 hover:bg-white/30"
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-black/10 text-black">
@@ -755,14 +756,13 @@ export default function AgentesIAPageClient({ testimonials }: AgentesIAPageClien
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href={service.href}
+                <div
                   className="mt-auto inline-flex items-center gap-2 text-black font-semibold"
                 >
                   <span className="underline-offset-4 group-hover:underline">More info</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

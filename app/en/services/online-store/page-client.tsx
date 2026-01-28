@@ -67,6 +67,15 @@ const servicesIncluded = [
 ]
 
 // Process steps
+const technologies = [
+  { name: "WooCommerce", image: "https://cdn.simpleicons.org/woocommerce/000000" },
+  { name: "Shopify", image: "https://cdn.simpleicons.org/shopify/000000" },
+  { name: "WordPress", image: "https://cdn.simpleicons.org/wordpress/000000" },
+  { name: "MercadoPago", image: "https://cdn.simpleicons.org/mercadopago/000000" },
+  { name: "Stripe", image: "https://cdn.simpleicons.org/stripe/000000" },
+  { name: "PayPal", image: "https://cdn.simpleicons.org/paypal/000000" },
+]
+
 const processSteps = [
   { 
     step: "01", 
@@ -310,6 +319,27 @@ export default function OnlineStoreClient({ testimonials }: OnlineStoreClientPro
               </div>
             </div>
           </div>
+
+          {/* Technologies */}
+          <div className="mt-16 pt-16 border-t border-black/20">
+            <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Technologies</p>
+            <div className="flex flex-wrap justify-center gap-8">
+              {technologies.map((tech) => (
+                <div key={tech.name} className="flex flex-col items-center gap-3 group">
+                  <div className="w-16 h-16 bg-white/50 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 shadow-sm">
+                    <Image 
+                      src={tech.image}
+                      alt={tech.name}
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                  <span className="text-sm text-black font-medium">{tech.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -519,16 +549,16 @@ export default function OnlineStoreClient({ testimonials }: OnlineStoreClientPro
           </div>
           <div className="grid gap-8 md:grid-cols-3">
              {complementaryServices.map((service) => (
-              <div key={service.title} className="bg-white/20 backdrop-blur border border-black/5 p-8 rounded-2xl hover:bg-white/40 transition-colors">
+              <Link href={service.href} key={service.title} className="block bg-white/20 backdrop-blur border border-black/5 p-8 rounded-2xl hover:bg-white/40 transition-colors group">
                  <div className="h-12 w-12 bg-black/10 rounded-lg flex items-center justify-center mb-6">
                     <service.icon className="h-6 w-6 text-black" />
                  </div>
                  <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
                  <p className="text-sm text-black/70 mb-4">{service.subtitle}</p>
-                 <Link href={service.href} className="flex items-center gap-2 font-semibold text-black hover:underline">
+                 <div className="flex items-center gap-2 font-semibold text-black group-hover:underline">
                     View more <ArrowRight className="h-4 w-4" />
-                 </Link>
-              </div>
+                 </div>
+              </Link>
              ))}
           </div>
         </div>

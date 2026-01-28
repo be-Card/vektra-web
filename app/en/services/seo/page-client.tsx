@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/accordion"
 import { Testimonials } from "@/components/sections/testimonials"
 import { Testimonial } from "@/app/testimonials/data"
+import { pushToDataLayer } from "@/lib/gtm"
 
 interface SEOPageClientProps {
   testimonials: Testimonial[]
@@ -387,7 +388,7 @@ export default function SEOPageClient({ testimonials }: SEOPageClientProps) {
               </p>
               <p className="text-gray-300 leading-relaxed mb-8">
                 We optimize your content with specific techniques so that Large Language Models 
-                (LLMs) cite your website as a reliable source. It's time to get ahead of your competition.
+                (LLMs) cite your website as a reliable source. It&apos;s time to get ahead of your competition.
               </p>
               <ul className="space-y-3">
                 {[
@@ -714,8 +715,9 @@ export default function SEOPageClient({ testimonials }: SEOPageClientProps) {
 
           <div className="grid gap-8 md:grid-cols-3">
             {complements.map((comp) => (
-              <div
+              <Link
                 key={comp.title}
+                href={comp.href}
                 className="group flex h-full flex-col rounded-2xl border border-black/0 bg-white/20 p-8 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-black/60 hover:bg-white/30"
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-black/10 text-black">
@@ -731,14 +733,13 @@ export default function SEOPageClient({ testimonials }: SEOPageClientProps) {
                     </li>
                   ))}
                 </ul>
-                <Link 
-                  href={comp.href}
+                <div 
                   className="mt-auto inline-flex items-center gap-2 text-black font-semibold"
                 >
                   <span className="underline-offset-4 group-hover:underline">More info</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

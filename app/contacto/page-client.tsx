@@ -511,10 +511,12 @@ export default function ContactoClient() {
                         &ldquo;{testimonial.text}&rdquo;
                       </blockquote>
                       <div className="flex items-center gap-4">
-                        <img 
+                        <Image 
                           src={testimonial.image} 
                           alt={testimonial.name} 
-                          className="w-14 h-14 rounded-full object-cover shrink-0" 
+                          width={56}
+                          height={56}
+                          className="rounded-full object-cover shrink-0" 
                         />
                         <div>
                           <p className="font-semibold text-black text-lg">

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useSearchParams } from "next/navigation"
 import Loading from "./loading"
-import { blogPosts } from "./data"
+import { blogPosts, type BlogPost } from "./data"
 
 const ITEMS_PER_PAGE = 12
 
@@ -30,11 +30,13 @@ const isPublished = (post: { publishedAt?: string; date: string }) => {
 function BlogContent({
   initialSearchQuery,
   initialCategory,
+  initialPosts,
 }: {
   initialSearchQuery: string
   initialCategory: string
+  initialPosts?: BlogPost[]
 }) {
-  const [posts, setPosts] = useState(blogPosts)
+  const [posts, setPosts] = useState(initialPosts || blogPosts)
 
   const [searchQuery, setSearchQuery] = useState(initialSearchQuery)
   const [activeCategory, setActiveCategory] = useState(() => {

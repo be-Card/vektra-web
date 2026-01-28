@@ -59,7 +59,7 @@ const servicesIncluded = [
   },
   {
     title: "Google Analytics",
-    description: "Know how users interact with your website. Analyze data and discover what works and what doesn't on your site. Make decisions based on real data.",
+    description: "Know how users interact with your website. Analyze data and discover what works and what doesn&apos;t on your site. Make decisions based on real data.",
   },
 ]
 
@@ -236,7 +236,7 @@ export default function DigitalMarketingClient({ testimonials }: DigitalMarketin
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button asChild size="lg" className="bg-[#00DEC7] text-black hover:bg-[#00DEC7]/90 rounded-full px-8 font-semibold">
-                  <Link href="#form">Let's talk?</Link>
+                  <Link href="#form">Let&apos;s talk?</Link>
                 </Button>
                 
                 <div className="flex items-center gap-3 bg-white rounded-full px-4 py-2">

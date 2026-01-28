@@ -115,7 +115,7 @@ export default function LegalNoticePage() {
 
             <h3 className="text-xl font-semibold text-black mb-3">5.3 Delivery Deadlines</h3>
             <p className="text-gray-700 mb-6">
-              Delivery deadlines are indicative and depend on the complexity of the project and client collaboration. Delays due to lack of material or information from the client will not be Vektra's responsibility.
+              Delivery deadlines are indicative and depend on the complexity of the project and client collaboration. Delays due to lack of material or information from the client will not be Vektra&apos;s responsibility.
             </p>
 
             <h3 className="text-xl font-semibold text-black mb-3">5.4 Client Obligations</h3>
@@ -166,7 +166,7 @@ export default function LegalNoticePage() {
               <li>The initial down payment is non-refundable once the project has started</li>
               <li>If the client cancels the project, they must pay for the work done to date</li>
               <li>Vektra reserves the right to cancel projects for non-payment</li>
-              <li>Digital marketing services can be canceled with 15 days' notice</li>
+              <li>Digital marketing services can be canceled with 15 days&apos; notice</li>
             </ul>
 
             <h2 className="text-2xl font-bold text-black mb-4">10. Confidentiality</h2>
@@ -181,7 +181,7 @@ export default function LegalNoticePage() {
 
             <h2 className="text-2xl font-bold text-black mb-4">12. Legislation and Jurisdiction</h2>
             <p className="text-gray-700 mb-8">
-              These conditions are governed by Argentine and Paraguayan legislation as applicable to the client's domicile. For the resolution of any dispute, the parties submit to the competent ordinary courts, waiving any other jurisdiction that may correspond to them.
+              These conditions are governed by Argentine and Paraguayan legislation as applicable to the client&apos;s domicile. For the resolution of any dispute, the parties submit to the competent ordinary courts, waiving any other jurisdiction that may correspond to them.
             </p>
 
             <h2 className="text-2xl font-bold text-black mb-4">13. Modifications</h2>

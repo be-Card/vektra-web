@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useMemo, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -278,10 +279,11 @@ export default function AdminPage() {
   const [testimonialForm, setTestimonialForm] = useState<Omit<Testimonial, "id">>({
     name: "",
     role: "",
+    company: "",
     content: "",
     image: "",
     projectId: "",
-    category: "",
+    category: "diseno-web",
     language: "es",
   })
 
@@ -565,10 +567,11 @@ export default function AdminPage() {
     setTestimonialForm({
       name: "",
       role: "",
+      company: "",
       content: "",
       image: "",
       projectId: "",
-      category: "",
+      category: "diseno-web",
       language: "es",
     })
     setActiveSection("testimonials-list")
@@ -579,6 +582,7 @@ export default function AdminPage() {
     setTestimonialForm({
       name: item.name,
       role: item.role,
+      company: item.company || "",
       content: item.content,
       image: item.image,
       projectId: item.projectId ?? "",
@@ -1367,12 +1371,19 @@ export default function AdminPage() {
                           seoDescription: "",
                           keywords: "",
                           intro: "",
+                          introImage: "",
                           considerations: "",
+                          considerationsImage: "",
                           strategy: "",
+                          strategyImage: "",
                           bestPractices: "",
+                          bestPracticesImage: "",
                           errors: "",
+                          errorsImage: "",
                           conclusion: "",
+                          conclusionImage: "",
                           galleryFiles: [],
+                          targetLanguage: "es",
                         })
                       }}
                     >
@@ -1647,6 +1658,7 @@ export default function AdminPage() {
                           image: "",
                           client: "",
                           searchVolume: "",
+                          autoSearchVolume: false,
                           websiteLabel: "",
                           websiteUrl: "",
                           galleryUrls: "",
@@ -1737,7 +1749,7 @@ export default function AdminPage() {
                       <div key={item.id} className="rounded-xl border border-white/10 p-4 bg-slate-950/60">
                         <div className="flex items-center gap-4">
                           {item.image && (
-                            <img src={item.image} alt={item.name} className="h-10 w-10 rounded-full object-cover" />
+                            <Image src={item.image} alt={item.name} width={40} height={40} className="rounded-full object-cover" />
                           )}
                           <div>
                             <p className="text-base font-semibold text-white">{item.name}</p>
@@ -1802,9 +1814,15 @@ export default function AdminPage() {
                     className="bg-slate-950 border-white/10 text-white placeholder:text-white/40"
                   />
                   <Input
-                    placeholder="Rol / Empresa"
+                    placeholder="Rol / Puesto"
                     value={testimonialForm.role}
                     onChange={(event) => setTestimonialForm((prev) => ({ ...prev, role: event.target.value }))}
+                    className="bg-slate-950 border-white/10 text-white placeholder:text-white/40"
+                  />
+                  <Input
+                    placeholder="Empresa"
+                    value={testimonialForm.company}
+                    onChange={(event) => setTestimonialForm((prev) => ({ ...prev, company: event.target.value }))}
                     className="bg-slate-950 border-white/10 text-white placeholder:text-white/40"
                   />
                   <select
@@ -1821,7 +1839,7 @@ export default function AdminPage() {
                   </select>
                   <select
                     value={testimonialForm.category}
-                    onChange={(event) => setTestimonialForm((prev) => ({ ...prev, category: event.target.value }))}
+                    onChange={(event) => setTestimonialForm((prev) => ({ ...prev, category: event.target.value as Testimonial["category"] }))}
                     className="h-12 rounded-md border border-white/10 bg-slate-950 px-3 text-sm text-white"
                   >
                     <option value="">Seleccionar categoría</option>
@@ -1865,10 +1883,11 @@ export default function AdminPage() {
                         setTestimonialForm({
                           name: "",
                           role: "",
+                          company: "",
                           content: "",
                           image: "",
                           projectId: "",
-                          category: "",
+                          category: "diseno-web",
                           language: "es",
                         })
                         setActiveSection("testimonials-list")

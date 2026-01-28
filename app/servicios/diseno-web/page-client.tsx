@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+
 import { useState, useEffect, useMemo, createRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Check, ChevronLeft, ChevronRight, Plus, Minus, ArrowRight, ShieldCheck, Headset, Megaphone } from "lucide-react"
@@ -38,6 +39,15 @@ const servicesIncluded = [
   { title: "Google Analytics", description: "Conecto tu nueva web con Google Analytics para que puedas ver cuántas personas la visitan, desde dónde llegan y qué páginas les interesan más." },
   { title: "Capacitación", description: "Te enseñamos cómo añadir, modificar y eliminar el contenido de la web de una forma muy sencilla gracias al gestor de contenidos o panel de administración." },
   { title: "Soporte técnico", description: "Incluido durante un mes. Una vez esté la web acabada, tendrás incluido durante un mes las actualizaciones y soporte para tener tu web lo más protegida posible." },
+]
+
+const technologies = [
+  { name: "React", image: "https://cdn.simpleicons.org/react/000000" },
+  { name: "Next.js", image: "https://cdn.simpleicons.org/nextdotjs/000000" },
+  { name: "WordPress", image: "https://cdn.simpleicons.org/wordpress/000000" },
+  { name: "TypeScript", image: "https://cdn.simpleicons.org/typescript/000000" },
+  { name: "Tailwind CSS", image: "https://cdn.simpleicons.org/tailwindcss/000000" },
+  { name: "Figma", image: "https://cdn.simpleicons.org/figma/000000" },
 ]
 
 const processSteps = [
@@ -268,6 +278,27 @@ const DisenoWebClient = ({ projects, testimonials }: DisenoWebClientProps) => {
             ))}
           </div>
 
+          {/* Technologies */}
+          <div className="mt-16 pt-16 border-t border-black/20">
+            <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Tecnologías</p>
+            <div className="flex flex-wrap justify-center gap-8">
+              {technologies.map((tech) => (
+                <div key={tech.name} className="flex flex-col items-center gap-3 group">
+                  <div className="w-16 h-16 bg-white/50 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 shadow-sm">
+                    <Image 
+                      src={tech.image} 
+                      alt={tech.name} 
+                      width={32} 
+                      height={32} 
+                      className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                  <span className="text-sm text-black font-medium">{tech.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-16 text-center">
             <h3 className="text-2xl sm:text-3xl font-bold text-black">Consúltanos <span className="font-normal">sin compromiso</span></h3>
             <p className="mt-2 text-black/70 max-w-xl mx-auto">
@@ -494,8 +525,9 @@ const DisenoWebClient = ({ projects, testimonials }: DisenoWebClientProps) => {
 
           <div className="grid gap-8 md:grid-cols-3">
             {complementos.map((comp, index) => (
-              <div
+              <Link
                 key={index}
+                href={comp.href}
                 className="group flex h-full flex-col rounded-2xl border border-black/0 bg-white/20 p-8 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-black/60 hover:bg-white/30"
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-black/10 text-black">
@@ -511,11 +543,11 @@ const DisenoWebClient = ({ projects, testimonials }: DisenoWebClientProps) => {
                     </li>
                   ))}
                 </ul>
-                <Link href={comp.href} className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
+                <div className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
                   <span className="underline-offset-4 group-hover:underline">Más info</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect, useMemo, createRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Check, ChevronLeft, ChevronRight, Plus, Minus, ArrowRight, ShieldCheck, Headset, Megaphone } from "lucide-react"
@@ -29,7 +30,7 @@ const marqueeItems = [
 ]
 
 const servicesIncluded = [
-  { title: "Hosting + domain", description: "Hiring web hosting and domain registration. We take care of hiring the hosting that best fits your website's needs, as well as the domain search and registration." },
+  { title: "Hosting + domain", description: "Hiring web hosting and domain registration. We take care of hiring the hosting that best fits your website&apos;s needs, as well as the domain search and registration." },
   { title: "Corporate email", description: "Creation of company emails. Creation and configuration of company emails so you can start using them from day one." },
   { title: "Professional web development", description: "No templates or pre-made themes. We create the development from scratch with Next.js, React or WordPress so your website is totally personalized and adapted to your business needs." },
   { title: "Web security", description: "Installation of the best tools so the web is protected from possible hacks. Backups, SSL certificate, anti-malware protection." },
@@ -41,6 +42,15 @@ const servicesIncluded = [
   { title: "Google Analytics", description: "I connect your new website with Google Analytics so you can see how many people visit it, where they come from and what pages interest them most." },
   { title: "Training", description: "We teach you how to add, modify and delete web content in a very simple way thanks to the content manager or administration panel." },
   { title: "Technical support", description: "Included for one month. Once the web is finished, you will have updates and support included for one month to have your web as protected as possible." },
+]
+
+const technologies = [
+  { name: "React", image: "https://cdn.simpleicons.org/react/000000" },
+  { name: "Next.js", image: "https://cdn.simpleicons.org/nextdotjs/000000" },
+  { name: "WordPress", image: "https://cdn.simpleicons.org/wordpress/000000" },
+  { name: "TypeScript", image: "https://cdn.simpleicons.org/typescript/000000" },
+  { name: "Tailwind CSS", image: "https://cdn.simpleicons.org/tailwindcss/000000" },
+  { name: "Figma", image: "https://cdn.simpleicons.org/figma/000000" },
 ]
 
 const processSteps = [
@@ -194,7 +204,7 @@ const DisenoWebClient = ({ testimonials }: WebDesignClientProps) => {
               
               <div className="flex flex-wrap items-center gap-4 pt-4">
                 <Button asChild size="lg" className="bg-[#00DEC7] text-black hover:bg-[#00DEC7]/90 rounded-full px-8 font-semibold">
-                  <Link href="/en/contact">Let's talk?</Link>
+                  <Link href="/en/contact">Let&apos;s talk?</Link>
                 </Button>
                 
                 <div className="flex items-center gap-2 bg-white rounded-lg px-4 py-2">
@@ -268,6 +278,27 @@ const DisenoWebClient = ({ testimonials }: WebDesignClientProps) => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Technologies */}
+          <div className="mt-16 pt-16 border-t border-black/20">
+            <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Technologies</p>
+            <div className="flex flex-wrap justify-center gap-8">
+              {technologies.map((tech) => (
+                <div key={tech.name} className="flex flex-col items-center gap-3 group">
+                  <div className="w-16 h-16 bg-white/50 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 shadow-sm">
+                    <Image 
+                      src={tech.image} 
+                      alt={tech.name} 
+                      width={32} 
+                      height={32} 
+                      className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                  <span className="text-sm text-black font-medium">{tech.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-16 text-center">
@@ -523,8 +554,9 @@ const DisenoWebClient = ({ testimonials }: WebDesignClientProps) => {
 
           <div className="grid gap-8 md:grid-cols-3">
             {complementos.map((comp, index) => (
-              <div
+              <Link
                 key={index}
+                href={comp.href}
                 className="group flex h-full flex-col rounded-2xl border border-black/0 bg-white/20 p-8 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-black/60 hover:bg-white/30"
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-black/10 text-black">
@@ -540,11 +572,11 @@ const DisenoWebClient = ({ testimonials }: WebDesignClientProps) => {
                     </li>
                   ))}
                 </ul>
-                <Link href={comp.href} className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
+                <div className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
                   <span className="underline-offset-4 group-hover:underline">More info</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

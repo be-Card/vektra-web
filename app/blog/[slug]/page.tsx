@@ -30,7 +30,7 @@ const buildHeadingId = (value: string, index: number) =>
 
 const renderParagraph = (paragraph: string) => {
   const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g
-  const parts: Array<string | JSX.Element> = []
+  const parts: Array<string | React.ReactNode> = []
   let lastIndex = 0
   let match: RegExpExecArray | null
   let linkIndex = 0

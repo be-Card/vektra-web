@@ -94,7 +94,7 @@ export default function AboutUs() {
               </div>
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <p className="text-gray-600 leading-relaxed">
-                  Martin is the strategic brain behind Vektra's digital marketing campaigns. With his degree in Digital Marketing and years of experience managing advertising on <strong>Google Ads, Meta Ads, and TikTok Ads</strong>, he has helped dozens of companies <strong>worldwide</strong> increase their online sales.
+                  Martin is the strategic brain behind Vektra&apos;s digital marketing campaigns. With his degree in Digital Marketing and years of experience managing advertising on <strong>Google Ads, Meta Ads, and TikTok Ads</strong>, he has helped dozens of companies <strong>worldwide</strong> increase their online sales.
                 </p>
                 <p className="text-gray-600 leading-relaxed mt-4">
                   Additionally, he is part of the team of experts in <strong>web design with WordPress, WooCommerce, Tiendanube, and Shopify</strong>, creating online stores optimized for conversion and search engine positioning. His deep knowledge of the Google ecosystem (Analytics, Search Console, Tag Manager, My Business) allows offering comprehensive digital marketing strategies.
@@ -163,7 +163,7 @@ export default function AboutUs() {
               We are <span className="text-[#00DEC7]">Vektra</span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              At Vektra, we merge <strong>high-level software engineering</strong> with <strong>digital marketing strategies</strong>, creating visual narratives and technological products that drive your brand's success. We are two brothers passionate about technology and entrepreneurship, committed to helping companies <strong>worldwide</strong> grow in the digital world.
+              At Vektra, we merge <strong>high-level software engineering</strong> with <strong>digital marketing strategies</strong>, creating visual narratives and technological products that drive your brand&apos;s success. We are two brothers passionate about technology and entrepreneurship, committed to helping companies <strong>worldwide</strong> grow in the digital world.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 text-gray-500">
@@ -200,14 +200,14 @@ export default function AboutUs() {
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-black">
-                It's time to<br />
+                It&apos;s time to<br />
                 <span className="text-[#00DEC7]">Go Global</span>
               </h2>
               <p className="mt-6 text-gray-600 leading-relaxed">
                 We live in a hyper-connected world where digital presence is key to business success. E-commerce and digital services are experiencing exponential growth globally.
               </p>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                It is the perfect time to digitize your business and reach thousands of potential clients around the world. Don't limit your growth; expand your horizons with a solid digital strategy.
+                It is the perfect time to digitize your business and reach thousands of potential clients around the world. Don&apos;t limit your growth; expand your horizons with a solid digital strategy.
               </p>
               <p className="mt-4 text-gray-600 leading-relaxed italic">
                 &ldquo;We face each project with great enthusiasm and desire to demonstrate our professionalism, with attractive and effective work so that you as a client obtain <strong className="text-black">more contacts, more sales, and achieve your goals</strong>.&rdquo;

@@ -517,7 +517,7 @@ export default function ContactClient({ testimonials }: { testimonials: Testimon
           {/* CTA after FAQs */}
           <div className="mt-12 text-center">
             <p className="text-gray-600 mb-4">
-              Can't find what you're looking for?{" "}
+              Can&apos;t find what you&apos;re looking for?{" "}
               <span className="font-semibold text-black">Contact us</span>
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

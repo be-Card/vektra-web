@@ -2,9 +2,8 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Check, ChevronLeft, ChevronRight, Plus, Minus, Bot, MessageSquare, Zap, Brain, Cpu, Workflow, Monitor, TrendingUp, ArrowRight } from "lucide-react"
+import { Check, Plus, Minus, Workflow, Zap, Link2, Bot, Clock, TrendingUp, Monitor, ArrowRight } from "lucide-react"
 
 import { pushToDataLayer } from "@/lib/gtm"
 import { LatestWorks } from "@/components/sections/latest-works"
@@ -14,61 +13,59 @@ import { Testimonial } from "@/app/testimonials/data"
 
 // Marquee items for scrolling text
 const marqueeItems = [
-  { text: "Agentes de IA personalizados", highlight: true },
-  { text: "automatiza tareas repetitivas y ahorra tiempo" },
-  { text: "Chatbots para WhatsApp", highlight: true },
-  { text: "atención al cliente 24/7 sin intervención humana" },
-  { text: "Integración con ChatGPT", highlight: true },
-  { text: "respuestas inteligentes basadas en tu negocio" },
-  { text: "Automatización de procesos", highlight: true },
-  { text: "conecta tus herramientas y optimiza flujos de trabajo" },
-  { text: "Asistentes virtuales", highlight: true },
-  { text: "que aprenden y mejoran con cada interacción" },
-  { text: "APIs e integraciones", highlight: true },
-  { text: "conectamos tu bot con cualquier plataforma" },
+  { text: "Process Automation", highlight: true },
+  { text: "save time and money" },
+  { text: "System Integration", highlight: true },
+  { text: "everything connected effortlessly" },
+  { text: "Intelligent Workflows", highlight: true },
+  { text: "automatic work 24/7" },
+  { text: "Less Human Errors", highlight: true },
+  { text: "more reliable processes" },
+  { text: "Zapier and Make", highlight: true },
+  { text: "more than 5000 integrations" },
 ]
 
-// Services included in AI development
+// Services included in automation
 const servicesIncluded = [
   {
-    title: "Chatbots para WhatsApp Business",
-    description: "Desarrollo de chatbots inteligentes para WhatsApp que responden consultas, toman pedidos, agendan citas y brindan soporte 24/7. Integración con la API oficial de WhatsApp Business.",
+    title: "Automated workflow design",
+    description: "We analyze your current processes, identify repetitive tasks, and design automated workflows that optimize your operation.",
   },
   {
-    title: "Agentes con ChatGPT/OpenAI",
-    description: "Creación de agentes de IA personalizados usando GPT-4 y otros modelos de lenguaje. Entrenados con la información de tu negocio para dar respuestas precisas y contextuales.",
+    title: "System and application integration",
+    description: "We connect all your tools: CRM, ERP, email, invoicing, e-commerce, spreadsheets, and more than 5000 available apps.",
   },
   {
-    title: "Chatbots para sitios web",
-    description: "Asistentes virtuales embebidos en tu página web que guían a los visitantes, responden preguntas frecuentes y capturan leads automáticamente.",
+    title: "Email marketing automation",
+    description: "Automatic email sequences, lead tracking, scheduled newsletters, and campaigns based on user behavior.",
   },
   {
-    title: "Automatización de procesos",
-    description: "Conexión de tus herramientas y sistemas mediante APIs. Automatizamos tareas repetitivas como envío de emails, actualización de bases de datos y generación de reportes.",
+    title: "Data synchronization between systems",
+    description: "We keep your databases automatically synchronized. When you update something in one system, it reflects in all others.",
   },
   {
-    title: "Integración con CRM y herramientas",
-    description: "Conectamos tu bot con HubSpot, Salesforce, Google Sheets, Notion, Trello, Slack y más. Toda la información sincronizada automáticamente.",
+    title: "Automatic report generation",
+    description: "Daily, weekly, or monthly reports generated and sent automatically with the data you need for decision making.",
   },
   {
-    title: "Entrenamiento personalizado",
-    description: "Entrenamos al agente con tu base de conocimiento, FAQs, catálogos de productos y procedimientos internos para que responda como un equipo experto en tu negocio.",
+    title: "Form and lead processing",
+    description: "Leads from your website automatically go to your CRM, receive a welcome email, and are assigned to the corresponding salesperson.",
   },
   {
-    title: "Panel de administración",
-    description: "Dashboard para monitorear conversaciones, analizar métricas, ver estadísticas de uso y ajustar respuestas del bot sin necesidad de conocimientos técnicos.",
+    title: "Invoicing automation",
+    description: "Automatic invoice generation, sending to clients, payment tracking, and due date reminders.",
   },
   {
-    title: "Multilenguaje",
-    description: "Bots que pueden comunicarse en español, inglés, portugués y otros idiomas. Ideal para negocios con clientes en Argentina, Paraguay y otros países.",
+    title: "Intelligent notifications and alerts",
+    description: "Alerts via WhatsApp, Slack, email, or SMS when important events occur: sales, errors, low stock, etc.",
   },
   {
-    title: "Escalamiento humano",
-    description: "Configuración de derivación automática a agentes humanos cuando el bot detecta consultas complejas o el cliente lo solicita.",
+    title: "Bots and assistants for repetitive tasks",
+    description: "We create bots that process data, update spreadsheets, send messages, and execute tasks that previously required manual work.",
   },
   {
-    title: "Soporte y mantenimiento",
-    description: "Soporte técnico continuo, actualizaciones del modelo de IA, mejoras basadas en feedback y monitoreo del rendimiento del bot.",
+    title: "Monitoring and continuous optimization",
+    description: "We monitor your automations 24/7, detect errors, and continuously optimize to improve efficiency.",
   },
 ]
 
@@ -76,148 +73,108 @@ const servicesIncluded = [
 const processSteps = [
   {
     step: "01",
-    title: "Análisis",
-    subtitle: "de necesidades",
-    description: "Evaluamos tu negocio, identificamos procesos automatizables y definimos los objetivos del agente de IA.",
-    highlight: "Mapeamos flujos de conversación y casos de uso.",
+    title: "Audit",
+    subtitle: "of processes",
+    description: "We analyze your current processes, identify repetitive tasks, and calculate the time you could save with automation.",
+    highlight: "We map improvement opportunities.",
   },
   {
     step: "02",
-    title: "Diseño y",
-    subtitle: "entrenamiento",
-    description: "Diseñamos la personalidad del bot, creamos los flujos de conversación y entrenamos el modelo con tu información.",
+    title: "Design",
+    subtitle: "of the workflow",
+    description: "We design the automated workflows, define connections between systems, and plan the implementation.",
     highlight: null,
   },
   {
     step: "03",
-    title: "Desarrollo e",
-    subtitle: "integración",
-    description: "Programamos el agente, lo conectamos con tus sistemas (WhatsApp, web, CRM) y realizamos pruebas exhaustivas.",
+    title: "Implementation",
+    subtitle: "and testing",
+    description: "We configure the automations in Make, Zapier, or custom development. We test exhaustively before going to production.",
     highlight: null,
   },
   {
     step: "04",
-    title: "Lanzamiento",
-    subtitle: "y optimización",
-    description: "Publicamos el bot en producción y monitoreamos su rendimiento.",
-    highlight: "Optimizamos continuamente basados en datos reales.",
+    title: "Launch",
+    subtitle: "and monitoring",
+    description: "We activate the automations and monitor their operation.",
+    highlight: "We optimize continuously based on data.",
   },
 ]
-
-
 
 // Stats for trajectory section
 const stats = [
-  { value: 50, prefix: "+", suffix: "", label: "Bots desarrollados" },
-  { value: 1, prefix: "", suffix: "M+", label: "Mensajes procesados" },
-  { value: 98, prefix: "", suffix: "%", label: "Tasa de resolución" },
-  { value: 24, prefix: "", suffix: "/7", label: "Disponibilidad" },
+  { value: 200, prefix: "+", suffix: "", label: "Automated processes" },
+  { value: 85, prefix: "", suffix: "%", label: "Time savings" },
+  { value: 50, prefix: "+", suffix: "", label: "Satisfied clients" },
+  { value: 5000, prefix: "+", suffix: "", label: "Available integrations" },
 ]
 
-// Testimonials specific to AI/Bots
-const testimonials = [
-  {
-    name: "Patagonia Construcciones",
-    company: "Patagonia Construcciones",
-    text: "El chatbot de WhatsApp nos cambió el negocio. Antes perdíamos muchas consultas fuera de horario, ahora el bot responde al instante y hasta toma pedidos. Las ventas aumentaron un 40%.",
-    rating: 5,
-    logo: "/logos-clients/logo constructora.png"
-  },
-  {
-    name: "Spa Clinic FSC",
-    company: "Spa Clinic FSC",
-    text: "El bot de turnos es increíble. Los pacientes pueden agendar citas a cualquier hora y nosotros recibimos todo organizado. Ahorramos horas de trabajo administrativo cada semana.",
-    rating: 5,
-    logo: "/logos-clients/logo vitality.png"
-  },
-  {
-    name: "Uniplaza",
-    company: "Uniplaza Shopping",
-    text: "El agente de IA conoce todas nuestras propiedades y responde consultas como si fuera nuestro mejor vendedor. Filtra los leads y solo nos pasa los interesados reales.",
-    rating: 5,
-  },
-  {
-    name: "Aura Image",
-    company: "Aura Image",
-    text: "Implementamos el bot en nuestra tienda y el soporte al cliente mejoró muchísimo. Responde sobre talles, envíos, cambios... todo automático. Nuestros clientes están muy contentos.",
-    rating: 5,
-    logo: "/logos-clients/logo auraimage.png"
-  },
-  {
-    name: "Agua Viva",
-    company: "Agua Viva",
-    text: "El asistente virtual nos ayuda a filtrar consultas y derivar cada caso al abogado especialista. Ahorramos tiempo y los clientes reciben respuestas inmediatas.",
-    rating: 5,
-    logo: "/logos-clients/agua viva logo.png"
-  },
-]
-
-// FAQs for AI/Bots service
+// FAQs for automation service
 const faqs = [
-  { question: "¿Qué es un agente de IA y cómo puede ayudar a mi negocio?", answer: "Un agente de IA es un programa inteligente que puede mantener conversaciones, responder preguntas y ejecutar tareas de forma autónoma. Puede atender clientes 24/7, tomar pedidos, agendar citas, resolver dudas frecuentes y más, liberando tiempo de tu equipo para tareas más importantes." },
-  { question: "¿Cuál es la diferencia entre un chatbot tradicional y uno con IA?", answer: "Un chatbot tradicional funciona con reglas fijas y solo responde a palabras clave específicas. Un chatbot con IA (como los que usamos con ChatGPT) entiende el contexto, interpreta diferentes formas de preguntar lo mismo y da respuestas naturales y personalizadas, como si fuera una persona." },
-  { question: "¿Pueden hacer un bot para WhatsApp Business?", answer: "Sí, desarrollamos chatbots para WhatsApp Business usando la API oficial de Meta. El bot puede responder mensajes automáticamente, enviar catálogos, procesar pedidos, agendar citas y más. Funciona tanto en Argentina como en Paraguay y cualquier país." },
-  { question: "¿Cuánto tiempo tarda en estar listo un chatbot?", answer: "Depende de la complejidad. Un bot básico para WhatsApp con respuestas a preguntas frecuentes puede estar listo en 1-2 semanas. Un agente de IA completo con integraciones a CRM, base de datos de productos y flujos complejos puede tardar 3-4 semanas." },
-  { question: "¿Puedo entrenar al bot con información de mi negocio?", answer: "Absolutamente. Entrenamos al agente con tu base de conocimiento: productos, servicios, precios, políticas, FAQs, procedimientos internos. El bot responderá como un equipo experto en tu negocio, con la información que vos le proporciones." },
-  { question: "¿El bot puede integrarse con mis sistemas actuales?", answer: "Sí, integramos con la mayoría de herramientas: Google Sheets, HubSpot, Salesforce, Notion, Trello, Slack, sistemas de facturación, ERPs y más. Si tu sistema tiene API, podemos conectarlo." },
-  { question: "¿Qué pasa si el bot no puede resolver una consulta?", answer: "Configuramos escalamiento automático a agentes humanos. El bot detecta cuando una consulta es muy compleja o cuando el cliente lo solicita, y deriva la conversación a tu equipo con todo el contexto de lo hablado." },
-  { question: "¿Cuánto cuesta mantener un bot funcionando?", answer: "El costo depende del volumen de mensajes y las integraciones. Usamos modelos de precios transparentes: un costo inicial de desarrollo y luego un mantenimiento mensual que incluye hosting, actualizaciones y soporte. Te damos un presupuesto personalizado." },
-  { question: "¿El bot funciona en varios idiomas?", answer: "Sí, nuestros bots pueden comunicarse en español, inglés, portugués y otros idiomas. Es ideal si tenés clientes en Argentina, Paraguay, Brasil u otros países de la región." },
-  { question: "¿Trabajan con empresas de Argentina y Paraguay?", answer: "Sí, trabajamos principalmente con empresas de Argentina y Paraguay. Entendemos el mercado local, los medios de pago (MercadoPago, transferencias), las plataformas de envío y las particularidades de cada país." },
+  { question: "What kind of processes can be automated?", answer: "Almost any repetitive task: email sending, report generation, data synchronization, notifications, invoicing, inventory management, social media posting, form processing, and much more." },
+  { question: "What tools do you use for automation?", answer: "Mainly Make (Integromat), Zapier and n8n for no-code automations. For more complex projects, we develop custom solutions with Python, Node.js and custom APIs." },
+  { question: "How long does it take to implement an automation?", answer: "Simple automations are implemented in 1-2 weeks. More complex projects with multiple integrations can take 4-8 weeks depending on the number of systems to connect." },
+  { question: "Are there additional costs for automation tools?", answer: "Platforms like Make and Zapier have their own plans based on task volume. We advise you on the best option for your needs. Many clients start with free plans." },
+  { question: "What happens if something fails in the automation?", answer: "We configure alerts and monitoring to detect problems immediately. We have contingency plans and support to resolve incidents quickly. Most errors are detected and fixed before they affect your business." },
+  { question: "Can I modify the automations later?", answer: "Yes, automations are flexible and scalable. We train you to make simple changes on your own, and we are available for more complex modifications or new integrations." },
+  { question: "How much can I save with automation?", answer: "It depends on your processes, but on average our clients save between 10-30 hours of manual work per week. Additionally, they reduce human errors and improve response times." },
+  { question: "Can you connect legacy systems or old software?", answer: "In most cases, yes. If the system has any type of API or allows data export/import, we can integrate it. We evaluate each particular case and propose the best solution." },
+  { question: "Do you work with companies in Argentina and Paraguay?", answer: "Yes, we work mainly with companies in Argentina and Paraguay. We understand local tools like MercadoPago, Tienda Nube, AFIP/SET invoicing systems, etc." },
+  { question: "Do you offer post-implementation support?", answer: "Yes, all our plans include a support period. We also offer monthly maintenance plans for continuous monitoring, updates, and new automations." },
 ]
 
 // Complementary services
 const complementaryServices = [
   {
-    title: "Automatización de procesos",
-    subtitle: "Optimiza tu operación",
+    title: "AI Agents",
+    subtitle: "Intelligent chatbots",
     features: [
-      "Conexión de aplicaciones",
-      "Flujos de trabajo automáticos",
-      "Integración con APIs",
-      "Sincronización de datos",
-      "Reportes automáticos",
-      "Notificaciones inteligentes",
+      "WhatsApp Chatbots",
+      "24/7 Virtual Assistants",
+      "ChatGPT Integration",
+      "Automatic Order Taking",
+      "Human Escalation",
+      "Admin Panel",
     ],
-    href: "/servicios/automatizacion",
-    icon: Workflow
+    href: "/en/services/ai-agents",
+    icon: Bot
   },
   {
-    title: "Desarrollo web",
-    subtitle: "Tu presencia digital",
+    title: "Web Development",
+    subtitle: "Your digital presence",
     features: [
       "Landing pages",
-      "Sitios web corporativos",
-      "Dashboards personalizados",
-      "Integración con bots",
-      "Panel de administración",
-      "Diseño responsive",
+      "Corporate sites",
+      "E-commerce",
+      "Dashboards",
+      "Automation integration",
+      "Admin Panel",
     ],
-    href: "/servicios/diseno-web",
+    href: "/en/services/web-design",
     icon: Monitor
   },
   {
-    title: "Marketing digital",
-    subtitle: "Llega a más clientes",
+    title: "Digital Marketing",
+    subtitle: "Automate your marketing",
     features: [
+      "Automatic Email Marketing",
       "Google Ads",
       "Meta Ads",
-      "SEO y posicionamiento",
-      "Email marketing",
-      "Campañas de WhatsApp",
-      "Remarketing",
+      "SEO and Positioning",
+      "Lead Nurturing",
+      "Automated Analytics",
     ],
-    href: "/servicios/marketing-digital",
+    href: "/en/services/digital-marketing",
     icon: TrendingUp
   },
 ]
 
-interface AgentesIAPageClientProps {
+interface AutomationPageClientProps {
   projects: Project[]
   testimonials: Testimonial[]
 }
 
-export default function AgentesIAPageClient({ projects, testimonials }: AgentesIAPageClientProps) {
+export default function AutomationPageClient({ projects, testimonials }: AutomationPageClientProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [isVisible, setIsVisible] = useState(false)
   const statsRef = useRef<HTMLDivElement>(null)
@@ -240,12 +197,11 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here (e.g., call API)
     pushToDataLayer("form_submit", {
-      form_name: "AI Agents Service Form",
-      service: "agentes-ia"
+      form_name: "Automation Service Form",
+      service: "automation"
     })
-    alert("Gracias por tu consulta. Te responderemos pronto.")
+    alert("Thank you for your inquiry. We will respond shortly.")
   }
 
   useEffect(() => {
@@ -271,47 +227,44 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
     }
   }, [isVisible])
 
-  // Auto-advance testimonials removed
-
   return (
     <>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#0a0a0a] via-[#111] to-[#0a0a0a] overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#00DEC7]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 pt-32 pb-20 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="max-w-2xl">
               <p className="text-base sm:text-lg text-[#00DEC7] font-medium mb-4 flex items-center gap-2">
-                <Bot className="h-6 w-6" />
-                Inteligencia Artificial para tu negocio
+                <Workflow className="h-6 w-6" />
+                Process Automation
               </p>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Desarrollo de{" "}
                 <span className="relative inline-block">
-                  <span className="relative z-10">Agentes de IA</span>
+                  <span className="relative z-10">Automate</span>
                   <span className="absolute bottom-1 left-0 w-full h-3 bg-[#00DEC7] -z-0 opacity-60" />
                 </span>
-                {" "}y{" "}
-                <span className="font-extrabold">Chatbots</span>
+                {" "}your business{" "}
+                <span className="font-extrabold">and multiply your time</span>
                 <span className="block text-white/80 text-lg sm:text-xl md:text-2xl font-semibold mt-3">
-                  en Argentina y Paraguay
+                  in Argentina and Paraguay
                 </span>
               </h1>
 
               <p className="mt-6 text-base sm:text-lg text-gray-300 leading-relaxed">
-                Creamos <strong className="text-white">agentes de inteligencia artificial</strong> y{" "}
-                <strong className="text-white">chatbots para WhatsApp</strong> que atienden a tus clientes 24/7,{" "}
-                responden consultas, toman pedidos y automatizan procesos.{" "}
-                <strong className="text-white">Potenciados por ChatGPT y modelos de IA avanzados</strong>.
+                We eliminate <strong className="text-white">repetitive tasks</strong> that steal your time.{" "}
+                <strong className="text-white">We connect your systems</strong>,{" "}
+                <strong className="text-white">automate processes</strong> and free you to{" "}
+                focus on what really matters.
               </p>
 
               <p className="mt-4 text-gray-300">
-                <span className="text-[#00DEC7] font-semibold">Objetivo:</span>{" "}
-                <span className="text-[#00DEC7]">automatizar tu atención al cliente, aumentar ventas y reducir costos operativos</span>{" "}
-                con inteligencia artificial personalizada para tu negocio.
+                <span className="text-[#00DEC7] font-semibold">Goal:</span>{" "}
+                <span className="text-[#00DEC7]">save you hours of manual work every week</span>{" "}
+                with automatic and reliable workflows.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -320,7 +273,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   size="lg"
                   className="bg-[#00DEC7] text-black font-semibold hover:bg-[#00DEC7]/90 rounded-full px-8"
                 >
-                  <Link href="/contacto">Quiero un bot para mi negocio</Link>
+                  <Link href="/en/contact">I want to automate</Link>
                 </Button>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1">
@@ -339,7 +292,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                           </svg>
                         ))}
                       </div>
-                      <span className="text-xs text-gray-400">+45 reseñas</span>
+                      <span className="text-xs text-gray-400">+45 reviews</span>
                     </div>
                   </div>
                 </div>
@@ -353,24 +306,24 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                 <div className="relative bg-gradient-to-br from-[#00DEC7]/20 to-transparent rounded-3xl p-8 border border-[#00DEC7]/30">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
-                      <Bot className="h-10 w-10 text-[#00DEC7] mb-3" />
-                      <p className="text-white font-medium">Chatbots</p>
-                      <p className="text-gray-400 text-sm">WhatsApp & Web</p>
-                    </div>
-                    <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
-                      <Brain className="h-10 w-10 text-[#00DEC7] mb-3" />
-                      <p className="text-white font-medium">ChatGPT</p>
-                      <p className="text-gray-400 text-sm">IA Avanzada</p>
-                    </div>
-                    <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
                       <Workflow className="h-10 w-10 text-[#00DEC7] mb-3" />
-                      <p className="text-white font-medium">Automatización</p>
-                      <p className="text-gray-400 text-sm">Procesos & APIs</p>
+                      <p className="text-white font-medium">Workflows</p>
+                      <p className="text-gray-400 text-sm">Automated</p>
+                    </div>
+                    <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
+                      <Link2 className="h-10 w-10 text-[#00DEC7] mb-3" />
+                      <p className="text-white font-medium">+5000 Apps</p>
+                      <p className="text-gray-400 text-sm">Connected</p>
                     </div>
                     <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
                       <Zap className="h-10 w-10 text-[#00DEC7] mb-3" />
+                      <p className="text-white font-medium">No-code</p>
+                      <p className="text-gray-400 text-sm">Make & Zapier</p>
+                    </div>
+                    <div className="bg-black/50 rounded-2xl p-6 border border-[#00DEC7]/20">
+                      <Clock className="h-10 w-10 text-[#00DEC7] mb-3" />
                       <p className="text-white font-medium">24/7</p>
-                      <p className="text-gray-400 text-sm">Siempre activo</p>
+                      <p className="text-gray-400 text-sm">Running</p>
                     </div>
                   </div>
                 </div>
@@ -403,13 +356,13 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
-              Tu negocio automatizado,<br />
-              tus clientes siempre atendidos
+              Automate everything,<br />
+              focus on growing
             </h2>
             <p className="mt-6 text-black/80 text-lg">
-              Tendras un <strong className="text-black">agente de IA personalizado</strong> que conoce tu negocio,{" "}
-              <strong className="text-black">atiende clientes las 24 horas</strong> y{" "}
-              <strong className="text-black">automatiza tareas repetitivas</strong>. Vos te enfocas en hacer crecer tu negocio.
+              You will have <strong className="text-black">automated processes</strong> that run{" "}
+              <strong className="text-black">24/7 without human intervention</strong>.{" "}
+              Fewer errors, more speed, and free time for what matters.
             </p>
           </div>
 
@@ -429,41 +382,43 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
             ))}
           </div>
 
-          {/* Platforms */}
+          {/* Tools */}
           <div className="mt-16 pt-16 border-t border-black/20">
-            <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Tecnologias que utilizamos</p>
+            <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Tools we use</p>
             <div className="flex flex-wrap justify-center gap-8 items-center">
               <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center">
-                  <svg className="h-10 w-10 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0993 3.8558L12.6 8.3829l2.02-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/>
-                  </svg>
-                </div>
-                <span className="text-black text-sm font-medium">ChatGPT</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-[#25D366] rounded-xl flex items-center justify-center">
-                  <MessageSquare className="h-10 w-10 text-white" />
-                </div>
-                <span className="text-black text-sm font-medium">WhatsApp</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center">
-                  <Cpu className="h-10 w-10 text-white" />
-                </div>
-                <span className="text-black text-sm font-medium">Claude AI</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-[#FF6B35] rounded-xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-[#6366F1] rounded-xl flex items-center justify-center">
                   <Workflow className="h-10 w-10 text-white" />
                 </div>
-                <span className="text-black text-sm font-medium">Make/Zapier</span>
+                <span className="text-black text-sm font-medium">Make</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-[#0066FF] rounded-xl flex items-center justify-center">
-                  <Bot className="h-10 w-10 text-white" />
+                <div className="w-16 h-16 bg-[#FF4F00] rounded-xl flex items-center justify-center">
+                  <Zap className="h-10 w-10 text-white" />
                 </div>
-                <span className="text-black text-sm font-medium">Botpress</span>
+                <span className="text-black text-sm font-medium">Zapier</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-16 h-16 bg-[#EA4B71] rounded-xl flex items-center justify-center">
+                  <Link2 className="h-10 w-10 text-white" />
+                </div>
+                <span className="text-black text-sm font-medium">n8n</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-16 h-16 bg-[#3776AB] rounded-xl flex items-center justify-center">
+                  <svg className="h-10 w-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+                  </svg>
+                </div>
+                <span className="text-black text-sm font-medium">Python</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-16 h-16 bg-[#339933] rounded-xl flex items-center justify-center">
+                  <svg className="h-10 w-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/>
+                  </svg>
+                </div>
+                <span className="text-black text-sm font-medium">Node.js</span>
               </div>
             </div>
           </div>
@@ -471,10 +426,10 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
           {/* CTA */}
           <div className="mt-16 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-black">
-              Consúltanos <span className="font-normal">sin compromiso</span>
+              Consult us <span className="font-normal">without commitment</span>
             </h3>
             <p className="mt-2 text-black/70 max-w-xl mx-auto">
-              Si querés <strong className="text-black">automatizar tu atención al cliente</strong> o crear un bot para tu negocio, contactanos y te asesoramos sobre la mejor solución.
+              If you want to <strong className="text-black">automate your business processes</strong>, contact us and we will show you how we can help.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-black text-white hover:bg-black/90 rounded-full px-8">
@@ -482,16 +437,16 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                  Llámanos
+                  Call us
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white rounded-full px-8 bg-transparent">
-                <Link href="/contacto" className="flex items-center gap-2">
+                <Link href="/en/contact" className="flex items-center gap-2">
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="4" width="18" height="16" rx="2"/>
                     <path d="M3 8l9 6 9-6"/>
                   </svg>
-                  Presupuesto
+                  Get a quote
                 </Link>
               </Button>
             </div>
@@ -499,17 +454,17 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
         </div>
       </section>
 
-      {/* Objetivo Section - Black Background */}
+      {/* Goal Section - Black Background */}
       <section className="relative py-20 lg:py-28 bg-black">
         <div className="absolute top-0 left-0 right-0 h-1 bg-[#00DEC7]" />
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#00DEC7]" />
 
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">Objetivo</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white">Goal</h2>
             <p className="mt-6 text-white/90 text-lg md:text-xl leading-relaxed">
-              <strong className="text-white font-bold">Automatizar y escalar tu negocio</strong>. 4 pasos para crear un agente de IA que{" "}
-              <strong className="text-white font-bold">atienda clientes, cierre ventas y reduzca costos</strong>.
+              <strong className="text-white font-bold">Automate and optimize your business</strong>. 4 steps to create{" "}
+              <strong className="text-white font-bold">workflows that run themselves</strong>.
             </p>
           </div>
 
@@ -531,24 +486,23 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
       </section>
 
       {/* Portfolio Section */}
-      <LatestWorks 
-        projects={projects} 
-        title="Últimos Proyectos"
-        subtitle="Agentes de IA y Chatbots"
-        viewAllText="Ver todos los proyectos"
-        viewAllLink="/trabajos?category=agentes-ia"
+      <LatestWorks
+        projects={projects}
+        title="Latest Projects"
+        subtitle="Automation"
+        viewAllText="View all projects"
+        viewAllLink="/en/portfolio?category=automatizacion"
       />
 
-      {/* Trayectoria Section */}
+      {/* Trajectory Section */}
       <section ref={statsRef} className="py-20 lg:py-28 bg-black">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Experiencia en<br />inteligencia artificial
+              Experience in<br />automation
             </h2>
             <p className="mt-4 text-gray-400 text-base lg:text-lg leading-relaxed">
-              Desarrollamos <span className="text-white">agentes de IA y chatbots</span> para empresas de{" "}
-              <span className="text-white">Argentina y Paraguay</span>. Los números reflejan la confianza de nuestros clientes.
+              We automate <span className="text-white">business processes</span> for companies <span className="text-white">worldwide</span>. The numbers reflect our clients' trust.
             </p>
           </div>
 
@@ -566,14 +520,14 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
       </section>
 
       {/* Testimonials Section */}
-      <Testimonials items={testimonials} category="agentes-ia" />
+      <Testimonials items={testimonials} category="automatizacion" />
 
       {/* FAQ Section */}
       <section className="py-20 lg:py-28 bg-black">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Preguntas frecuentes</h2>
-            <p className="mt-2 text-gray-500 uppercase tracking-widest text-sm">Agentes de IA y Chatbots</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Frequently Asked Questions</h2>
+            <p className="mt-2 text-gray-500 uppercase tracking-widest text-sm">Automation</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
@@ -602,10 +556,10 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
           {/* CTA */}
           <div className="mt-16 text-center">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              ¿Tenés alguna otra duda?
+              Do you have any other questions?
             </h3>
             <p className="mt-2 text-gray-400">
-              Contactá con nosotros <span className="text-white font-semibold">sin compromiso</span>
+              Contact us <span className="text-white font-semibold">without commitment</span>
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full px-8">
@@ -613,16 +567,16 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                  Llámanos
+                  Call us
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black rounded-full px-8 bg-transparent">
-                <Link href="/contacto" className="flex items-center gap-2">
+                <Link href="/en/contact" className="flex items-center gap-2">
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="4" width="18" height="16" rx="2"/>
                     <path d="M3 8l9 6 9-6"/>
                   </svg>
-                  Escribinos
+                  Write to us
                 </Link>
               </Button>
             </div>
@@ -639,12 +593,12 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
               <div className="relative w-full max-w-md">
                 <div className="bg-gray-100 rounded-full w-80 h-80 mx-auto flex items-center justify-center">
                   <div className="relative">
-                    <Bot className="h-32 w-32 text-[#00DEC7]" />
+                    <Workflow className="h-32 w-32 text-[#00DEC7]" />
                     <div className="absolute -top-4 -right-4 bg-[#00DEC7] rounded-full p-2">
-                      <MessageSquare className="h-6 w-6 text-black" />
+                      <Zap className="h-6 w-6 text-black" />
                     </div>
                     <div className="absolute -bottom-2 -left-4 bg-black rounded-full p-2">
-                      <Brain className="h-6 w-6 text-white" />
+                      <Link2 className="h-6 w-6 text-white" />
                     </div>
                   </div>
                 </div>
@@ -655,21 +609,21 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
             <div>
               <div className="bg-[#00DEC7] rounded-2xl px-6 py-4 mb-6">
                 <h3 className="text-xl md:text-2xl font-bold text-black text-center">
-                  ¿Listo para automatizar tu negocio?
+                  Ready to automate your business?
                 </h3>
               </div>
 
               <p className="text-center text-gray-600 mb-2">
-                Consúltanos <span className="font-semibold text-black">sin compromiso</span>
+                Consult us <span className="font-semibold text-black">without commitment</span>
               </p>
               <p className="text-center text-gray-600 text-sm mb-8">
-                <a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">Llámanos</a>,
-                escribinos por{" "}
+                <a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">Call us</a>,
+                write to us via{" "}
                 <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">
                   WhatsApp
                 </a>{" "}
-                o envíanos el siguiente formulario y{" "}
-                <span className="font-semibold">te responderemos en menos de 24 horas</span>.
+                or send the form below and{" "}
+                <span className="font-semibold">we will respond in less than 24 hours</span>.
               </p>
 
               <form className="space-y-4" onSubmit={handleSubmit}>
@@ -677,7 +631,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   <div className="relative">
                     <input
                       type="text"
-                      placeholder="Nombre *"
+                      placeholder="Name *"
                       className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DEC7] focus:border-transparent"
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -702,7 +656,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                   <div className="relative">
                     <input
                       type="tel"
-                      placeholder="Teléfono"
+                      placeholder="Phone"
                       className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DEC7] focus:border-transparent"
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -713,7 +667,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
 
                 <div className="relative">
                   <textarea
-                    placeholder="Contame sobre tu proyecto... *"
+                    placeholder="Tell me what processes you want to automate... *"
                     rows={4}
                     className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DEC7] focus:border-transparent resize-none"
                   />
@@ -725,16 +679,16 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                 <div className="flex items-start gap-2">
                   <input type="checkbox" id="privacy" className="mt-1" />
                   <label htmlFor="privacy" className="text-sm text-gray-600">
-                    He leído y acepto la{" "}
-                    <Link href="/politica-de-privacidad" className="underline hover:text-[#00DEC7]">
-                      política de privacidad
+                    I have read and accept the{" "}
+                    <Link href="/en/privacy-policy" className="underline hover:text-[#00DEC7]">
+                      privacy policy
                     </Link>
                   </label>
                 </div>
 
                 <div className="text-center pt-4">
                   <Button type="submit" size="lg" className="bg-[#00DEC7] text-black font-semibold hover:bg-[#00DEC7]/90 rounded-full px-12">
-                    Enviar
+                    Send
                   </Button>
                 </div>
               </form>
@@ -747,8 +701,8 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
       <section className="py-20 lg:py-28 bg-[#00DEC7]">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-black">Complementos</h2>
-            <p className="mt-2 text-black/60 uppercase tracking-widest text-sm">También te puede interesar</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-black">Complements</h2>
+            <p className="mt-2 text-black/60 uppercase tracking-widest text-sm">You might also be interested in</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -774,7 +728,7 @@ export default function AgentesIAPageClient({ projects, testimonials }: AgentesI
                 <div
                   className="mt-auto inline-flex items-center gap-2 text-black font-semibold"
                 >
-                  <span className="underline-offset-4 group-hover:underline">Más info</span>
+                  <span className="underline-offset-4 group-hover:underline">More info</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </Link>

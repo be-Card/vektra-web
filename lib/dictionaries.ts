@@ -10,6 +10,11 @@ export const dictionaries = {
       apps: "Apps Móviles",
       aiAgents: "Agentes y Bots IA",
       marketing: "Marketing Digital",
+      seo: "SEO",
+      automation: "Automatización",
+      uiux: "Diseño UI/UX",
+      maintenance: "Mantenimiento Web",
+      support: "Soporte Técnico",
       work: "Trabajos",
       about: "Sobre Nosotros",
       blog: "Blog",
@@ -378,6 +383,11 @@ export const dictionaries = {
       apps: "Mobile Apps",
       aiAgents: "AI Agents & Bots",
       marketing: "Digital Marketing",
+      seo: "SEO",
+      automation: "Automation",
+      uiux: "UI/UX Design",
+      maintenance: "Web Maintenance",
+      support: "Technical Support",
       work: "Portfolio",
       about: "About Us",
       blog: "Blog",
@@ -598,28 +608,32 @@ export const dictionaries = {
           company: "VoIPer",
           content: "Vektra is a team of great professionals. They work well and fast. At VOIPER we count on them for future projects.",
           rating: 5,
-          avatar: "voiper"
+          avatar: "voiper",
+          logo: ""
         },
         {
           name: "Maria Manuela Vilela",
           company: "FaroGems and Jewels",
           content: "We trusted Vektra for the creation of our online store and we have been delighted with their work. Woocommerce was a good choice. Our products have several options and they advised us to manage this easily. They are very serious and responsible, they respond quickly. 100% recommended.",
           rating: 5,
-          avatar: "FARO"
+          avatar: "FARO",
+          logo: ""
         },
         {
           name: "Jose Carlos Robles",
           company: "Robles de la Cruz",
           content: "I have had the pleasure of working with Vektra for the creation of my website and I cannot be happier with the result. From the beginning they showed great professionalism, understanding perfectly what I needed. The page is elegant, functional and exactly what I wanted. In addition, the treatment was excellent.",
           rating: 5,
-          avatar: "RC"
+          avatar: "RC",
+          logo: ""
         },
         {
           name: "Satisfied Client",
           company: "Najarro Proyectos",
           content: "I couldn't be happier with the website Vektra has designed. They understood perfectly the idea I had in mind and found ways to make it better and more complete. They always answered quickly and met the deadlines. Five out of five stars.",
           rating: 5,
-          avatar: "N"
+          avatar: "N",
+          logo: ""
         }
       ]
     },

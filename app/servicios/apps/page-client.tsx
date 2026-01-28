@@ -55,12 +55,12 @@ const servicesIncluded = [
 ]
 
 const technologies = [
-  { name: "React Native", icon: "RN" },
-  { name: "Flutter", icon: "FL" },
-  { name: "Swift", icon: "SW" },
-  { name: "Kotlin", icon: "KT" },
-  { name: "Firebase", icon: "FB" },
-  { name: "Node.js", icon: "NJ" },
+  { name: "React Native", image: "https://cdn.simpleicons.org/react/000000" },
+  { name: "Flutter", image: "https://cdn.simpleicons.org/flutter/000000" },
+  { name: "Swift", image: "https://cdn.simpleicons.org/swift/000000" },
+  { name: "Kotlin", image: "https://cdn.simpleicons.org/kotlin/000000" },
+  { name: "Firebase", image: "https://cdn.simpleicons.org/firebase/000000" },
+  { name: "Node.js", image: "https://cdn.simpleicons.org/nodedotjs/000000" },
 ]
 
 const processSteps = [
@@ -338,9 +338,15 @@ export default function AppsPageClient({ testimonials }: AppsPageClientProps) {
             <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Tecnologías</p>
             <div className="flex flex-wrap justify-center gap-8">
               {technologies.map((tech) => (
-                <div key={tech.name} className="flex flex-col items-center gap-2">
-                  <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center">
-                    <span className="font-bold text-black text-lg">{tech.icon}</span>
+                <div key={tech.name} className="flex flex-col items-center gap-3 group">
+                  <div className="w-16 h-16 bg-white/50 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 shadow-sm">
+                    <Image 
+                      src={tech.image} 
+                      alt={tech.name} 
+                      width={32} 
+                      height={32} 
+                      className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
                   </div>
                   <span className="text-sm text-black font-medium">{tech.name}</span>
                 </div>
@@ -596,8 +602,9 @@ export default function AppsPageClient({ testimonials }: AppsPageClientProps) {
 
           <div className="grid gap-8 md:grid-cols-3">
             {complementServices.map((service) => (
-              <div
+              <Link
                 key={service.title}
+                href={service.href}
                 className="group flex h-full flex-col rounded-2xl border border-black/0 bg-white/20 p-8 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-black/60 hover:bg-white/30"
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-black/10 text-black">
@@ -613,11 +620,11 @@ export default function AppsPageClient({ testimonials }: AppsPageClientProps) {
                     </li>
                   ))}
                 </ul>
-                <Link href={service.href} className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
+                <div className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
                   <span className="underline-offset-4 group-hover:underline">Más info</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

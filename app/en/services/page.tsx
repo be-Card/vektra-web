@@ -148,7 +148,7 @@ export default function Servicios() {
       <section className="py-20 lg:py-28 bg-accent">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-accent-foreground text-balance">
-            Don't know what service you need?
+            Don&apos;t know what service you need?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-accent-foreground/80 max-w-2xl mx-auto">
             Tell us about your project and we will recommend the best solution.

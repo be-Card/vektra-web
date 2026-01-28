@@ -38,7 +38,7 @@ export default function CookiePolicyPage() {
             
             <h2 className="text-2xl font-bold text-black mb-4">1. What are Cookies</h2>
             <p className="text-gray-700 mb-8">
-              Cookies are small text files that websites store on your device (computer, tablet, mobile phone) when you visit them. These cookies allow the website to remember your actions and preferences (such as language, font size, and other display preferences) over a period of time, so you don't have to keep re-entering them whenever you come back to the site or browse from one page to another.
+              Cookies are small text files that websites store on your device (computer, tablet, mobile phone) when you visit them. These cookies allow the website to remember your actions and preferences (such as language, font size, and other display preferences) over a period of time, so you don&apos;t have to keep re-entering them whenever you come back to the site or browse from one page to another.
             </p>
 
             <h2 className="text-2xl font-bold text-black mb-4">2. Types of Cookies We Use</h2>

@@ -9,7 +9,7 @@ const nextConfig = {
     root: projectRoot,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
     formats: ["image/avif", "image/webp"],

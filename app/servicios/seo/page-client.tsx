@@ -521,10 +521,10 @@ export default function SEOPageClient({ testimonials }: SEOPageClientProps) {
 
       {/* Portfolio Section */}
       <LatestWorks 
-        projects={allProjects.filter(p => p.category === "marketing")} 
+        projects={allProjects.filter(p => p.category === "marketing-digital")} 
         title="Últimos Proyectos SEO" 
         subtitle="POSICIONAMIENTO WEB" 
-        viewAllLink="/trabajos?category=marketing"
+        viewAllLink="/trabajos?category=marketing-digital"
       />
 
       {/* Trayectoria Section */}
@@ -554,6 +554,44 @@ export default function SEOPageClient({ testimonials }: SEOPageClientProps) {
 
       {/* Testimonials Section */}
       <Testimonials items={testimonials} category="seo" />
+
+      {/* Complementos Section */}
+      <section className="py-20 lg:py-28 bg-[#00DEC7]">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-black">Complementos</h2>
+            <p className="mt-2 text-black/60 uppercase tracking-[0.3em] text-sm">TAMBIÉN TE PUEDE INTERESAR</p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            {complementos.map((comp, index) => (
+              <Link
+                key={index}
+                href={comp.href}
+                className="group flex h-full flex-col rounded-2xl border border-black/0 bg-white/20 p-8 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-black/60 hover:bg-white/30"
+              >
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-black/10 text-black">
+                  <comp.icon className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-bold text-black">{comp.title}</h3>
+                <p className="text-black/70 italic mb-4">{comp.subtitle}</p>
+                <ul className="mb-6 space-y-2">
+                  {comp.items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-black/80">
+                      <Check className="h-4 w-4 text-black" strokeWidth={2} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
+                  <span className="underline-offset-4 group-hover:underline">Más info</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-20 lg:py-28 bg-white">

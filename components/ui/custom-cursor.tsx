@@ -92,13 +92,14 @@ export function CustomCursor() {
         }}
       >
         <div
-          className={`rounded-full bg-[#00DEC7] transition-all duration-150 ease-out ${
-            isClicking ? "scale-75" : isPointer ? "scale-150" : "scale-100"
+          className={`rounded-full transition-all duration-200 ease-out ${
+            isClicking ? "scale-90" : "scale-100"
+          } ${
+            isPointer ? "bg-transparent border-2 border-[#00DEC7]" : "bg-[#00DEC7]"
           }`}
           style={{
-            width: isPointer ? 40 : 12,
-            height: isPointer ? 40 : 12,
-            opacity: isPointer ? 0.5 : 1,
+            width: isPointer ? 20 : 12,
+            height: isPointer ? 20 : 12,
           }}
         />
       </div>

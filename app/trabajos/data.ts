@@ -2,7 +2,7 @@
 export type Project = {
   id: number
   title: string
-  category: "diseno-web" | "tienda-online" | "apps" | "marketing-digital" | "seo" | "agentes-ia"
+  category: "diseno-web" | "tienda-online" | "apps" | "marketing-digital" | "seo" | "agentes-ia" | "automatizacion" | "diseno-ui-ux" | "mantenimiento-web" | "soporte-tecnico"
   categoryLabel: string
   date: string
   description: string

@@ -14,20 +14,20 @@ interface AppsPageClientProps {
 
 
 const marqueeItems = [
-  "App Development",
-  "iOS & Android",
-  "React Native",
-  "Flutter",
-  "Global Solutions",
-  "UX/UI Mobile",
-  "App Maintenance",
-  "App Development",
-  "iOS & Android",
-  "React Native",
-  "Flutter",
-  "Global Solutions",
-  "UX/UI Mobile",
-  "App Maintenance",
+  { text: "App Development", highlight: false },
+  { text: "iOS & Android", highlight: false },
+  { text: "React Native", highlight: true },
+  { text: "Flutter", highlight: true },
+  { text: "Global Solutions", highlight: false },
+  { text: "UX/UI Mobile", highlight: false },
+  { text: "App Maintenance", highlight: false },
+  { text: "App Development", highlight: false },
+  { text: "iOS & Android", highlight: false },
+  { text: "React Native", highlight: true },
+  { text: "Flutter", highlight: true },
+  { text: "Global Solutions", highlight: false },
+  { text: "UX/UI Mobile", highlight: false },
+  { text: "App Maintenance", highlight: false },
 ];
 
 const servicesIncluded = [
@@ -74,12 +74,12 @@ const servicesIncluded = [
 ]
 
 const technologies = [
-  { name: "React Native", icon: "RN" },
-  { name: "Flutter", icon: "FL" },
-  { name: "Swift", icon: "SW" },
-  { name: "Kotlin", icon: "KT" },
-  { name: "Firebase", icon: "FB" },
-  { name: "Node.js", icon: "NJ" },
+  { name: "React Native", image: "https://cdn.simpleicons.org/react/000000" },
+  { name: "Flutter", image: "https://cdn.simpleicons.org/flutter/000000" },
+  { name: "Swift", image: "https://cdn.simpleicons.org/swift/000000" },
+  { name: "Kotlin", image: "https://cdn.simpleicons.org/kotlin/000000" },
+  { name: "Firebase", image: "https://cdn.simpleicons.org/firebase/000000" },
+  { name: "Node.js", image: "https://cdn.simpleicons.org/nodedotjs/000000" },
 ]
 
 const processSteps = [
@@ -135,7 +135,7 @@ const faqs = [
   { question: "How much does it cost to develop a mobile app?", answer: "The cost depends on complexity, features, and platforms (Android, iOS, or both). A basic app can start from USD 3,000, while more complex apps with backend, integrations, and admin panel can cost between USD 8,000 and USD 25,000. We give you a detailed quote after analyzing your project." },
   { question: "How long does it take to develop an app?", answer: "A basic app can be ready in 2-3 months. Medium complexity apps take between 4-6 months, and large projects can take 6-12 months. The exact time depends on features, integrations, and feedback during the development process." },
   { question: "Is a native or hybrid app better?", answer: "It depends on your project. Hybrid apps (React Native, Flutter) allow developing for Android and iOS with a single codebase, reducing costs and time. Native apps offer maximum performance for very demanding apps (games, AR/VR). For most projects, we recommend React Native or Flutter." },
-  { question: "What is a PWA and when is it suitable?", answer: "A Progressive Web App is a website that functions like an app: it can be installed, works offline, and sends notifications. It's suitable when you want to reach users without them downloading from stores, or as a first step before investing in native apps. It's more economical and faster to develop." },
+  { question: "What is a PWA and when is it suitable?", answer: "A Progressive Web App is a website that functions like an app: it can be installed, works offline, and sends notifications. It&apos;s suitable when you want to reach users without them downloading from stores, or as a first step before investing in native apps. It&apos;s more economical and faster to develop." },
   { question: "Do you include publication on Google Play and App Store?", answer: "Yes, we handle the entire publication process: developer account creation, asset preparation (icons, screenshots, descriptions), compliance with store policies, and ASO optimization for better visibility. Developer accounts have a one-time cost (Google Play USD 25, Apple USD 99/year)." },
   { question: "Can I update my app content without knowing how to code?", answer: "Yes, we develop a web administration panel where you can manage users, content, products, notifications, and view statistics. All without touching code. Content updates are automatically reflected in the app." },
   { question: "What happens if I need changes after launch?", answer: "We offer monthly maintenance plans that include security updates, compatibility with new Android/iOS versions, small adjustments, and technical support. For large new features, we quote separately." },
@@ -250,7 +250,7 @@ export default function AppsPageClient({ testimonials }: AppsPageClientProps) {
 
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Button asChild size="lg" className="bg-[#00DEC7] text-black hover:bg-[#00DEC7]/90 rounded-full px-8 font-semibold">
-                  <Link href="/en/contact">Let's talk about your app</Link>
+                  <Link href="/en/contact">Let&apos;s talk about your app</Link>
                 </Button>
 
                 <div className="flex items-center gap-3 bg-white rounded-full px-4 py-2">
@@ -356,9 +356,15 @@ export default function AppsPageClient({ testimonials }: AppsPageClientProps) {
             <p className="text-center text-black/60 uppercase tracking-widest text-sm mb-8">Technologies</p>
             <div className="flex flex-wrap justify-center gap-8">
               {technologies.map((tech) => (
-                <div key={tech.name} className="flex flex-col items-center gap-2">
-                  <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center">
-                    <span className="font-bold text-black text-lg">{tech.icon}</span>
+                <div key={tech.name} className="flex flex-col items-center gap-3 group">
+                  <div className="w-16 h-16 bg-white/50 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 shadow-sm">
+                    <Image 
+                      src={tech.image} 
+                      alt={tech.name} 
+                      width={32} 
+                      height={32} 
+                      className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
                   </div>
                   <span className="text-sm text-black font-medium">{tech.name}</span>
                 </div>
@@ -643,8 +649,9 @@ export default function AppsPageClient({ testimonials }: AppsPageClientProps) {
 
           <div className="grid gap-8 md:grid-cols-3">
             {complementServices.map((service) => (
-              <div
+              <Link
                 key={service.title}
+                href={service.href}
                 className="group flex h-full flex-col rounded-2xl border border-black/0 bg-white/20 p-8 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-black/60 hover:bg-white/30"
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-black/10 text-black">
@@ -660,11 +667,11 @@ export default function AppsPageClient({ testimonials }: AppsPageClientProps) {
                     </li>
                   ))}
                 </ul>
-                <Link href={service.href} className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
+                <div className="mt-auto inline-flex items-center gap-2 text-black font-semibold">
                   <span className="underline-offset-4 group-hover:underline">More info</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

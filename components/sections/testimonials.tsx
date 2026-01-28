@@ -14,6 +14,7 @@ interface TestimonialItem {
   avatarImage?: string
   name: string
   company: string
+  role?: string
   logo?: string
 }
 
@@ -193,10 +194,12 @@ export function Testimonials({ dict, items, category, title, subtitle }: Testimo
                 <div className="flex items-center justify-between pt-2 border-t border-gray-100">
                   <div className="flex items-center gap-3">
                     {testimonial.avatarImage ? (
-                      <img
+                      <Image
                         src={testimonial.avatarImage}
                         alt={testimonial.name}
-                        className="w-10 h-10 rounded-full object-cover shrink-0 ring-2 ring-transparent group-hover:ring-[#00DEC7] transition-all duration-300"
+                        width={40}
+                        height={40}
+                        className="rounded-full object-cover shrink-0 ring-2 ring-transparent group-hover:ring-[#00DEC7] transition-all duration-300"
                       />
                     ) : (
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00DEC7] to-[#00b8a5] flex items-center justify-center text-xs font-bold text-white shrink-0 group-hover:scale-110 transition-transform duration-300">

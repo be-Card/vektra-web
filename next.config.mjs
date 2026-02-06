@@ -22,6 +22,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "commons.wikimedia.org",
       },
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+      },
     ],
   },
   webpack: (config, { dev }) => {

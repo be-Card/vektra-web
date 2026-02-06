@@ -65,7 +65,7 @@ export default function TrabajoDetalle() {
     .filter((item: { category: string; slug: string }) => item.category === project.category && item.slug !== project.slug)
     .slice(0, 4)
 
-  const galleryImages = project.gallery ?? [project.image]
+  const galleryImages = project.gallery?.length ? project.gallery : []
   const clientName = project.client ?? project.title
   const websiteLabel = project.website?.label ?? `${project.slug}.com`
   const websiteUrl = project.website?.url ?? `https://${project.slug}.com`
@@ -99,6 +99,7 @@ export default function TrabajoDetalle() {
               src={project.image}
               alt={project.title}
               fill
+              sizes="(max-width: 1024px) 100vw, 960px"
               className="object-cover"
               priority
             />
@@ -133,17 +134,19 @@ export default function TrabajoDetalle() {
         </div>
       </section>
 
-      <section className="py-12 lg:py-16 bg-gray-50">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-black">Imagenes del proyecto</h2>
-            <p className="mt-2 text-gray-500 uppercase tracking-[0.3em] text-sm">
-              Vista general del trabajo
-            </p>
+      {galleryImages.length > 0 && (
+        <section className="py-12 lg:py-16 bg-gray-50">
+          <div className="mx-auto max-w-6xl px-4 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-black">Imagenes del proyecto</h2>
+              <p className="mt-2 text-gray-500 uppercase tracking-[0.3em] text-sm">
+                Vista general del trabajo
+              </p>
+            </div>
+            <GalleryLightbox images={galleryImages} title={project.title} />
           </div>
-          <GalleryLightbox images={galleryImages} title={project.title} />
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="py-12 lg:py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -161,7 +164,7 @@ export default function TrabajoDetalle() {
                 className="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
               >
                 <div className="relative aspect-[4/3] bg-gray-100">
-                  <Image src={item.image} alt={item.title} fill className="object-cover" />
+                  <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
                 </div>
                 <div className="p-5">
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-500">{item.categoryLabel}</p>

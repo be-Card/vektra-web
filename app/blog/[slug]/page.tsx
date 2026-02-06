@@ -352,6 +352,17 @@ export default async function BlogDetailPage({
                       ))}
                     </ul>
                   ) : null}
+                  {section.image ? (
+                    <div className="overflow-hidden rounded-2xl border border-gray-100 bg-gray-100">
+                      <Image
+                        src={section.image}
+                        alt={section.heading}
+                        width={800}
+                        height={450}
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
+                  ) : null}
                 </div>
               ))}
               <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6">

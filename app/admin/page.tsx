@@ -257,6 +257,7 @@ export default function AdminPage() {
   }, [])
 
   const [authError, setAuthError] = useState("")
+  const [uploadFeedback, setUploadFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null)
   const [activeSection, setActiveSection] = useState<SectionKey>("overview")
   const { language } = useLanguage()
   const blogLanguage = language as "es" | "en"
@@ -452,19 +453,39 @@ export default function AdminPage() {
 
   const uploadImages = async (files: File[]) => {
     if (!files.length) return []
-    const formData = new FormData()
-    files.forEach((file) => formData.append("files", file))
-    try {
-      const response = await fetch("/api/admin/uploads", {
-        method: "POST",
-        body: formData,
-      })
-      if (!response.ok) return []
-      const data = (await response.json()) as { urls?: string[] }
-      return Array.isArray(data?.urls) ? data.urls : []
-    } catch {
-      return []
+    setUploadFeedback(null)
+    const collected: string[] = []
+    const allErrors: string[] = []
+    for (const file of files) {
+      const formData = new FormData()
+      formData.append("files", file)
+      try {
+        const response = await fetch("/api/admin/uploads", {
+          method: "POST",
+          body: formData,
+        })
+        const data = (await response.json()) as { urls?: string[]; errors?: string[]; error?: string }
+        if (!response.ok) {
+          allErrors.push(data?.error ?? `Error al subir "${file.name}"`)
+          continue
+        }
+        if (Array.isArray(data?.errors)) {
+          allErrors.push(...data.errors)
+        }
+        if (Array.isArray(data?.urls)) {
+          collected.push(...data.urls)
+        }
+      } catch {
+        allErrors.push(`Error de red al subir "${file.name}"`)
+      }
     }
+    if (allErrors.length) {
+      setUploadFeedback({ type: "error", message: allErrors.join(". ") })
+    } else if (collected.length) {
+      setUploadFeedback({ type: "success", message: `${collected.length} imagen(es) subida(s) correctamente` })
+      setTimeout(() => setUploadFeedback(null), 4000)
+    }
+    return collected
   }
 
   const handleGalleryUpload = async (files: FileList | null) => {
@@ -969,6 +990,18 @@ export default function AdminPage() {
 
         <main className="flex-1 bg-slate-900">
           <div className="px-6 py-10 lg:px-10 space-y-10">
+            {uploadFeedback && (
+              <div
+                className={`rounded-lg px-4 py-3 text-sm font-medium flex items-center justify-between ${
+                  uploadFeedback.type === "error"
+                    ? "bg-red-500/20 text-red-300 border border-red-500/30"
+                    : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                }`}
+              >
+                <span>{uploadFeedback.message}</span>
+                <button type="button" onClick={() => setUploadFeedback(null)} className="ml-4 hover:opacity-70">✕</button>
+              </div>
+            )}
             {activeSection === "overview" && (
               <>
                 <div className="flex flex-col gap-3">

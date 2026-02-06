@@ -12,25 +12,7 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   images: {
-    formats: ["image/avif", "image/webp"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "www.gstatic.com",
-      },
-      {
-        protocol: "https",
-        hostname: "commons.wikimedia.org",
-      },
-      {
-        protocol: "https",
-        hostname: "randomuser.me",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.simpleicons.org",
-      },
-    ],
+    unoptimized: true,
   },
   webpack: (config, { dev }) => {
     if (dev) {

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -231,9 +232,21 @@ function TrabajosContent({
                               href={`/trabajos/${project.slug}`}
                               className="relative overflow-hidden bg-gray-200 block"
                             >
-                              <div className="aspect-[16/10] bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                                <span className="text-6xl font-bold text-white/30">{project.title.charAt(0)}</span>
-                              </div>
+                              {project.image && !project.image.includes("placeholder") ? (
+                                <div className="relative aspect-[16/10] overflow-hidden">
+                                  <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                  />
+                                </div>
+                              ) : (
+                                <div className="aspect-[16/10] bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                                  <span className="text-6xl font-bold text-white/30">{project.title.charAt(0)}</span>
+                                </div>
+                              )}
                             </Link>
                           )}
                           
@@ -269,9 +282,21 @@ function TrabajosContent({
                                 href={`/trabajos/${project.slug}`}
                                 className="relative overflow-hidden rounded-lg mb-4 bg-gray-200 block"
                               >
-                                <div className="aspect-[16/10] bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                                  <span className="text-5xl font-bold text-white/30">{project.title.charAt(0)}</span>
-                                </div>
+                                {project.image && !project.image.includes("placeholder") ? (
+                                  <div className="relative aspect-[16/10] overflow-hidden">
+                                    <Image
+                                      src={project.image}
+                                      alt={project.title}
+                                      fill
+                                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                  </div>
+                                ) : (
+                                  <div className="aspect-[16/10] bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                                    <span className="text-5xl font-bold text-white/30">{project.title.charAt(0)}</span>
+                                  </div>
+                                )}
                               </Link>
                             )}
                             

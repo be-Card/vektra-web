@@ -450,21 +450,27 @@ export default function AdminPage() {
     loadContent()
   }, [])
 
+  const uploadImages = async (files: File[]) => {
+    if (!files.length) return []
+    const formData = new FormData()
+    files.forEach((file) => formData.append("files", file))
+    try {
+      const response = await fetch("/api/admin/uploads", {
+        method: "POST",
+        body: formData,
+      })
+      if (!response.ok) return []
+      const data = (await response.json()) as { urls?: string[] }
+      return Array.isArray(data?.urls) ? data.urls : []
+    } catch {
+      return []
+    }
+  }
+
   const handleGalleryUpload = async (files: FileList | null) => {
     if (!files || files.length === 0) return
     const fileList = Array.from(files)
-    const dataUrls = await Promise.all(
-      fileList.map(
-        (file) =>
-          new Promise<string>((resolve) => {
-            const reader = new FileReader()
-            reader.onload = () => resolve(typeof reader.result === "string" ? reader.result : "")
-            reader.onerror = () => resolve("")
-            reader.readAsDataURL(file)
-          })
-      )
-    )
-    const nextUrls = dataUrls.filter(Boolean)
+    const nextUrls = await uploadImages(fileList)
     if (nextUrls.length === 0) return
     setProjectForm((prev) => ({ ...prev, galleryFiles: [...prev.galleryFiles, ...nextUrls] }))
   }
@@ -472,72 +478,37 @@ export default function AdminPage() {
   const handleBlogGalleryUpload = async (files: FileList | null) => {
     if (!files || files.length === 0) return
     const fileList = Array.from(files)
-    const dataUrls = await Promise.all(
-      fileList.map(
-        (file) =>
-          new Promise<string>((resolve) => {
-            const reader = new FileReader()
-            reader.onload = () => resolve(typeof reader.result === "string" ? reader.result : "")
-            reader.onerror = () => resolve("")
-            reader.readAsDataURL(file)
-          })
-      )
-    )
-    const nextUrls = dataUrls.filter(Boolean)
+    const nextUrls = await uploadImages(fileList)
     if (nextUrls.length === 0) return
     setBlogForm((prev) => ({ ...prev, galleryFiles: [...prev.galleryFiles, ...nextUrls] }))
   }
 
   const handleBlogImageUpload = async (files: FileList | null) => {
     if (!files || files.length === 0) return
-    const file = files[0]
-    const dataUrl = await new Promise<string>((resolve) => {
-      const reader = new FileReader()
-      reader.onload = () => resolve(typeof reader.result === "string" ? reader.result : "")
-      reader.onerror = () => resolve("")
-      reader.readAsDataURL(file)
-    })
-    if (!dataUrl) return
-    setBlogForm((prev) => ({ ...prev, image: dataUrl }))
+    const nextUrls = await uploadImages([files[0]])
+    if (!nextUrls[0]) return
+    setBlogForm((prev) => ({ ...prev, image: nextUrls[0] }))
   }
 
   const handleProjectImageUpload = async (files: FileList | null) => {
     if (!files || files.length === 0) return
-    const file = files[0]
-    const dataUrl = await new Promise<string>((resolve) => {
-      const reader = new FileReader()
-      reader.onload = () => resolve(typeof reader.result === "string" ? reader.result : "")
-      reader.onerror = () => resolve("")
-      reader.readAsDataURL(file)
-    })
-    if (!dataUrl) return
-    setProjectForm((prev) => ({ ...prev, image: dataUrl }))
+    const nextUrls = await uploadImages([files[0]])
+    if (!nextUrls[0]) return
+    setProjectForm((prev) => ({ ...prev, image: nextUrls[0] }))
   }
 
   const handleSectionImageUpload = async (files: FileList | null, section: string) => {
     if (!files || files.length === 0) return
-    const file = files[0]
-    const dataUrl = await new Promise<string>((resolve) => {
-      const reader = new FileReader()
-      reader.onload = () => resolve(typeof reader.result === "string" ? reader.result : "")
-      reader.onerror = () => resolve("")
-      reader.readAsDataURL(file)
-    })
-    if (!dataUrl) return
-    setBlogForm((prev) => ({ ...prev, [`${section}Image`]: dataUrl }))
+    const nextUrls = await uploadImages([files[0]])
+    if (!nextUrls[0]) return
+    setBlogForm((prev) => ({ ...prev, [`${section}Image`]: nextUrls[0] }))
   }
 
   const handleTestimonialImageUpload = async (files: FileList | null) => {
     if (!files || files.length === 0) return
-    const file = files[0]
-    const dataUrl = await new Promise<string>((resolve) => {
-      const reader = new FileReader()
-      reader.onload = () => resolve(typeof reader.result === "string" ? reader.result : "")
-      reader.onerror = () => resolve("")
-      reader.readAsDataURL(file)
-    })
-    if (!dataUrl) return
-    setTestimonialForm((prev) => ({ ...prev, image: dataUrl }))
+    const nextUrls = await uploadImages([files[0]])
+    if (!nextUrls[0]) return
+    setTestimonialForm((prev) => ({ ...prev, image: nextUrls[0] }))
   }
 
   const handleTestimonialSubmit = () => {

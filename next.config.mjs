@@ -5,7 +5,6 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
   turbopack: {
     root: projectRoot,
   },
@@ -14,6 +13,38 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.gstatic.com",
+      },
+      {
+        protocol: "https",
+        hostname: "commons.wikimedia.org",
+      },
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
+  },
+  webpack: (config, { dev }) => {
+    if (dev) {
+      config.ignoreWarnings = [
+        ...(config.ignoreWarnings ?? []),
+        { message: /Failed to parse source map/i },
+      ]
+    }
+    return config
   },
 }
 

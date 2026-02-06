@@ -1,19 +1,17 @@
 import { NextResponse } from "next/server"
-import { v2 as cloudinary } from "cloudinary"
+import { createHash } from "node:crypto"
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10 MB
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-})
-
 export async function POST(request: Request) {
   try {
-    if (!process.env.CLOUDINARY_CLOUD_NAME) {
+    const cloudName = process.env.CLOUDINARY_CLOUD_NAME
+    const apiKey = process.env.CLOUDINARY_API_KEY
+    const apiSecret = process.env.CLOUDINARY_API_SECRET
+
+    if (!cloudName || !apiKey || !apiSecret) {
       return NextResponse.json(
-        { urls: [], error: "Cloudinary no está configurado. Agregá CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY y CLOUDINARY_API_SECRET en las variables de entorno." },
+        { urls: [], error: "Cloudinary no está configurado. Agregá CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY y CLOUDINARY_API_SECRET." },
         { status: 500 },
       )
     }
@@ -43,19 +41,31 @@ export async function POST(request: Request) {
 
       const arrayBuffer = await file.arrayBuffer()
       const buffer = Buffer.from(arrayBuffer)
+      const base64 = `data:${file.type};base64,${buffer.toString("base64")}`
 
-      const result = await new Promise<{ secure_url: string }>((resolve, reject) => {
-        cloudinary.uploader
-          .upload_stream({ folder: "vektra-web" }, (error, result) => {
-            if (error || !result) {
-              reject(error ?? new Error("Upload falló"))
-            } else {
-              resolve(result)
-            }
-          })
-          .end(buffer)
-      })
+      const timestamp = Math.floor(Date.now() / 1000).toString()
+      const signatureString = `folder=vektra-web&timestamp=${timestamp}${apiSecret}`
+      const signature = createHash("sha1").update(signatureString).digest("hex")
 
+      const uploadForm = new FormData()
+      uploadForm.append("file", base64)
+      uploadForm.append("folder", "vektra-web")
+      uploadForm.append("timestamp", timestamp)
+      uploadForm.append("api_key", apiKey)
+      uploadForm.append("signature", signature)
+
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        { method: "POST", body: uploadForm },
+      )
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null)
+        errors.push(`Error al subir "${file.name}": ${errorData?.error?.message ?? response.statusText}`)
+        continue
+      }
+
+      const result = await response.json()
       urls.push(result.secure_url)
     }
 

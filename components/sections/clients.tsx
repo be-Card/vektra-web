@@ -56,7 +56,7 @@ const clientLogos = [
   "logo-solucionesfragox.png",
   "logo_perros_callejeros.avif",
   "mentionfyjjl-logo-1.png",
-  "move&save logo.png",
+  "move-save-logo.png",
   "patagonia construcciones-logo.png",
   "remax-tradicion-logo.jpg",
   "rie logo.png",

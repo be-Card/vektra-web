@@ -3697,7 +3697,8 @@
       "description": "Rediseño web completo y creación de nuevas páginas para sitio de eventos en USA.",
       "image": "/placeholder.svg?text=Flatrock+Farms",
       "slug": "flatrock-farms-web",
-      "client": "Flatrockfarms"
+      "client": "Flatrockfarms",
+      "views": 1
     },
     {
       "id": 31,

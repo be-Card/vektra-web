@@ -1,7 +1,6 @@
 import React from "react"
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import Script from "next/script"
 import './globals.css'
 import { Header } from '@/components/layout/header'
@@ -249,7 +248,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <main>{children}</main>
           <Footer />
           <WhatsAppButton />
-          {isProd ? <Analytics /> : null}
         </LanguageProvider>
       </body>
     </html>

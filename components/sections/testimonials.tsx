@@ -199,6 +199,7 @@ export function Testimonials({ dict, items, category, title, subtitle }: Testimo
                         alt={testimonial.name}
                         width={40}
                         height={40}
+                        unoptimized={testimonial.avatarImage.startsWith("http")}
                         className="rounded-full object-cover shrink-0 ring-2 ring-transparent group-hover:ring-[#00DEC7] transition-all duration-300"
                       />
                     ) : (

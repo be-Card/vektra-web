@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useMemo } from "react"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 import Image from "next/image"
 import { useLanguage } from "@/lib/i18n"
@@ -33,9 +33,7 @@ export function Testimonials({ dict, items, category, title, subtitle }: Testimo
   const displayTitle = title || t.title
   const displaySubtitle = subtitle || t.subtitle
 
-  const [displayItems, setDisplayItems] = useState<TestimonialItem[]>([])
-
-  useEffect(() => {
+  const displayItems = useMemo(() => {
     if (items && items.length > 0) {
       const filtered = items
         .filter((item) => {
@@ -52,16 +50,15 @@ export function Testimonials({ dict, items, category, title, subtitle }: Testimo
           role: item.role,
           company: item.company,
         }))
-      
+
       if (filtered.length > 0) {
-        // If we have admin items, use them (maybe shuffle them for rotation)
-        setDisplayItems(filtered.sort(() => Math.random() - 0.5))
-      } else {
-        setDisplayItems(t.items)
+        return filtered
       }
-    } else {
-      setDisplayItems(t.items)
+
+      return t.items
     }
+
+    return t.items
   }, [items, category, language, t.items])
 
   const [currentIndex, setCurrentIndex] = useState(0)

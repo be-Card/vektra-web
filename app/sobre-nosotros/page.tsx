@@ -293,7 +293,7 @@ export default function SobreNosotros() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 text-gray-500">
                 <Phone className="h-4 w-4 text-[#00DEC7]" />
-                <span>+54 9 362 464-6669</span>
+                <span>+54 9 362 552-8801</span>
               </div>
               <div className="flex items-center gap-2 text-gray-500">
                 <Mail className="h-4 w-4 text-[#00DEC7]" />

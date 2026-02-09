@@ -5,7 +5,7 @@ import { pushToDataLayer } from "@/lib/gtm"
 
 export function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false)
-  const phoneNumber = "5493624646669"
+  const phoneNumber = "5493625528801"
   const message = encodeURIComponent("Hola! Me gustaría obtener más información sobre sus servicios.")
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
 

@@ -565,7 +565,7 @@ export default function AdsCalculatorClient() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://wa.me/5493624646669"
+              href="https://wa.me/5493625528801"
               target="_blank"
               className="inline-flex items-center justify-center gap-2 bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-black/80 transition-colors"
             >

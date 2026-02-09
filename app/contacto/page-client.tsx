@@ -245,14 +245,14 @@ export default function ContactoClient() {
       <section className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-5xl px-4 py-8">
           <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap items-center justify-center gap-4 md:gap-8 lg:gap-12">
-            <a href="tel:+5493624646669" className="group flex flex-col md:flex-row items-center justify-center gap-3 p-4 md:p-0 rounded-2xl bg-gray-50 md:bg-transparent text-black hover:text-[#00DEC7] transition-all hover:shadow-sm md:hover:shadow-none col-span-2 sm:col-span-1 md:col-span-auto">
+            <a href="tel:+5493625528801" className="group flex flex-col md:flex-row items-center justify-center gap-3 p-4 md:p-0 rounded-2xl bg-gray-50 md:bg-transparent text-black hover:text-[#00DEC7] transition-all hover:shadow-sm md:hover:shadow-none col-span-2 sm:col-span-1 md:col-span-auto">
               <div className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#00DEC7] bg-white group-hover:scale-110 transition-transform">
                 <Phone className="h-5 w-5 text-[#00DEC7]" />
               </div>
-              <span className="font-medium text-sm md:text-base">+54 9 362 464-6669</span>
+              <span className="font-medium text-sm md:text-base">+54 9 362 552-8801</span>
             </a>
             
-            <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="group flex flex-col md:flex-row items-center justify-center gap-3 p-4 md:p-0 rounded-2xl bg-gray-50 md:bg-transparent text-black hover:text-[#00DEC7] transition-all hover:shadow-sm md:hover:shadow-none">
+            <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer" className="group flex flex-col md:flex-row items-center justify-center gap-3 p-4 md:p-0 rounded-2xl bg-gray-50 md:bg-transparent text-black hover:text-[#00DEC7] transition-all hover:shadow-sm md:hover:shadow-none">
               <div className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#00DEC7] bg-white group-hover:scale-110 transition-transform">
                 <MessageCircle className="h-5 w-5 text-[#00DEC7]" />
               </div>
@@ -292,9 +292,9 @@ export default function ContactoClient() {
           {/* CTA Text */}
           <div className="text-center mb-8">
             <p className="text-gray-700 text-lg">
-              <a href="tel:+5493624646669" className="underline font-semibold text-black hover:text-[#00DEC7]">Llámanos</a>, 
+              <a href="tel:+5493625528801" className="underline font-semibold text-black hover:text-[#00DEC7]">Llámanos</a>, 
               {" "}escribinos un{" "}
-              <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="underline font-semibold text-black hover:text-[#00DEC7]">
+              <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer" className="underline font-semibold text-black hover:text-[#00DEC7]">
                 WhatsApp
               </a>{" "}
               o envíanos el siguiente formulario y te responderemos en la mayor brevedad posible
@@ -603,13 +603,13 @@ export default function ContactoClient() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild className="bg-[#00DEC7] hover:bg-[#00C4B0] text-black font-semibold px-8 rounded-full">
-                <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-4 w-4" />
                   WhatsApp
                 </a>
               </Button>
               <Button asChild variant="outline" className="bg-transparent border-black hover:bg-black hover:text-white font-semibold px-8 rounded-full">
-                <a href="tel:+5493624646669">
+                <a href="tel:+5493625528801">
                   <Phone className="mr-2 h-4 w-4" />
                   Llámanos
                 </a>

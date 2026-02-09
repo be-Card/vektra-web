@@ -306,7 +306,7 @@ const DisenoWebClient = ({ projects, testimonials }: DisenoWebClientProps) => {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-black text-white hover:bg-black/90 rounded-full px-8">
-                <Link href="tel:+5493624646669" className="flex items-center gap-2">Llámanos</Link>
+                <Link href="tel:+5493625528801" className="flex items-center gap-2">Llámanos</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white rounded-full px-8 bg-transparent">
                 <Link href="/contacto">Presupuesto</Link>
@@ -419,7 +419,7 @@ const DisenoWebClient = ({ projects, testimonials }: DisenoWebClientProps) => {
             <p className="mt-2 text-gray-400">Contactá con nosotros <span className="text-white font-semibold">sin compromiso</span></p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 rounded-full px-8">
-                <Link href="tel:+5493624646669">Llámanos</Link>
+                <Link href="tel:+5493625528801">Llámanos</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black rounded-full px-8 bg-transparent">
                 <Link href="/contacto">Escribinos</Link>
@@ -459,8 +459,8 @@ const DisenoWebClient = ({ projects, testimonials }: DisenoWebClientProps) => {
               
               <p className="text-center text-black font-semibold mb-2">Consúltanos sin compromiso</p>
               <p className="text-center text-gray-600 text-sm mb-6">
-                <a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">Llámanos</a>, escribinos un{" "}
-                <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">WhatsApp</a>{" "}
+                <a href="tel:+5493625528801" className="underline font-medium hover:text-[#00DEC7]">Llámanos</a>, escribinos un{" "}
+                <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">WhatsApp</a>{" "}
                 o envíanos el siguiente formulario y <span className="font-semibold">te responderemos en menos de 24 horas</span>.
               </p>
 

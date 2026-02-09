@@ -184,8 +184,8 @@ export default function SoporteTecnicoClient({ projects, testimonials }: Soporte
           <div className="mt-16 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-black">¿Tenés un problema urgente?</h3>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-black text-white hover:bg-black/90 rounded-full px-8"><Link href="tel:+5493624646669">Llámanos ahora</Link></Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white rounded-full px-8 bg-transparent"><Link href="https://wa.me/5493624646669">WhatsApp</Link></Button>
+              <Button asChild size="lg" className="bg-black text-white hover:bg-black/90 rounded-full px-8"><Link href="tel:+5493625528801">Llámanos ahora</Link></Button>
+              <Button asChild size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white rounded-full px-8 bg-transparent"><Link href="https://wa.me/5493625528801">WhatsApp</Link></Button>
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default function SoporteTecnicoClient({ projects, testimonials }: Soporte
           <div className="mt-16 text-center">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">¿Tenés alguna otra duda?</h3>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full px-8"><Link href="tel:+5493624646669">Llámanos</Link></Button>
+              <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full px-8"><Link href="tel:+5493625528801">Llámanos</Link></Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black rounded-full px-8 bg-transparent"><Link href="/contacto">Escribinos</Link></Button>
             </div>
           </div>
@@ -267,7 +267,7 @@ export default function SoporteTecnicoClient({ projects, testimonials }: Soporte
             <div>
               <div className="bg-[#00DEC7] rounded-2xl px-6 py-4 mb-6"><h3 className="text-xl md:text-2xl font-bold text-black text-center">¿Tenés un problema con tu web?</h3></div>
               <p className="text-center text-gray-600 mb-2">Contanos qué está pasando <span className="font-semibold text-black">y te ayudamos</span></p>
-              <p className="text-center text-gray-600 text-sm mb-8"><a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">Llámanos</a>, escribinos por <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">WhatsApp</a> o describí tu problema.</p>
+              <p className="text-center text-gray-600 text-sm mb-8"><a href="tel:+5493625528801" className="underline font-medium hover:text-[#00DEC7]">Llámanos</a>, escribinos por <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">WhatsApp</a> o describí tu problema.</p>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Nombre *" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00DEC7]" />
                 <div className="grid md:grid-cols-2 gap-4">

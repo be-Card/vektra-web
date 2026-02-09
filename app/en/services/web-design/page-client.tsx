@@ -308,7 +308,7 @@ const DisenoWebClient = ({ testimonials }: WebDesignClientProps) => {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-black text-white hover:bg-black/90 rounded-full px-8">
-                <Link href="tel:+5493624646669" className="flex items-center gap-2">Call us</Link>
+                <Link href="tel:+5493625528801" className="flex items-center gap-2">Call us</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white rounded-full px-8 bg-transparent">
                 <Link href="/en/contact">Budget</Link>
@@ -448,7 +448,7 @@ const DisenoWebClient = ({ testimonials }: WebDesignClientProps) => {
             <p className="mt-2 text-gray-400">Contact us <span className="text-white font-semibold">without obligation</span></p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 rounded-full px-8">
-                <Link href="tel:+5493624646669">Call us</Link>
+                <Link href="tel:+5493625528801">Call us</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black rounded-full px-8 bg-transparent">
                 <Link href="/en/contact">Write to us</Link>
@@ -488,8 +488,8 @@ const DisenoWebClient = ({ testimonials }: WebDesignClientProps) => {
               
               <p className="text-center text-black font-semibold mb-2">Consult us without obligation</p>
               <p className="text-center text-gray-600 text-sm mb-6">
-                <a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">Call us</a>, write to us on{" "}
-                <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">WhatsApp</a>{" "}
+                <a href="tel:+5493625528801" className="underline font-medium hover:text-[#00DEC7]">Call us</a>, write to us on{" "}
+                <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">WhatsApp</a>{" "}
                 or send us the following form and <span className="font-semibold">we will respond in less than 24 hours</span>.
               </p>
 

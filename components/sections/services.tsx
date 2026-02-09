@@ -234,7 +234,7 @@ export function Services({ dict }: ServicesProps) {
               size="lg" 
               className="bg-black text-white hover:bg-black/90 rounded-full px-8 h-12"
             >
-              <Link href="tel:+5493624646669">
+              <Link href="tel:+5493625528801">
                 <Phone className="mr-2 h-4 w-4" />
                 {t.cta.call}
               </Link>

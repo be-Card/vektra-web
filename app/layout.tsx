@@ -116,9 +116,9 @@ const jsonLd = {
   "description": "Somos una agencia digital especializada en desarrollo web, aplicaciones móviles, tiendas online, marketing digital y agentes de IA para empresas en Argentina y Paraguay.",
   "url": "https://vektra.digital",
   "logo": "https://vektra.digital/logo.png",
-  "telephone": "+5493624646669",
+  "telephone": "+5493625528801",
   "email": "info@vektra.digital",
-  "foundingDate": "2016",
+  "foundingDate": "2026",
   "numberOfEmployees": {
     "@type": "QuantitativeValue",
     "minValue": 2,

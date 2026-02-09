@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useSyncExternalStore } from "react"
+import { useState, useEffect, useSyncExternalStore } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -49,12 +49,12 @@ export function PortfolioPreview({ dict, initialProjects }: PortfolioPreviewProp
 
   const maxIndex = Math.max(0, projects.length - itemsPerView)
 
-  const nextSlide = useCallback(() => {
+  const nextSlide = () => {
     setCurrentIndex((prev) => {
       const safePrev = Math.min(prev, maxIndex)
       return safePrev >= maxIndex ? 0 : safePrev + 1
     })
-  }, [maxIndex])
+  }
 
   const prevSlide = () => {
     setCurrentIndex((prev) => {
@@ -65,9 +65,14 @@ export function PortfolioPreview({ dict, initialProjects }: PortfolioPreviewProp
 
   useEffect(() => {
     if (!isAutoPlaying) return
-    const interval = setInterval(nextSlide, 4000)
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const safePrev = Math.min(prev, maxIndex)
+        return safePrev >= maxIndex ? 0 : safePrev + 1
+      })
+    }, 4000)
     return () => clearInterval(interval)
-  }, [isAutoPlaying, nextSlide])
+  }, [isAutoPlaying, maxIndex])
 
   const safeIndex = Math.min(currentIndex, maxIndex)
 

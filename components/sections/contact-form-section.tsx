@@ -244,8 +244,8 @@ export function ContactFormSection({ dict }: ContactFormSectionProps) {
                 {t.rocket.text} <span className="font-semibold">{t.rocket.highlight}</span>
               </p>
               <p className="mt-2 text-gray-600 text-sm">
-                <a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">{t.rocket.subtext.call}</a>{t.rocket.subtext.or} 
-                <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">
+                <a href="tel:+5493625528801" className="underline font-medium hover:text-[#00DEC7]">{t.rocket.subtext.call}</a>{t.rocket.subtext.or} 
+                <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">
                   {" "}{t.rocket.subtext.whatsapp}
                 </a>{" "}
                 {t.rocket.subtext.form}{" "}

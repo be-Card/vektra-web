@@ -1,23 +1,19 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isPointer, setIsPointer] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
-  const [isMounted, setIsMounted] = useState(false)
-  const [isTouchDevice, setIsTouchDevice] = useState(false)
+  const isTouchDevice = useMemo(
+    () => "ontouchstart" in window || navigator.maxTouchPoints > 0,
+    []
+  )
 
   useEffect(() => {
-    setIsMounted(true)
-
-    // Check if touch device
-    const touchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-    setIsTouchDevice(touchDevice)
-
-    if (touchDevice) return
+    if (isTouchDevice) return
 
     const updatePosition = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY })
@@ -63,9 +59,12 @@ export function CustomCursor() {
     `
     document.head.appendChild(style)
 
-    setIsVisible(true)
+    const showFrame = requestAnimationFrame(() => {
+      setIsVisible(true)
+    })
 
     return () => {
+      cancelAnimationFrame(showFrame)
       document.removeEventListener("mousemove", handleMouseMove)
       document.removeEventListener("mouseenter", handleMouseEnter)
       document.removeEventListener("mouseleave", handleMouseLeave)
@@ -75,10 +74,10 @@ export function CustomCursor() {
       const existingStyle = document.getElementById("custom-cursor-style")
       if (existingStyle) existingStyle.remove()
     }
-  }, [])
+  }, [isTouchDevice])
 
   // Don't render until mounted (client-side only)
-  if (!isMounted || isTouchDevice || !isVisible) return null
+  if (isTouchDevice || !isVisible) return null
 
   return (
     <>

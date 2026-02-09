@@ -152,7 +152,7 @@ export function Header({ dict, lang }: HeaderProps) {
             variant="outline" 
             className="border-[#00DEC7] text-[#00DEC7] hover:bg-[#00DEC7] hover:text-black rounded-full px-5 bg-transparent"
           >
-            <Link href="tel:+5493624646669" className="flex items-center gap-2">
+            <Link href="tel:+5493625528801" className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
               {t.header.call}
             </Link>
@@ -248,7 +248,7 @@ export function Header({ dict, lang }: HeaderProps) {
                 variant="outline" 
                 className="border-[#00DEC7] text-[#00DEC7] hover:bg-[#00DEC7] hover:text-black rounded-full w-full bg-transparent"
               >
-                <Link href="tel:+5493624646669" className="flex items-center justify-center gap-2">
+                <Link href="tel:+5493625528801" className="flex items-center justify-center gap-2">
                   <Phone className="h-4 w-4" />
                   {t.header.call}
                 </Link>

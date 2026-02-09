@@ -178,7 +178,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-8">
               <li><strong>Argentina:</strong> Agency for Access to Public Information (AAIP) - www.argentina.gob.ar/aaip</li>
-              <li><strong>Paraguay:</strong> Ombudsman's Office or competent authority on data protection</li>
+              <li><strong>Paraguay:</strong> Ombudsman&apos;s Office or competent authority on data protection</li>
             </ul>
 
             <h2 className="text-2xl font-bold text-black mb-4">13. Modifications</h2>
@@ -192,7 +192,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="bg-[#00DEC7]/10 border border-[#00DEC7]/30 rounded-xl p-6">
               <p className="text-gray-700 mb-2"><strong>Email:</strong> info@vektra.digital</p>
-              <p className="text-gray-700 mb-2"><strong>WhatsApp:</strong> +54 9 362 464-6669</p>
+              <p className="text-gray-700 mb-2"><strong>WhatsApp:</strong> +54 9 362 552-8801</p>
               <p className="text-gray-700"><strong>Web:</strong> https://vektra.digital/en/contact</p>
             </div>
 

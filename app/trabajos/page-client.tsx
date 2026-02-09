@@ -44,11 +44,13 @@ function TrabajosContent({
   const [activeCategory, setActiveCategory] = useState(initialCategory)
   const [currentPage, setCurrentPage] = useState(1)
 
-  // Update state if URL params change (e.g. navigation)
   useEffect(() => {
-    setSearchTerm(searchParams.get("q") || "")
-    setActiveCategory(searchParams.get("category") || "todos")
-    setCurrentPage(1)
+    const syncFromParams = () => {
+      setSearchTerm(searchParams.get("q") || "")
+      setActiveCategory(searchParams.get("category") || "todos")
+      setCurrentPage(1)
+    }
+    syncFromParams()
   }, [searchParams])
   const categories = useMemo(() => {
     const categoryLabels = new Map(baseCategories.map((category) => [category.id, category.label]))

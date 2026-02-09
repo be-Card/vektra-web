@@ -333,7 +333,7 @@ export default function MarketingDigitalClient({ testimonials }: MarketingDigita
               {/* CTA Buttons */}
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-[#00DEC7] text-black hover:bg-[#00DEC7]/90 rounded-full px-8">
-                  <Link href="tel:+5493624646669" className="flex items-center gap-2">
+                  <Link href="tel:+5493625528801" className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
                     Llámanos
                   </Link>
@@ -603,7 +603,7 @@ export default function MarketingDigitalClient({ testimonials }: MarketingDigita
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 rounded-full px-8">
-                <Link href="tel:+5493624646669" className="flex items-center gap-2">
+                <Link href="tel:+5493625528801" className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
                   Llámanos
                 </Link>
@@ -660,9 +660,9 @@ export default function MarketingDigitalClient({ testimonials }: MarketingDigita
 
               <p className="text-center mb-2 font-semibold text-black">Consúltanos sin compromiso</p>
               <p className="text-center text-gray-600 text-sm mb-8">
-                <a href="tel:+5493624646669" className="underline font-medium hover:text-[#00DEC7]">Llámanos</a>, 
+                <a href="tel:+5493625528801" className="underline font-medium hover:text-[#00DEC7]">Llámanos</a>, 
                 escribinos por{" "}
-                <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">
+                <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-[#00DEC7]">
                   WhatsApp
                 </a>{" "}
                 o envíanos el siguiente formulario y{" "}

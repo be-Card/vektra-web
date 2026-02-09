@@ -106,7 +106,7 @@ export function FAQ({ dict }: FAQProps) {
               asChild
               className="bg-white hover:bg-gray-100 text-black rounded-full px-8 py-6 text-base font-medium"
             >
-              <Link href="tel:+5493624646669">
+              <Link href="tel:+5493625528801">
                 <Phone className="w-4 h-4 mr-2" />
                 {t.cta.call}
               </Link>

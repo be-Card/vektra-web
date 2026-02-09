@@ -42,7 +42,7 @@ export function CTA({ dict }: CTAProps) {
               variant="outline"
               className="border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10 bg-transparent transition-transform hover:-translate-y-0.5"
             >
-              <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 {t.cta.whatsapp}
               </a>

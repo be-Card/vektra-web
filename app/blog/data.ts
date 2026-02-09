@@ -483,7 +483,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "¿Querés automatizar tu atención?",
         paragraphs: [
-          "Podemos ayudarte a implementar WhatsApp Business API, integrar tu CRM y dejar los flujos listos para convertir más. [Contactanos](/contacto) y te armamos un plan, o [escribinos por WhatsApp](https://wa.me/5493624646669).",
+          "Podemos ayudarte a implementar WhatsApp Business API, integrar tu CRM y dejar los flujos listos para convertir más. [Contactanos](/contacto) y te armamos un plan, o [escribinos por WhatsApp](https://wa.me/5493625528801).",
         ],
       },
       {

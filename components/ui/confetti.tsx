@@ -12,6 +12,8 @@ interface ConfettiPiece {
   speedX: number
   speedY: number
   rotationSpeed: number
+  animationDuration: number
+  animationDelay: number
 }
 
 interface ConfettiProps {
@@ -26,32 +28,45 @@ export function Confetti({ isActive, duration = 3000 }: ConfettiProps) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    if (isActive) {
-      setIsVisible(true)
-      const newPieces: ConfettiPiece[] = []
-
-      for (let i = 0; i < 100; i++) {
-        newPieces.push({
-          id: i,
-          x: Math.random() * 100,
-          y: -10 - Math.random() * 20,
-          rotation: Math.random() * 360,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          size: 8 + Math.random() * 8,
-          speedX: (Math.random() - 0.5) * 3,
-          speedY: 2 + Math.random() * 3,
-          rotationSpeed: (Math.random() - 0.5) * 10,
-        })
-      }
-
-      setPieces(newPieces)
-
-      const timer = setTimeout(() => {
+    if (!isActive) {
+      const hideFrame = requestAnimationFrame(() => {
         setIsVisible(false)
         setPieces([])
-      }, duration)
+      })
+      return () => cancelAnimationFrame(hideFrame)
+    }
 
-      return () => clearTimeout(timer)
+    const newPieces: ConfettiPiece[] = []
+
+    for (let i = 0; i < 100; i++) {
+      newPieces.push({
+        id: i,
+        x: Math.random() * 100,
+        y: -10 - Math.random() * 20,
+        rotation: Math.random() * 360,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: 8 + Math.random() * 8,
+        speedX: (Math.random() - 0.5) * 3,
+        speedY: 2 + Math.random() * 3,
+        rotationSpeed: (Math.random() - 0.5) * 10,
+        animationDuration: 2 + Math.random() * 2,
+        animationDelay: Math.random() * 0.5,
+      })
+    }
+
+    const showFrame = requestAnimationFrame(() => {
+      setPieces(newPieces)
+      setIsVisible(true)
+    })
+
+    const timer = setTimeout(() => {
+      setIsVisible(false)
+      setPieces([])
+    }, duration)
+
+    return () => {
+      cancelAnimationFrame(showFrame)
+      clearTimeout(timer)
     }
   }, [isActive, duration])
 
@@ -71,8 +86,8 @@ export function Confetti({ isActive, duration = 3000 }: ConfettiProps) {
             backgroundColor: piece.color,
             transform: `rotate(${piece.rotation}deg)`,
             borderRadius: "2px",
-            animationDuration: `${2 + Math.random() * 2}s`,
-            animationDelay: `${Math.random() * 0.5}s`,
+            animationDuration: `${piece.animationDuration}s`,
+            animationDelay: `${piece.animationDelay}s`,
           }}
         />
       ))}

@@ -307,7 +307,7 @@ export default function SEOPageClient({ testimonials }: SEOPageClientProps) {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent" asChild>
-                  <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer">
                     WhatsApp
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
@@ -616,7 +616,7 @@ export default function SEOPageClient({ testimonials }: SEOPageClientProps) {
                     </Link>
                   </Button>
                   <Button variant="outline" className="border-black bg-transparent" asChild>
-                    <a href="https://wa.me/5493624646669" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/5493625528801" target="_blank" rel="noopener noreferrer">
                       WhatsApp
                     </a>
                   </Button>

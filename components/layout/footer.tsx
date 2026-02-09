@@ -177,9 +177,9 @@ export function Footer({ dict }: FooterProps) {
             {/* Contact Info */}
             <ul className="space-y-3">
               <li>
-                <a href="tel:+5493624646669" className="flex items-center gap-3 text-sm text-gray-300 hover:text-[#00DEC7] transition-colors" itemProp="telephone">
+                <a href="tel:+5493625528801" className="flex items-center gap-3 text-sm text-gray-300 hover:text-[#00DEC7] transition-colors" itemProp="telephone">
                   <Phone className="h-4 w-4 text-[#00DEC7]" />
-                  +54 9 362 464-6669
+                  +54 9 362 552-8801
                 </a>
               </li>
               <li>

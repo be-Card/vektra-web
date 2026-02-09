@@ -248,13 +248,10 @@ const formatDateFromInput = (dateStr: string) => {
 }
 
 export default function AdminPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    () => loadStorage<boolean>(ADMIN_SESSION_KEY, false)
+  )
   const [authForm, setAuthForm] = useState({ username: "", password: "" })
-
-  useEffect(() => {
-    const storedAuth = loadStorage(ADMIN_SESSION_KEY, false)
-    if (storedAuth) setIsAuthenticated(true)
-  }, [])
 
   const [authError, setAuthError] = useState("")
   const [uploadFeedback, setUploadFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null)

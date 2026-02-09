@@ -4,11 +4,8 @@ import { useEffect, useState } from "react"
 
 export function ScrollProgress() {
   const [progress, setProgress] = useState(0)
-  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    setIsMounted(true)
-
     const updateProgress = () => {
       const scrollTop = window.scrollY
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
@@ -21,8 +18,6 @@ export function ScrollProgress() {
 
     return () => window.removeEventListener("scroll", updateProgress)
   }, [])
-
-  if (!isMounted) return null
 
   return (
     <div className="fixed top-0 left-0 right-0 h-1 bg-transparent z-[100]">

@@ -7,10 +7,10 @@ export function CustomCursor() {
   const [isPointer, setIsPointer] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
-  const isTouchDevice = useMemo(
-    () => "ontouchstart" in window || navigator.maxTouchPoints > 0,
-    []
-  )
+  const isTouchDevice = useMemo(() => {
+    if (typeof window === "undefined") return false
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0
+  }, [])
 
   useEffect(() => {
     if (isTouchDevice) return

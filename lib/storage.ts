@@ -18,8 +18,11 @@ export type StorageData = {
   testimonials: Testimonial[]
 }
 
-const storageDir = process.env.STORAGE_DIR || process.cwd()
-const storagePath = path.join(storageDir, "data-storage.json")
+const getStoragePath = () => {
+  const dir = process.env.STORAGE_DIR || process.cwd()
+  return path.join(dir, "data-storage.json")
+}
+const fallbackStoragePath = () => path.join(process.cwd(), "data-storage.json")
 
 const buildSeedData = (): StorageData => ({
   blogPosts,
@@ -231,29 +234,47 @@ const normalizeStorage = async (data: StorageData) => {
     blogPosts: normalizedPosts,
   }
   if (JSON.stringify(next) !== JSON.stringify(data)) {
-    await writeFile(storagePath, JSON.stringify(next, null, 2), "utf-8")
+    await safeWrite(getStoragePath(), JSON.stringify(next, null, 2))
   }
   return next
 }
 
-const ensureStorageDir = async () => {
-  await mkdir(storageDir, { recursive: true })
+const safeWrite = async (filePath: string, content: string) => {
+  try {
+    await mkdir(path.dirname(filePath), { recursive: true })
+    await writeFile(filePath, content, "utf-8")
+  } catch {
+    // If persistent dir fails, fall back to project directory
+    const fallback = fallbackStoragePath()
+    if (filePath !== fallback) {
+      await writeFile(fallback, content, "utf-8")
+    }
+  }
 }
 
 export const readStorage = async (): Promise<StorageData> => {
+  const storagePath = getStoragePath()
   try {
     const raw = await readFile(storagePath, "utf-8")
     const data = JSON.parse(raw) as StorageData
     return await normalizeStorage(data)
   } catch {
+    // If persistent path fails, also try fallback
+    const fallback = fallbackStoragePath()
+    if (storagePath !== fallback) {
+      try {
+        const raw = await readFile(fallback, "utf-8")
+        const data = JSON.parse(raw) as StorageData
+        return await normalizeStorage(data)
+      } catch { /* continue to seed */ }
+    }
     const seed = buildSeedData()
-    await ensureStorageDir()
-    await writeFile(storagePath, JSON.stringify(seed, null, 2), "utf-8")
+    await safeWrite(storagePath, JSON.stringify(seed, null, 2))
     return await normalizeStorage(seed)
   }
 }
 
 export const writeStorage = async (data: StorageData) => {
-  await ensureStorageDir()
-  await writeFile(storagePath, JSON.stringify(data, null, 2), "utf-8")
+  const storagePath = getStoragePath()
+  await safeWrite(storagePath, JSON.stringify(data, null, 2))
 }

@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "fs/promises"
+import { readFile, writeFile, mkdir } from "fs/promises"
 import path from "path"
 import { blogPosts } from "@/app/blog/data"
 import { blogPosts as blogPostsEn } from "@/app/en/blog/data"
@@ -18,7 +18,8 @@ export type StorageData = {
   testimonials: Testimonial[]
 }
 
-const storagePath = path.join(process.cwd(), "data-storage.json")
+const storageDir = process.env.STORAGE_DIR || process.cwd()
+const storagePath = path.join(storageDir, "data-storage.json")
 
 const buildSeedData = (): StorageData => ({
   blogPosts,
@@ -235,6 +236,10 @@ const normalizeStorage = async (data: StorageData) => {
   return next
 }
 
+const ensureStorageDir = async () => {
+  await mkdir(storageDir, { recursive: true })
+}
+
 export const readStorage = async (): Promise<StorageData> => {
   try {
     const raw = await readFile(storagePath, "utf-8")
@@ -242,11 +247,13 @@ export const readStorage = async (): Promise<StorageData> => {
     return await normalizeStorage(data)
   } catch {
     const seed = buildSeedData()
+    await ensureStorageDir()
     await writeFile(storagePath, JSON.stringify(seed, null, 2), "utf-8")
     return await normalizeStorage(seed)
   }
 }
 
 export const writeStorage = async (data: StorageData) => {
+  await ensureStorageDir()
   await writeFile(storagePath, JSON.stringify(data, null, 2), "utf-8")
 }

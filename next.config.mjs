@@ -1,7 +1,26 @@
 import path from "node:path"
+import { readFileSync, existsSync } from "node:fs"
 import { fileURLToPath } from "node:url"
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url))
+
+// Load .env from persistent directory (survives deploys on Hostinger)
+// Looks for ../persistent-data/.env relative to the project root (public_html)
+const persistentEnvPath = path.resolve(projectRoot, "..", "persistent-data", ".env")
+if (existsSync(persistentEnvPath)) {
+  const envContent = readFileSync(persistentEnvPath, "utf-8")
+  for (const line of envContent.split("\n")) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith("#")) continue
+    const eqIndex = trimmed.indexOf("=")
+    if (eqIndex === -1) continue
+    const key = trimmed.slice(0, eqIndex).trim()
+    const value = trimmed.slice(eqIndex + 1).trim()
+    if (key && !process.env[key]) {
+      process.env[key] = value
+    }
+  }
+}
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

@@ -46,6 +46,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://vektra.digital/servicios/tienda-online",
+    languages: {
+      es: "https://vektra.digital/servicios/tienda-online",
+      en: "https://vektra.digital/en/services/online-store",
+    },
   },
 }
 
@@ -167,6 +171,16 @@ const faqSchema = {
   ]
 }
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://vektra.digital" },
+    { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://vektra.digital/servicios" },
+    { "@type": "ListItem", "position": 3, "name": "Tienda Online E-commerce", "item": "https://vektra.digital/servicios/tienda-online" },
+  ],
+}
+
 export default async function TiendaOnlinePage() {
   const { testimonials } = await readStorage()
 
@@ -179,6 +193,10 @@ export default async function TiendaOnlinePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <TiendaOnlineClient testimonials={testimonials} />
     </>

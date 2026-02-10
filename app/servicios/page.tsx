@@ -6,7 +6,7 @@ import { ArrowRight, Monitor, ShoppingCart, TrendingUp, Search, Check, Smartphon
 
 export const metadata: Metadata = {
   title: "Servicios Digitales en Argentina y Paraguay | Desarrollo Web, SEO, Apps y Marketing",
-  description: "Servicios completos de desarrollo web, tiendas online, apps móviles, SEO, marketing digital, diseño UI/UX, automatización y soporte técnico para empresas en Argentina y Paraguay.",
+  description: "Agencia digital en Argentina y Paraguay. Servicios de diseño web profesional, tiendas online, apps móviles, posicionamiento SEO, marketing digital con Google Ads, chatbots IA, automatización y soporte técnico para empresas y pymes.",
   keywords: [
     "servicios digitales argentina",
     "servicios digitales paraguay",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    title: "Diseño Web",
-    description: "Páginas web modernas, rápidas y optimizadas que convierten visitantes en clientes.",
+    title: "Diseño Web Profesional",
+    description: "Páginas web a medida con Next.js, React y WordPress. Diseño responsive, rápido y optimizado para SEO en Argentina y Paraguay.",
     icon: Monitor,
     href: "/servicios/diseno-web",
     features: [
@@ -57,8 +57,8 @@ const services = [
     price: "Desde 1.500",
   },
   {
-    title: "Tienda Online",
-    description: "E-commerce profesional con WooCommerce o Shopify para vender tus productos online.",
+    title: "Tienda Online E-commerce",
+    description: "Tiendas online con WooCommerce y Shopify para vender 24/7. Sin comisiones, con MercadoPago, PayPal y Stripe integrados.",
     icon: ShoppingCart,
     href: "/servicios/tienda-online",
     features: [
@@ -73,7 +73,7 @@ const services = [
   },
   {
     title: "Marketing Digital",
-    description: "Estrategias de marketing digital para aumentar tu visibilidad y generar más ventas.",
+    description: "Campañas en Google Ads, Meta Ads y TikTok Ads. Estrategias de publicidad online y posicionamiento para pymes en Argentina y Paraguay.",
     icon: TrendingUp,
     href: "/servicios/marketing-digital",
     features: [
@@ -87,8 +87,8 @@ const services = [
     price: "Desde 500/mes",
   },
   {
-    title: "SEO",
-    description: "Posicionamiento web en Google para que tus clientes te encuentren fácilmente.",
+    title: "Posicionamiento SEO",
+    description: "Posicionamiento web en Google y buscadores IA. Auditoría SEO, optimización on-page, SEO local y link building para empresas.",
     icon: Search,
     href: "/servicios/seo",
     features: [
@@ -103,7 +103,7 @@ const services = [
   },
   {
     title: "Apps Móviles",
-    description: "Aplicaciones nativas e híbridas para Android e iOS con React Native y Flutter.",
+    description: "Desarrollo de aplicaciones nativas e híbridas para Android e iOS con React Native y Flutter. Publicación en App Store y Google Play.",
     icon: Smartphone,
     href: "/servicios/apps",
     features: [
@@ -117,8 +117,8 @@ const services = [
     price: "Desde 3.000",
   },
   {
-    title: "Agentes IA",
-    description: "Chatbots inteligentes para WhatsApp y web que atienden clientes 24/7.",
+    title: "Chatbots y Agentes IA",
+    description: "Chatbots inteligentes con ChatGPT para WhatsApp y web. Atención al cliente automatizada, toma de pedidos y citas 24/7.",
     icon: Bot,
     href: "/servicios/agentes-ia",
     features: [
@@ -133,7 +133,7 @@ const services = [
   },
   {
     title: "Diseño UI/UX",
-    description: "Diseño de interfaces y experiencia de usuario centrado en conversiones.",
+    description: "Diseño de interfaces y experiencia de usuario centrado en conversiones. Wireframes, prototipos interactivos y testing con usuarios reales.",
     icon: Palette,
     href: "/servicios/diseno-ui-ux",
     features: [
@@ -147,8 +147,8 @@ const services = [
     price: "Desde 1.000",
   },
   {
-    title: "Automatización",
-    description: "Automatiza procesos repetitivos y conecta tus sistemas con workflows inteligentes.",
+    title: "Automatización de Procesos",
+    description: "Automatiza tareas repetitivas con Zapier, Make y workflows inteligentes. Integración de sistemas, CRM y reportes automáticos.",
     icon: Workflow,
     href: "/servicios/automatizacion",
     features: [
@@ -163,7 +163,7 @@ const services = [
   },
   {
     title: "Mantenimiento Web",
-    description: "Tu web siempre actualizada, segura y funcionando perfectamente.",
+    description: "Actualizaciones de seguridad, copias de seguridad diarias, monitoreo 24/7 y optimización de velocidad para tu sitio web.",
     icon: Wrench,
     href: "/servicios/mantenimiento-web",
     features: [
@@ -177,8 +177,8 @@ const services = [
     price: "Desde 100/mes",
   },
   {
-    title: "Soporte Técnico",
-    description: "Resolución de problemas técnicos y asistencia para tu sitio web.",
+    title: "Soporte Técnico Web",
+    description: "Resolución de errores, asistencia remota y soporte multicanal para tu web o tienda online. Respuesta rápida garantizada.",
     icon: Headset,
     href: "/servicios/soporte-tecnico",
     features: [
@@ -234,8 +234,7 @@ export default function ServiciosPage() {
             Nuestros <span className="text-[#00DEC7]">Servicios</span>
           </h1>
           <p className="text-white/80 text-lg max-w-3xl mx-auto">
-            Soluciones digitales completas para hacer crecer tu negocio en Argentina y Paraguay.
-            Desde el diseño hasta el marketing, cubrimos todas tus necesidades digitales.
+            Desarrollo web, tiendas online, apps móviles, marketing digital, posicionamiento SEO y agentes IA para hacer crecer tu negocio en Argentina y Paraguay. Soluciones digitales a medida para empresas y pymes.
           </p>
         </div>
       </section>

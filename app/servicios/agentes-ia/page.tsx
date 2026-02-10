@@ -46,6 +46,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://vektra.digital/servicios/agentes-ia",
+    languages: {
+      es: "https://vektra.digital/servicios/agentes-ia",
+      en: "https://vektra.digital/en/services/ai-agents",
+    },
   },
 }
 
@@ -171,6 +175,16 @@ const faqSchema = {
   ]
 }
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://vektra.digital" },
+    { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://vektra.digital/servicios" },
+    { "@type": "ListItem", "position": 3, "name": "Chatbots y Agentes IA", "item": "https://vektra.digital/servicios/agentes-ia" },
+  ],
+}
+
 export default async function AgentesIAPage() {
   const { projects: allProjects, testimonials } = await readStorage()
   const projects = allProjects.filter(p => p.category === 'agentes-ia').slice(0, 4)
@@ -184,6 +198,10 @@ export default async function AgentesIAPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <AgentesIAPageClient projects={projects} testimonials={testimonials} />
     </>

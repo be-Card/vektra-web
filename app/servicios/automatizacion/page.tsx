@@ -40,6 +40,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://vektra.digital/servicios/automatizacion",
+    languages: {
+      es: "https://vektra.digital/servicios/automatizacion",
+      en: "https://vektra.digital/en/services/automation",
+    },
   },
 }
 
@@ -129,6 +133,16 @@ const faqSchema = {
   ]
 }
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://vektra.digital" },
+    { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://vektra.digital/servicios" },
+    { "@type": "ListItem", "position": 3, "name": "Automatización de Procesos", "item": "https://vektra.digital/servicios/automatizacion" },
+  ],
+}
+
 export default async function AutomatizacionPage() {
   const { projects: allProjects, testimonials } = await readStorage()
   const projects = allProjects.filter(p => p.category === 'automatizacion').slice(0, 4)
@@ -142,6 +156,10 @@ export default async function AutomatizacionPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <AutomatizacionClient projects={projects} testimonials={testimonials} />
     </>

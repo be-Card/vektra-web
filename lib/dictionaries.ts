@@ -53,28 +53,28 @@ export const dictionaries = {
       reviews: "reseñas"
     },
     services: {
-      title: "Servicios",
-      description: "Te ayudamos a dar visibilidad a tu negocio o proyecto para que puedas darlo a conocer y ofrecer tus servicios o vender tus productos online.",
+      title: "Servicios Digitales",
+      description: "Soluciones de desarrollo web, e-commerce, marketing digital y agentes IA para empresas y pymes en Argentina y Paraguay. Más visitas, más clientes y más ventas para tu negocio.",
       items: {
         web: {
-          title: "Diseño Web",
-          subtitle: "La mejor herramienta para mostrar los servicios y productos de tu negocio",
-          description: "Diseño web responsive con WordPress y Elementor. Autogestionable y con diseño a medida. Rediseño web. Web corporativa, landing page, blog..."
+          title: "Diseño Web Profesional",
+          subtitle: "Páginas web a medida para empresas en Argentina y Paraguay que convierten visitas en clientes",
+          description: "Desarrollo web con Next.js, React y WordPress. Diseño responsive, optimizado para SEO y velocidad de carga. Web corporativa, landing page, blog y rediseño web."
         },
         store: {
           title: "Tienda Online",
-          subtitle: "Atrae más clientes y aumenta las ventas de tu negocio con una tienda online profesional",
-          description: "Tu propia tienda online, sin comisiones de venta a terceros. Experto en WooCommerce. Empieza a vender tus productos o servicios 24/7."
+          subtitle: "Vendé tus productos online 24/7 con una tienda e-commerce profesional con WooCommerce o Shopify",
+          description: "E-commerce con WooCommerce y Shopify. Sin comisiones por venta, pasarelas de pago como MercadoPago, PayPal y Stripe. Catálogo ilimitado y gestión de envíos integrada."
         },
         marketing: {
           title: "Marketing Digital",
-          subtitle: "El complemento perfecto para dar visibilidad a tu negocio en los medios digitales",
-          description: "Anuncios en Google Ads, Meta Ads y TikTok Ads. Posicionamiento SEO. Perfil de Negocio de Google, Google Analytics, Email Marketing..."
+          subtitle: "Campañas de Google Ads, Meta Ads y TikTok Ads para generar más ventas y clientes para tu negocio",
+          description: "Gestión de publicidad online, posicionamiento SEO, Google Business Profile, email marketing y analítica web. Estrategias de marketing digital para pymes en Argentina y Paraguay."
         },
         ai: {
-          title: "Agentes IA",
-          subtitle: "Automatiza tu negocio con chatbots y agentes de inteligencia artificial",
-          description: "Desarrollo de chatbots a medida, asistentes virtuales y agentes de IA para atención al cliente 24/7, automatización de ventas y soporte técnico."
+          title: "Chatbots y Agentes IA",
+          subtitle: "Atención al cliente automatizada 24/7 con inteligencia artificial para WhatsApp y web",
+          description: "Chatbots para WhatsApp con ChatGPT, asistentes virtuales y agentes IA a medida. Automatización de ventas, toma de pedidos, citas y soporte técnico 24/7."
         }
       },
       cta: {
@@ -426,28 +426,28 @@ export const dictionaries = {
       reviews: "reviews"
     },
     services: {
-      title: "Services",
-      description: "We help you give visibility to your business or project so you can make it known and offer your services or sell your products online.",
+      title: "Digital Services",
+      description: "Web development, e-commerce, digital marketing and AI agent solutions for businesses worldwide. More traffic, more customers and more sales for your business.",
       items: {
         web: {
-          title: "Web Design",
-          subtitle: "The best tool to showcase your business services and products",
-          description: "Responsive web design with WordPress and Elementor. Self-manageable and with custom design. Web redesign. Corporate website, landing page, blog..."
+          title: "Professional Web Design",
+          subtitle: "Custom websites for businesses that convert visitors into paying customers",
+          description: "Web development with Next.js, React and WordPress. Responsive design, SEO-optimized and fast-loading. Corporate websites, landing pages, blogs and redesigns."
         },
         store: {
           title: "Online Store",
-          subtitle: "Attract more customers and increase your business sales with a professional online store",
-          description: "Your own online store, no third-party sales commissions. WooCommerce expert. Start selling your products or services 24/7."
+          subtitle: "Sell your products online 24/7 with a professional e-commerce store powered by WooCommerce or Shopify",
+          description: "E-commerce with WooCommerce and Shopify. No sales commissions, payment gateways like PayPal and Stripe. Unlimited catalog and integrated shipping management."
         },
         marketing: {
           title: "Digital Marketing",
-          subtitle: "The perfect complement to give visibility to your business in digital media",
-          description: "Ads on Google Ads, Meta Ads and TikTok Ads. SEO positioning. Google Business Profile, Google Analytics, Email Marketing..."
+          subtitle: "Google Ads, Meta Ads and TikTok Ads campaigns to generate more sales and customers for your business",
+          description: "Online advertising management, SEO positioning, Google Business Profile, email marketing and web analytics. Digital marketing strategies for businesses worldwide."
         },
         ai: {
-          title: "AI Agents",
-          subtitle: "Automate your business with chatbots and artificial intelligence agents",
-          description: "Development of custom chatbots, virtual assistants and AI agents for 24/7 customer service, sales automation and technical support."
+          title: "AI Chatbots & Agents",
+          subtitle: "24/7 automated customer service with artificial intelligence for WhatsApp and web",
+          description: "WhatsApp chatbots with ChatGPT, virtual assistants and custom AI agents. Sales automation, order taking, appointment booking and 24/7 technical support."
         }
       },
       cta: {
